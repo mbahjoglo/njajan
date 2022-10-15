@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Makanan;
+use App\Models\Penjual;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class MakananViewController extends Controller
@@ -15,8 +17,9 @@ class MakananViewController extends Controller
      */
     public function index()
     {
-        $data_makanans = Makanan::all();
-        return view('admin/pages-menu-makanan',compact('data_makanans'));
+        $penjual = Penjual::all();
+        $data_makanans = DB::table('makanan')->join('penjual', 'makanan.penjual', '=', 'penjual.id')->get();
+        return view('admin/pages-menu-makanan', compact('data_makanans', 'penjual'));
     }
 
     /**
@@ -72,20 +75,18 @@ class MakananViewController extends Controller
     public function update(Request $request, $id)
     {
         $data_makanans = Makanan::find($id);
-        
-        if ($request->foto == '') {
-            $data_makanans->foto = $request->fotolama;
 
+        if ($request->fotomakanan == '') {
+            // $data_makanans->fotomakanan = $request->fotolama;
         } else {
-            $foto = $request->file('foto')->getClientOriginalName();
-            $request->file('foto')->storeAs('makanan', $foto);
+            $fotomakanan = $request->file('fotomakanan')->getClientOriginalName();
+            $request->file('fotomakanan')->storeAs('makanan', $fotomakanan);
             Storage::delete('makanan/' . $request->fotolama);
-            $data_makanans->foto = $request->file('foto')->getClientOriginalName();
+            $data_makanans->fotomakanan = $request->file('fotomakanan')->getClientOriginalName();
         }
 
-        $data_makanans->nama = $request->nama;
+        $data_makanans->namamakanan = $request->namamakanan;
         $data_makanans->penjual = $request->penjual;
-        $data_makanans->lokasi = $request->lokasi;
         $data_makanans->harga = $request->harga;
         $data_makanans->nomor = $request->nomor;
         $data_makanans->save();

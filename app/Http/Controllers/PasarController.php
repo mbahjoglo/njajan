@@ -16,7 +16,7 @@ class PasarController extends Controller
     public function index()
     {
         $data_pasars = Pasar::all();
-        return view('admin/input-pasar',compact('data_pasars'));
+        return view('admin/input-pasar', compact('data_pasars'));
     }
 
     /**
@@ -38,9 +38,9 @@ class PasarController extends Controller
     public function store(Request $request)
     {
         $gambar = $request->file('foto')->getClientOriginalName();
-        $request->file('foto')->storeAs('pasar',$gambar);
+        $request->file('foto')->storeAs('pasar', $gambar);
         $data_pasars = new Pasar();
-        $data_pasars->nama = $request->nama;
+        $data_pasars->namapasar = $request->namapasar;
         $data_pasars->alamat = $request->alamat;
         $data_pasars->foto = $request->file('foto')->getClientOriginalName();
         $data_pasars->save();
@@ -80,9 +80,9 @@ class PasarController extends Controller
     public function update(Request $request, $id)
     {
         $gambar = $request->file('foto')->getClientOriginalName();
-        $request->file('foto')->storeAs('pasar',$gambar);
+        $request->file('foto')->storeAs('pasar', $gambar);
         $data_pasars = new Pasar();
-        $data_pasars->nama = $request->nama;
+        $data_pasars->namapasar = $request->namapasar;
         $data_pasars->lokasi = $request->alamat;
         $data_pasars->foto = $request->file('foto')->getClientOriginalName();
         $data_pasars->save();
@@ -97,9 +97,9 @@ class PasarController extends Controller
      */
     public function destroy($id)
     {
-    $data_pasars = Pasar::find($id);
-    Storage::delete('pasar/' . $data_pasars->foto);
-    $data_pasars->delete();
-    return back();
+        $data_pasars = Pasar::find($id);
+        Storage::delete('pasar/' . $data_pasars->foto);
+        $data_pasars->delete();
+        return back();
     }
 }

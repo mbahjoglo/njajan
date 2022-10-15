@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Minuman;
+use App\Models\Pasar;
+use App\Models\Penjual;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -15,7 +17,10 @@ class MinumanController extends Controller
      */
     public function index()
     {
-        return view('admin/input-produk-minuman');
+        $data_minumans = Minuman::all();
+        $penjual = Penjual::all();
+        $pasar = Pasar::all();
+        return view('admin/input-produk-minuman', compact('data_minumans', 'penjual', 'pasar'));
     }
 
     /**
@@ -36,15 +41,13 @@ class MinumanController extends Controller
      */
     public function store(Request $request)
     {
-        $gambar = $request->file('foto')->getClientOriginalName();
-        $request->file('foto')->storeAs('minuman',$gambar);
+        $gambar = $request->file('fotominuman')->getClientOriginalName();
+        $request->file('fotominuman')->storeAs('minuman', $gambar);
         $data_minumans = new Minuman();
-        $data_minumans->nama = $request->nama;
+        $data_minumans->namaminuman = $request->namaminuman;
         $data_minumans->penjual = $request->penjual;
-        $data_minumans->lokasi = $request->lokasi;
         $data_minumans->harga = $request->harga;
-        $data_minumans->nomor = $request->nomor;
-        $data_minumans->foto = $request->file('foto')->getClientOriginalName();
+        $data_minumans->fotominuman = $request->file('fotominuman')->getClientOriginalName();
         $data_minumans->save();
 
         return back();
@@ -81,14 +84,13 @@ class MinumanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $gambar = $request->file('foto')->getClientOriginalName();
-        $request->file('foto')->storeAs('minuman',$gambar);
+        $gambar = $request->file('fotominuman')->getClientOriginalName();
+        $request->file('fotominuman')->storeAs('minuman', $gambar);
         $data_minumans = Minuman::find($id);
-        $data_minumans->nama = $request->nama;
+        $data_minumans->namaminuman = $request->namaminuman;
         $data_minumans->penjual = $request->penjual;
-        $data_minumans->lokasi = $request->lokasi;
         $data_minumans->harga = $request->harga;
-        $data_minumans->foto = $request->file('foto')->getClientOriginalName();
+        $data_minumans->fotominuman = $request->file('fotominuman')->getClientOriginalName();
         $data_minumans->save();
         return back();
     }

@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Home;
+use App\Models\Makanan;
+use App\Models\Minuman;
 use App\Models\Pasar;
 use App\Models\Penjual;
+use App\Models\Testimoni;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
-class PenjualController extends Controller
+class IndexAdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +19,16 @@ class PenjualController extends Controller
      */
     public function index()
     {
-        $data_penjuals = Penjual::all();
-        $pasar = Pasar::all();
-        return view('admin/input-penjual', compact('data_penjuals', 'pasar'));
+        $homes = Home::all();
+        $data_pasars = Pasar::all();
+        $data_makanans = Makanan::all();
+        $data_minumans = Minuman::all();
+        $hitungmakanans = Makanan::count();
+        $hitungminumans = Minuman::count();
+        $hitungpenjuals = Penjual::count();
+        $hitungpasars = Pasar::count();
+        $hitungtestimonis = Testimoni::count();
+        return view('admin/index', compact('homes', 'hitungmakanans', 'hitungminumans', 'hitungpenjuals', 'hitungpasars', 'data_pasars', 'hitungtestimonis', 'data_makanans', 'data_minumans'));
     }
 
     /**
@@ -39,17 +49,7 @@ class PenjualController extends Controller
      */
     public function store(Request $request)
     {
-        $gambar = $request->file('foto')->getClientOriginalName();
-        $request->file('foto')->storeAs('penjual', $gambar);
-        $data_penjuals = new Penjual();
-        $data_penjuals->namapenjual = $request->namapenjual;
-        $data_penjuals->alamat = $request->alamat;
-        $data_penjuals->pasar = $request->pasar;
-        $data_penjuals->nomor = $request->nomor;
-        $data_penjuals->foto = $request->file('foto')->getClientOriginalName();
-        $data_penjuals->save();
-
-        return back();
+        //
     }
 
     /**
@@ -83,16 +83,7 @@ class PenjualController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $gambar = $request->file('foto')->getClientOriginalName();
-        $request->file('foto')->storeAs('makanan', $gambar);
-        $data_penjuals = Penjual::find($id);
-        $data_penjuals->namapenjual = $request->namapenjual;
-        $data_penjuals->alamat = $request->alamat;
-        $data_penjuals->pasar = $request->pasar;
-        $data_penjuals->nomor = $request->nomor;
-        $data_penjuals->foto = $request->file('foto')->getClientOriginalName();
-        $data_penjuals->save();
-        return back();
+        //
     }
 
     /**
@@ -103,9 +94,6 @@ class PenjualController extends Controller
      */
     public function destroy($id)
     {
-        $data_penjuals = Penjual::find($id);
-        Storage::delete('makanan/' . $data_penjuals->foto);
-        $data_penjuals->delete();
-        return back();
+        //
     }
 }

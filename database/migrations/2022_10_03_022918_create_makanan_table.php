@@ -15,12 +15,10 @@ return new class extends Migration
     {
         Schema::create('makanan', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
+            $table->string('namamakanan');
             $table->string('penjual');
-            $table->string('lokasi');
             $table->string('harga');
-            $table->string('nomor');
-            $table->string('foto');
+            $table->string('fotomakanan');
             $table->timestamps();
         });
     }
