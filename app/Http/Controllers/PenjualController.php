@@ -83,16 +83,6 @@ class PenjualController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $gambar = $request->file('foto')->getClientOriginalName();
-        $request->file('foto')->storeAs('makanan', $gambar);
-        $data_penjuals = Penjual::find($id);
-        $data_penjuals->namapenjual = $request->namapenjual;
-        $data_penjuals->alamat = $request->alamat;
-        $data_penjuals->pasar = $request->pasar;
-        $data_penjuals->nomor = $request->nomor;
-        $data_penjuals->foto = $request->file('foto')->getClientOriginalName();
-        $data_penjuals->save();
-        return back();
     }
 
     /**
@@ -103,9 +93,5 @@ class PenjualController extends Controller
      */
     public function destroy($id)
     {
-        $data_penjuals = Penjual::find($id);
-        Storage::delete('makanan/' . $data_penjuals->foto);
-        $data_penjuals->delete();
-        return back();
     }
 }

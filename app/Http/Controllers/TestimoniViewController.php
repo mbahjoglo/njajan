@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Testimoni;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TestimoniViewController extends Controller
 {
@@ -15,7 +16,7 @@ class TestimoniViewController extends Controller
     public function index()
     {
         $data_testimonis = Testimoni::all();
-        return view('admin/tables-testimoni',compact('data_testimonis'));
+        return view('admin/tables-testimoni', compact('data_testimonis'));
     }
 
     /**
@@ -70,7 +71,22 @@ class TestimoniViewController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data_testimonis = Testimoni::find($id);
+
+        if ($request->foto == '') {
+            // $data_testimonis->foto = $request->fotolama;
+        } else {
+            $foto = $request->file('foto')->getClientOriginalName();
+            $request->file('foto')->storeAs('testimoni', $foto);
+            Storage::delete('testimoni/' . $request->fotolama);
+            $data_testimonis->foto = $request->file('foto')->getClientOriginalName();
+        }
+
+        $data_testimonis->nama = $request->nama;
+        $data_testimonis->deskripsi = $request->deskripsi;
+        $data_testimonis->jabatan = $request->jabatan;
+        $data_testimonis->save();
+        return back();
     }
 
     /**
@@ -81,6 +97,9 @@ class TestimoniViewController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data_testimonis = Testimoni::find($id);
+        Storage::delete('testimoni/' . $data_testimonis->foto);
+        $data_testimonis->delete();
+        return back();
     }
 }

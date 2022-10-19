@@ -18,8 +18,8 @@ class MakananViewController extends Controller
     public function index()
     {
         $penjual = Penjual::all();
-        $data_makanans = DB::table('makanan')->join('penjual', 'makanan.penjual', '=', 'penjual.id')->get();
-        return view('admin/pages-menu-makanan', compact('data_makanans', 'penjual'));
+        $datamakanans = DB::table('makanan')->join('penjual', 'makanan.penjual', '=', 'penjual.id')->get();
+        return view('admin/pages-menu-makanan', compact('datamakanans', 'penjual'));
     }
 
     /**
@@ -74,7 +74,7 @@ class MakananViewController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data_makanans = Makanan::find($id);
+        $datamakanans = Makanan::find($id);
 
         if ($request->fotomakanan == '') {
             // $data_makanans->fotomakanan = $request->fotolama;
@@ -82,14 +82,12 @@ class MakananViewController extends Controller
             $fotomakanan = $request->file('fotomakanan')->getClientOriginalName();
             $request->file('fotomakanan')->storeAs('makanan', $fotomakanan);
             Storage::delete('makanan/' . $request->fotolama);
-            $data_makanans->fotomakanan = $request->file('fotomakanan')->getClientOriginalName();
+            $datamakanans->fotomakanan = $request->file('fotomakanan')->getClientOriginalName();
         }
 
-        $data_makanans->namamakanan = $request->namamakanan;
-        $data_makanans->penjual = $request->penjual;
-        $data_makanans->harga = $request->harga;
-        $data_makanans->nomor = $request->nomor;
-        $data_makanans->save();
+        $datamakanans->namamakanan = $request->namamakanan;
+        $datamakanans->harga = $request->harga;
+        $datamakanans->save();
         return back();
     }
 
@@ -101,6 +99,9 @@ class MakananViewController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $datamakanans = Makanan::find($id);
+        Storage::delete('makanan/' . $datamakanans->fotomakanan);
+        $datamakanans->delete();
+        return back();
     }
 }

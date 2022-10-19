@@ -81,15 +81,6 @@ class MakananController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $gambar = $request->file('foto')->getClientOriginalName();
-        $request->file('foto')->storeAs('makanan', $gambar);
-        $data_makanans = Makanan::find($id);
-        $data_makanans->namamakanan = $request->namamakanan;
-        $data_makanans->penjual = $request->penjual;
-        $data_makanans->harga = $request->harga;
-        $data_makanans->foto = $request->file('foto')->getClientOriginalName();
-        $data_makanans->save();
-        return back();
     }
 
     /**
@@ -101,9 +92,5 @@ class MakananController extends Controller
 
     public function destroy($id)
     {
-        $data_makanans = Makanan::find($id);
-        Storage::delete('makanan/' . $data_makanans->foto);
-        $data_makanans->delete();
-        return back();
     }
 }

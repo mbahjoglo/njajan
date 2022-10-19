@@ -84,15 +84,6 @@ class MinumanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $gambar = $request->file('fotominuman')->getClientOriginalName();
-        $request->file('fotominuman')->storeAs('minuman', $gambar);
-        $data_minumans = Minuman::find($id);
-        $data_minumans->namaminuman = $request->namaminuman;
-        $data_minumans->penjual = $request->penjual;
-        $data_minumans->harga = $request->harga;
-        $data_minumans->fotominuman = $request->file('fotominuman')->getClientOriginalName();
-        $data_minumans->save();
-        return back();
     }
 
     /**
@@ -103,9 +94,5 @@ class MinumanController extends Controller
      */
     public function destroy($id)
     {
-        $data_minumans = Minuman::find($id);
-        Storage::delete('minuman/' . $data_minumans->foto);
-        $data_minumans->delete();
-        return back();
     }
 }

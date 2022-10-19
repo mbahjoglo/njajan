@@ -79,14 +79,6 @@ class PasarController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $gambar = $request->file('foto')->getClientOriginalName();
-        $request->file('foto')->storeAs('pasar', $gambar);
-        $data_pasars = new Pasar();
-        $data_pasars->namapasar = $request->namapasar;
-        $data_pasars->lokasi = $request->alamat;
-        $data_pasars->foto = $request->file('foto')->getClientOriginalName();
-        $data_pasars->save();
-        return back();
     }
 
     /**
@@ -97,9 +89,5 @@ class PasarController extends Controller
      */
     public function destroy($id)
     {
-        $data_pasars = Pasar::find($id);
-        Storage::delete('pasar/' . $data_pasars->foto);
-        $data_pasars->delete();
-        return back();
     }
 }

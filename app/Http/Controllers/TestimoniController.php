@@ -37,7 +37,7 @@ class TestimoniController extends Controller
     public function store(Request $request)
     {
         $gambar = $request->file('foto')->getClientOriginalName();
-        $request->file('foto')->storeAs('testimoni',$gambar);
+        $request->file('foto')->storeAs('testimoni', $gambar);
         $data_testimonis = new Testimoni();
         $data_testimonis->nama = $request->nama;
         $data_testimonis->deskripsi = $request->deskripsi;
@@ -80,7 +80,7 @@ class TestimoniController extends Controller
     public function update(Request $request, $id)
     {
         $gambar = $request->file('foto')->getClientOriginalName();
-        $request->file('foto')->storeAs('testimoni',$gambar);
+        $request->file('foto')->storeAs('testimoni', $gambar);
         $data_testimonis = Testimoni::find($id);
         $data_testimonis->nama = $request->nama;
         $data_testimonis->deskripsi = $request->deskripsi;
@@ -98,10 +98,5 @@ class TestimoniController extends Controller
      */
     public function destroy($id)
     {
-        $data_testimonis = Testimoni::find($id);
-        Storage::delete('testimoni/' . $data_testimonis->foto);
-        $data_testimonis->delete();
-        return back();
-
     }
 }

@@ -6,6 +6,8 @@ use App\Models\Minuman;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+use function GuzzleHttp\Promise\all;
+
 class MinumanViewController extends Controller
 {
     /**
@@ -15,7 +17,9 @@ class MinumanViewController extends Controller
      */
     public function index()
     {
-        $data_minumans = DB::table('minuman')->join('penjual', 'minuman.penjual', '=', 'penjual.id')->get();
+        $data_minumans = DB::table('minuman')
+            ->join('penjual', 'minuman.penjual', '=', 'penjual.id')
+            ->get();
         return view('admin/pages-menu-minuman', compact('data_minumans'));
     }
 
