@@ -404,14 +404,15 @@
         </div>
         <!-- End Page Title -->
 
-        <section class="section">
+        <!-- Menu Card -->
+        <div class="col-12">
+            <div class="card top-selling overflow-auto">
 
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Table Penjual</h5>
+                <div class="card-body pb-0">
+                    <h5 class="card-title">Daftar <span>| Table Penjual</span></h5>
 
                     <!-- Default Table -->
-                    <table class="table">
+                    <table class="table table-hover table-bordered">
                         <thead>
                             <tr>
                                 <th scope="col">Foto Penjual</th>
@@ -546,10 +547,12 @@
                         @endforeach
                     </table>
                     <!-- End Default Table Example -->
-                </div>
-            </div>
 
-        </section>
+                </div>
+
+            </div>
+        </div>
+        <!-- End Menu Card -->
 
 
     </main><!-- End #main -->
