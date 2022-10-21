@@ -435,11 +435,12 @@
                                     <td>{{ $isi->nomor }}</td>
                                     <td>
                                         <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                                            data-bs-target="#penjual{{ $isi->id }}">
+                                            data-bs-target="#penjual{{ $isi->id_penjual }}">
                                             <i class="bi bi-arrow-clockwise"></i>
                                         </button>
 
-                                        <form action="{{ url('/tables-penjual/' . $isi->id) }}" method="post">
+                                        <form action="{{ url('/tables-penjual/' . $isi->id_penjual) }}"
+                                            method="post">
                                             @csrf
                                             <input type="hidden" name="_method" value="DELETE">
                                             <button type="submit" class="btn btn-danger"
@@ -449,16 +450,17 @@
                                     </td>
                                 </tr>
 
-                                <div class="modal fade" id="penjual{{ $isi->id }}" tabindex="-1"
+                                <div class="modal fade" id="penjual{{ $isi->id_penjual }}" tabindex="-1"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
-                                            <form method="POST" action="{{ url('tables-penjual/' . $isi->id) }}"
+                                            <form method="POST"
+                                                action="{{ url('tables-penjual/' . $isi->id_penjual) }}"
                                                 enctype="multipart/form-data">
                                                 @csrf
                                                 @method('PUT')
                                                 <div class="modal-header">
-                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Update Makanan
+                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Update Penjual
                                                     </h1>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                         aria-label="Close"></button>
@@ -469,7 +471,7 @@
                                                             Penjual</label>
                                                         <div class="col-sm-10">
                                                             <input type="text" class="form-control"
-                                                                name="namamakanan" value="{{ $isi->namapenjual }}">
+                                                                name="namapenjual" value="{{ $isi->namapenjual }}">
                                                         </div>
                                                     </div>
 
@@ -482,17 +484,28 @@
                                                         </div>
                                                     </div>
 
-
-
                                                     <div class="row mb-3">
-                                                        <label for="inputText" class="col-sm-2 col-form-label">Nama
-                                                            Penjual</label>
+                                                        <label class="col-sm-2 col-form-label">Pasar</label>
                                                         <div class="col-sm-10">
-                                                            <input type="text" class="form-control"
-                                                                name="namamakanan" value="{{ $isi->namapenjual }}">
+                                                            <select class="form-select"
+                                                                aria-label="Default select example" name="pasar">
+                                                                <option selected>Pilih Pasar</option>
+                                                                @foreach ($pasar as $sar)
+                                                                    <option value="{{ $sar->namapasar }}">
+                                                                        {{ $sar->namapasar }}</option>
+                                                                @endforeach
+                                                            </select>
                                                         </div>
                                                     </div>
 
+                                                    <div class="row mb-3">
+                                                        <label for="inputNumber"
+                                                            class="col-sm-2 col-form-label">Nomor</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="number" class="form-control" name="nomor"
+                                                                value="{{ $isi->nomor }}">
+                                                        </div>
+                                                    </div>
 
                                                     <div class="row mb-3">
                                                         <label for="inputNumber" class="col-sm-2 col-form-label">Foto
@@ -508,20 +521,19 @@
                                                                 Penjual</label>
                                                             <div class="col-sm-10">
                                                                 <input class="form-control" type="file"
-                                                                    id="formFile" name="fotomakanan">
+                                                                    id="formFile" name="foto">
                                                             </div>
                                                         </div>
 
                                                         <input type="hidden" name="fotolama"
-                                                            value="{{ $isi->fotomakanan }}">
-
+                                                            value="{{ $isi->foto }}">
 
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
                                                             data-bs-dismiss="modal">Close</button>
 
-                                                        <a href="{{ url('pages-menu-makanan/' . $isi->id) }}">
+                                                        <a href="{{ url('tables-penjual/' . $isi->id_penjual) }}">
                                                             <button type="submit" class="btn btn-primary">Save
                                                                 changes</button>
                                                         </a>

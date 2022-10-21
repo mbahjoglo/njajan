@@ -660,33 +660,33 @@
                                             <th scope="col">Harga</th>
                                         </tr>
                                     </thead>
-                                    @foreach ($data_makanans as $isi)
+                                    @foreach ($datamakanans as $isi)
                                         <tbody>
                                             <tr>
                                                 <th scope="row"><a href="#">
                                                         <img width="100"
-                                                            src="{{ asset('storage/makanan/' . $isi->foto) }}"
+                                                            src="{{ asset('storage/makanan/' . $isi->fotomakanan) }}"
                                                             alt="" title="">
                                                 </th>
-                                                <td>{{ $isi->nama }}</td>
-                                                <td>{{ $isi->penjual }}</td>
-                                                <td class="fw-bold">{{ $isi->lokasi }}</td>
+                                                <td>{{ $isi->namamakanan }}</td>
+                                                <td>{{ $isi->namapenjual }}</td>
+                                                <td class="fw-bold">{{ $isi->pasar }}</td>
                                                 <td>{{ $isi->harga }}</td>
                                             </tr>
                                         </tbody>
                                     @endforeach
 
-                                    @foreach ($data_minumans as $isi)
+                                    @foreach ($dataminumans as $isi)
                                         <tbody>
                                             <tr>
                                                 <th scope="row"><a href="#">
                                                         <img width="100"
-                                                            src="{{ asset('storage/minuman/' . $isi->foto) }}"
+                                                            src="{{ asset('storage/minuman/' . $isi->fotominuman) }}"
                                                             alt="" title="">
                                                 </th>
-                                                <td>{{ $isi->nama }}</td>
-                                                <td>{{ $isi->penjual }}</td>
-                                                <td class="fw-bold">{{ $isi->lokasi }}</td>
+                                                <td>{{ $isi->namaminuman }}</td>
+                                                <td>{{ $isi->namapenjual }}</td>
+                                                <td class="fw-bold">{{ $isi->pasar }}</td>
                                                 <td>{{ $isi->harga }}</td>
                                             </tr>
                                         </tbody>
@@ -798,7 +798,7 @@
                                 <div class="post-item clearfix">
                                     <img class="mb-3" src="{{ asset('storage/pasar/' . $isi->foto) }}"
                                         alt="">
-                                    <h4><a href="#">{{ $isi->nama }}</a></h4>
+                                    <h4><a href="#">{{ $isi->namapasar }}</a></h4>
                                     <p>{{ $isi->alamat }}</p>
                                 </div>
                             @endforeach

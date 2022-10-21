@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pasar;
 use App\Models\Penjual;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -15,8 +16,9 @@ class PenjualViewController extends Controller
      */
     public function index()
     {
+        $pasar = Pasar::all();
         $data_penjuals = Penjual::all();
-        return view('admin/tables-penjual', compact('data_penjuals'));
+        return view('admin/tables-penjual', compact('data_penjuals', 'pasar'));
     }
 
     /**
@@ -69,16 +71,22 @@ class PenjualViewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_penjual)
     {
-        $gambar = $request->file('foto')->getClientOriginalName();
-        $request->file('foto')->storeAs('makanan', $gambar);
-        $data_penjuals = Penjual::find($id);
+
+        $data_penjuals = Penjual::find($id_penjual);
+
+        if ($request->foto == '') {
+        } else {
+            $foto = $request->file('foto')->getClientOriginalName();
+            $request->file('penjual')->storeAs('penjual', $foto);
+            Storage::delete('penjual/' . $request->fotolama);
+            $data_penjuals->foto = $request->file('foto')->getClientOriginalName();
+        }
+
         $data_penjuals->namapenjual = $request->namapenjual;
-        $data_penjuals->alamat = $request->alamat;
         $data_penjuals->pasar = $request->pasar;
         $data_penjuals->nomor = $request->nomor;
-        $data_penjuals->foto = $request->file('foto')->getClientOriginalName();
         $data_penjuals->save();
         return back();
     }

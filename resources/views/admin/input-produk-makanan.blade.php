@@ -425,8 +425,8 @@
                             <div class="col-sm-10">
                                 <select class="form-select" aria-label="Default select example" name="penjual">
                                     <option selected>Pilih Penjual</option>
-                                    @foreach ($pasar as $sar)
-                                        @foreach ($penjual as $jual)
+                                    @foreach ($penjual as $jual)
+                                        @foreach ($pasar as $sar)
                                             <option value="{{ $jual->id_penjual }}">{{ $jual->namapenjual }} |
                                                 {{ $sar->namapasar }}</option>
                                         @endforeach

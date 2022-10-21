@@ -426,17 +426,19 @@
                                 <textarea class="form-control" style="height: 100px" name="alamat"></textarea>
                             </div>
                         </div>
-                        @foreach ($pasar as $sar)
-                            <div class="row mb-3">
-                                <label class="col-sm-2 col-form-label">Pasar</label>
-                                <div class="col-sm-10">
-                                    <select class="form-select" aria-label="Default select example" name="pasar">
-                                        <option selected>Pilih Pasar</option>
+
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label">Pasar</label>
+                            <div class="col-sm-10">
+                                <select class="form-select" aria-label="Default select example" name="pasar">
+                                    <option selected>Pilih Pasar</option>
+                                    @foreach ($pasar as $sar)
                                         <option value="{{ $sar->namapasar }}">{{ $sar->namapasar }}</option>
-                                    </select>
-                                </div>
+                                    @endforeach
+                                </select>
                             </div>
-                        @endforeach
+                        </div>
+
                         <div class="row mb-3">
                             <label for="inputNumber" class="col-sm-2 col-form-label">No.Telphon/WA</label>
                             <div class="col-sm-10">

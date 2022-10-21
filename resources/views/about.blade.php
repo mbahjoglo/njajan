@@ -159,36 +159,41 @@
 
             <div class="section-header">
                 <h2>Testimonials</h2>
-                <p>What Are They <span>Saying About Us</span></p>
+                <p>Apakah mereka <span>Mengatakan Tentang Kami</span></p>
             </div>
 
             <div class="slides-1 swiper" data-aos="fade-up" data-aos-delay="100">
                 <div class="swiper-wrapper">
 
+                    @foreach ($testimonis as $isi)
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <div class="row gy-4 justify-content-center">
 
-                    <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <div class="row gy-4 justify-content-center">
-                                <div class="col-lg-6">
+                                    <div class="col-lg-6">
 
-                                    <div class="testimonial-content">
-                                        <p>
-                                            <i class="bi bi-quote quote-icon-left"></i>
-                                            deskripsi
-                                            <i class="bi bi-quote quote-icon-right"></i>
-                                        </p>
-                                        <br>
-                                        <h3>Nama</h3>
-                                        <h4>Jabatan</h4>
+                                        <div class="testimonial-content">
+                                            <p>
+                                                <i class="bi bi-quote quote-icon-left"></i>
+                                                {{ $isi->deskripsi }}
+                                                <i class="bi bi-quote quote-icon-right"></i>
+                                            </p>
+                                            <br>
+                                            <h3>{{ $isi->nama }}</h3>
+                                            <h4>{{ $isi->jabatan }}</h4>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-lg-2 text-center">
+                                        <img src="{{ asset('storage/testimoni/' . $isi->foto) }}"
+                                            class="img-fluid testimonial-img" alt="">
                                     </div>
 
                                 </div>
-                                <div class="col-lg-2 text-center">
-                                    <img src="" class="img-fluid testimonial-img" alt="">
-                                </div>
                             </div>
                         </div>
-                    </div><!-- End testimonial item -->
+                    @endforeach
+                    <!-- End testimonial item -->
 
                 </div>
                 <div class="swiper-pagination"></div>

@@ -455,7 +455,8 @@
                                                 @csrf
                                                 @method('PUT')
                                                 <div class="modal-header">
-                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Update Makanan
+                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Update
+                                                        Testimoni
                                                     </h1>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                         aria-label="Close"></button>

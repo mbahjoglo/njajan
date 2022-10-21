@@ -9,6 +9,7 @@ use App\Models\Pasar;
 use App\Models\Penjual;
 use App\Models\Testimoni;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class IndexAdminController extends Controller
 {
@@ -28,7 +29,9 @@ class IndexAdminController extends Controller
         $hitungpenjuals = Penjual::count();
         $hitungpasars = Pasar::count();
         $hitungtestimonis = Testimoni::count();
-        return view('admin/index', compact('homes', 'hitungmakanans', 'hitungminumans', 'hitungpenjuals', 'hitungpasars', 'data_pasars', 'hitungtestimonis', 'data_makanans', 'data_minumans'));
+        $datamakanans = DB::table('makanan')->join('penjual', 'makanan.penjual', '=', 'penjual.id_penjual')->get();
+        $dataminumans = DB::table('minuman')->join('penjual', 'minuman.penjual', '=', 'penjual.id_penjual')->get();
+        return view('admin/index', compact('homes', 'hitungmakanans', 'hitungminumans', 'hitungpenjuals', 'hitungpasars', 'data_pasars', 'hitungtestimonis', 'data_makanans', 'data_minumans', 'datamakanans', 'dataminumans'));
     }
 
     /**
