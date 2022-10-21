@@ -10,4 +10,5 @@ class Minuman extends Model
     use HasFactory;
     protected $table = 'minuman';
     protected $guard = 'id';
+    protected $primaryKey = 'id_minuman';
 }

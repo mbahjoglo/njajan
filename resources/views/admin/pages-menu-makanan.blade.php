@@ -436,93 +436,103 @@
                                     <td>{{ $isi->harga }}</td>
                                     <td>{{ $isi->nomor }}</td>
                                     <td>
+
                                         <!-- Update -->
                                         <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                                            data-bs-target="#makanan{{ $isi->id }}">
+                                            data-bs-target="#makanan{{ $isi->id_makanan }}">
                                             <i class="bi bi-arrow-clockwise"></i>
                                         </button>
 
                                         <!-- hapus -->
-                                        <form action="{{ url('/pages-menu-makanan/' . $isi->id) }}" method="post">
+                                        <form action="{{ url('/pages-menu-makanan/' . $isi->id_makanan) }}"
+                                            method="post">
                                             @csrf
                                             <input type="hidden" name="_method" value="DELETE">
                                             <button type="submit" class="btn btn-danger"
                                                 onclick="return confirm('Apakah Yakin Menghapus Data ?')"><i
                                                     class="bi bi-trash"></i></button>
                                         </form>
+
+                                        <div class="modal fade" id="makanan{{ $isi->id_makanan }}" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <form method="POST"
+                                                        action="{{ url('pages-menu-makanan/' . $isi->id_makanan) }}"
+                                                        enctype="multipart/form-data">
+                                                        @csrf
+                                                        @method('PUT')
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">
+                                                                Update Makanan
+                                                            </h1>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+
+                                                        <div class="modal-body">
+                                                            <div class="row mb-3">
+                                                                <label for="inputText"
+                                                                    class="col-sm-2 col-form-label">Nama
+                                                                    Produk</label>
+                                                                <div class="col-sm-10">
+                                                                    <input type="text" class="form-control"
+                                                                        name="namamakanan"
+                                                                        value="{{ $isi->namamakanan }}">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row mb-3">
+                                                                <label for="inputNumber"
+                                                                    class="col-sm-2 col-form-label">Rp.
+                                                                </label>
+                                                                <div class="col-sm-10">
+                                                                    <input type="number" class="form-control"
+                                                                        name="harga" value="{{ $isi->harga }}">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row mb-3">
+                                                                <label for="inputNumber"
+                                                                    class="col-sm-2 col-form-label">Foto
+                                                                    Sekarang</label>
+                                                                <div class="col-sm-10">
+                                                                    <img class="col-sm-2 col-form-label img-fluid"
+                                                                        src="{{ asset('storage/makanan/' . $isi->fotomakanan) }}">
+                                                                </div>
+
+                                                                <div class="row mb-3">
+                                                                    <label for="inputNumber"
+                                                                        class="col-sm-2 col-form-label">Foto
+                                                                        Produk</label>
+                                                                    <div class="col-sm-10">
+                                                                        <input class="form-control" type="file"
+                                                                            id="formFile" name="fotomakanan">
+                                                                    </div>
+                                                                </div>
+
+                                                                <input type="hidden" name="fotolama"
+                                                                    value="{{ $isi->fotomakanan }}">
+
+
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Close</button>
+
+                                                                <a
+                                                                    href="{{ url('pages-menu-makanan/' . $isi->id_makanan) }}">
+                                                                    <button type="submit"
+                                                                        class="btn btn-primary">Save
+                                                                        changes</button>
+                                                                </a>
+                                                            </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
-
-                                <div class="modal fade" id="makanan{{ $isi->id }}" tabindex="-1"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <form method="POST" action="{{ url('pages-menu-makanan/' . $isi->id) }}"
-                                                enctype="multipart/form-data">
-                                                @csrf
-                                                @method('PUT')
-                                                <div class="modal-header">
-                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Update Makanan
-                                                    </h1>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
-                                                </div>
-
-                                                <div class="modal-body">
-                                                    <div class="row mb-3">
-                                                        <label for="inputText" class="col-sm-2 col-form-label">Nama
-                                                            Produk</label>
-                                                        <div class="col-sm-10">
-                                                            <input type="text" class="form-control"
-                                                                name="namamakanan" value="{{ $isi->namamakanan }}">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row mb-3">
-                                                        <label for="inputNumber" class="col-sm-2 col-form-label">Rp.
-                                                        </label>
-                                                        <div class="col-sm-10">
-                                                            <input type="number" class="form-control" name="harga"
-                                                                value="{{ $isi->harga }}">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row mb-3">
-                                                        <label for="inputNumber" class="col-sm-2 col-form-label">Foto
-                                                            Sekarang</label>
-                                                        <div class="col-sm-10">
-                                                            <img class="col-sm-2 col-form-label img-fluid"
-                                                                src="{{ asset('storage/makanan/' . $isi->fotomakanan) }}">
-                                                        </div>
-
-                                                        <div class="row mb-3">
-                                                            <label for="inputNumber"
-                                                                class="col-sm-2 col-form-label">Foto
-                                                                Produk</label>
-                                                            <div class="col-sm-10">
-                                                                <input class="form-control" type="file"
-                                                                    id="formFile" name="fotomakanan">
-                                                            </div>
-                                                        </div>
-
-                                                        <input type="hidden" name="fotolama"
-                                                            value="{{ $isi->fotomakanan }}">
-
-
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal">Close</button>
-
-                                                        <a href="{{ url('pages-menu-makanan/' . $isi->id) }}">
-                                                            <button type="submit" class="btn btn-primary">Save
-                                                                changes</button>
-                                                        </a>
-                                                    </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
                             </tbody>
                         @endforeach
                     </table>

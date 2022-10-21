@@ -15,6 +15,11 @@ use App\Http\Controllers\PenjualController;
 use App\Http\Controllers\PenjualViewController;
 use App\Http\Controllers\TestimoniController;
 use App\Http\Controllers\TestimoniViewController;
+use App\Http\Controllers\ViewAboutController;
+use App\Http\Controllers\ViewContactController;
+use App\Http\Controllers\ViewHomeController;
+use App\Http\Controllers\ViewMenuController;
+use App\Http\Controllers\ViewPasarController;
 use App\Models\About;
 use App\Models\Contact;
 use App\Models\Home;
@@ -23,6 +28,7 @@ use App\Models\Minuman;
 use App\Models\Pasar;
 use App\Models\Penjual;
 use App\Models\Testimoni;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 
@@ -39,42 +45,17 @@ use Illuminate\Support\Facades\Route;
 
 // =============== Home View ===============
 
-Route::get('/', function () {
-    $homes = Home::all();
-    return view('index', compact('homes'));
-});
+Route::resource('/', ViewHomeController::class);
 
-Route::get('index', function () {
-    $homes = Home::all();
-    return view('index', compact('homes'));
-});
+Route::resource('index', ViewHomeController::class);
 
-Route::get('about', function () {
-    $data_abouts = About::all();
-    $data_testimonis = Testimoni::all();
-    $hitungpasars = Pasar::count();
-    $hitungmakanans = Makanan::count();
-    $hitungminumans = Minuman::count();
-    $hitungpenjuals = Penjual::count();
-    return view('about', compact('data_abouts', 'data_testimonis', 'hitungpasars', 'hitungmakanans', 'hitungminumans', 'hitungpenjuals'));
-});
+Route::resource('about', ViewAboutController::class);
 
-Route::get('contact', function () {
-    $datas = Contact::all();
-    return view('contact', compact('datas'));
-});
+Route::resource('menu', ViewMenuController::class);
 
-Route::get('menu', function () {
-    $data_makanans = Makanan::all();
-    $data_minumans = Minuman::all();
-    return view('menu', compact('data_makanans', 'data_minumans'));
-});
+Route::resource('pasar', ViewPasarController::class);
 
-Route::get('pasar', function () {
-    $data_pasars = Pasar::all();
-    return view('pasar', compact('data_pasars'));
-});
-
+Route::resource('contact', ViewContactController::class);
 
 // =============== Login & Register ===============
 

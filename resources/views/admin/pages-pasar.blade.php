@@ -429,10 +429,10 @@
                                     <td>{{ $isi->alamat }}</td>
                                     <td>
                                         <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                                            data-bs-target="#pasar{{ $isi->id }}">
+                                            data-bs-target="#pasar{{ $isi->id_pasar }}">
                                             <i class="bi bi-arrow-clockwise"></i>
                                         </button>
-                                        <form action="{{ url('/pages-pasar/' . $isi->id) }}" method="post">
+                                        <form action="{{ url('/pages-pasar/' . $isi->id_pasar) }}" method="post">
                                             @csrf
                                             <input type="hidden" name="_method" value="DELETE">
                                             <button type="submit" class="btn btn-danger"
@@ -441,11 +441,11 @@
                                         </form>
                                     </td>
                                 </tr>
-                                <div class="modal fade" id="pasar{{ $isi->id }}" tabindex="-1"
+                                <div class="modal fade" id="pasar{{ $isi->id_pasar }}" tabindex="-1"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
-                                            <form method="POST" action="{{ url('pages-pasar/' . $isi->id) }}"
+                                            <form method="POST" action="{{ url('pages-pasar/' . $isi->id_pasar) }}"
                                                 enctype="multipart/form-data">
                                                 @csrf
                                                 @method('PUT')
@@ -501,7 +501,7 @@
                                                         <button type="button" class="btn btn-secondary"
                                                             data-bs-dismiss="modal">Close</button>
 
-                                                        <a href="{{ url('pages-pasar/' . $isi->id) }}">
+                                                        <a href="{{ url('pages-pasar/' . $isi->id_pasar) }}">
                                                             <button type="submit" class="btn btn-primary">Save
                                                                 changes</button>
                                                         </a>

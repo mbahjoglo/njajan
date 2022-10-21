@@ -427,7 +427,7 @@
                                     <option selected>Pilih Penjual</option>
                                     @foreach ($pasar as $sar)
                                         @foreach ($penjual as $jual)
-                                            <option value="{{ $jual->id }}">{{ $jual->namapenjual }} |
+                                            <option value="{{ $jual->id_penjual }}">{{ $jual->namapenjual }} |
                                                 {{ $sar->namapasar }}</option>
                                         @endforeach
                                     @endforeach

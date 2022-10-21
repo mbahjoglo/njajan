@@ -18,7 +18,7 @@ class MakananViewController extends Controller
     public function index()
     {
         $penjual = Penjual::all();
-        $datamakanans = DB::table('makanan')->join('penjual', 'makanan.penjual', '=', 'penjual.id')->get();
+        $datamakanans = DB::table('makanan')->join('penjual', 'makanan.penjual', '=', 'penjual.id_penjual')->get();
         return view('admin/pages-menu-makanan', compact('datamakanans', 'penjual'));
     }
 
@@ -72,9 +72,9 @@ class MakananViewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_makanan)
     {
-        $datamakanans = Makanan::find($id);
+        $datamakanans = Makanan::find($id_makanan);
 
         if ($request->fotomakanan == '') {
             // $data_makanans->fotomakanan = $request->fotolama;
@@ -99,9 +99,9 @@ class MakananViewController extends Controller
      */
     public function destroy($id)
     {
-        $datamakanans = Makanan::find($id);
-        Storage::delete('makanan/' . $datamakanans->fotomakanan);
-        $datamakanans->delete();
+        $data_makanans = Makanan::find($id);
+        Storage::delete('makanan/' . $data_makanans->fotomakanan);
+        $data_makanans->delete();
         return back();
     }
 }

@@ -6,7 +6,6 @@ use App\Models\Minuman;
 use App\Models\Pasar;
 use App\Models\Penjual;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class MinumanController extends Controller
 {

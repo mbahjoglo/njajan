@@ -10,4 +10,5 @@ class Pasar extends Model
     use HasFactory;
     protected $table = 'pasar';
     protected $guard = 'id';
+    protected $primaryKey = 'id_pasar';
 }

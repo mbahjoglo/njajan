@@ -6,7 +6,6 @@ use App\Models\Makanan;
 use App\Models\Pasar;
 use App\Models\Penjual;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class MakananController extends Controller
 {

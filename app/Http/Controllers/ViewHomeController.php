@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pasar;
+use App\Models\Home;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
-class PasarViewController extends Controller
+class ViewHomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class PasarViewController extends Controller
      */
     public function index()
     {
-        $data_pasars = Pasar::all();
-        return view('admin/pages-pasar', compact('data_pasars'));
+        $homes = Home::all();
+        return view('index', compact('homes'));
     }
 
     /**
@@ -69,23 +68,9 @@ class PasarViewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id_pasar)
+    public function update(Request $request, $id)
     {
-        $data_pasars = Pasar::find($id_pasar);
-
-        if ($request->foto == '') {
-            // $data_pasars->foto = $request->fotolama;
-        } else {
-            $foto = $request->file('foto')->getClientOriginalName();
-            $request->file('foto')->storeAs('pasar', $foto);
-            Storage::delete('pasar/' . $request->fotolama);
-            $data_pasars->foto = $request->file('foto')->getClientOriginalName();
-        }
-
-        $data_pasars->namapasar = $request->namapasar;
-        $data_pasars->alamat = $request->alamat;
-        $data_pasars->save();
-        return back();
+        //
     }
 
     /**
@@ -96,9 +81,6 @@ class PasarViewController extends Controller
      */
     public function destroy($id)
     {
-        $data_pasars = Pasar::find($id);
-        Storage::delete('pasar/' . $data_pasars->foto);
-        $data_pasars->delete();
-        return back();
+        //
     }
 }

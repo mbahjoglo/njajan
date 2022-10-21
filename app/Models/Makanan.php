@@ -10,4 +10,5 @@ class Makanan extends Model
     use HasFactory;
     protected $table = 'makanan';
     protected $guard = 'id';
+    protected $primaryKey = 'id_makanan';
 }
