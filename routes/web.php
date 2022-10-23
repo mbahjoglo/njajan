@@ -20,17 +20,7 @@ use App\Http\Controllers\ViewContactController;
 use App\Http\Controllers\ViewHomeController;
 use App\Http\Controllers\ViewMenuController;
 use App\Http\Controllers\ViewPasarController;
-use App\Models\About;
-use App\Models\Contact;
-use App\Models\Home;
-use App\Models\Makanan;
-use App\Models\Minuman;
-use App\Models\Pasar;
-use App\Models\Penjual;
-use App\Models\Testimoni;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
-
 
 /*
 |--------------------------------------------------------------------------

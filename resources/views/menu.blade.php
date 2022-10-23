@@ -112,21 +112,23 @@
                         </div>
 
                         <div class="row gy-5">
-                            <div class="col-lg-4 menu-item">
-                                <a href="" class="glightbox"><img src=""
-                                        class="menu-img img-fluid"alt=""></a>
-                                <h4>Nama Makanan</h4>
-                                <p class="ingredients">Nama Penjual</p>
-                                <p class="ingredients">Nama Pasar</p>
-                                <p class="price">
-                                    Rp.Harga,.
-                                </p>
-                                <a class="btn-book-a-table" href="https://wa.me/">Hubungi
-                                    Penjual</a>
-                            </div>
-                            <!-- Menu Item -->
+                            @foreach ($datamakanans as $isi)
+                                <div class="col-lg-4 menu-item">
+                                    <a href="" class="glightbox"><img
+                                            src="{{ asset('storage/makanan/' . $isi->fotomakanan) }}"
+                                            class="menu-img img-fluid"alt=""></a>
+                                    <h4>{{ $isi->namamakanan }}</h4>
+                                    <p class="ingredients">{{ $isi->namapenjual }}</p>
+                                    <p class="ingredients">{{ $isi->pasar }}</p>
+                                    <p class="price">
+                                        Rp.{{ $isi->harga }},.
+                                    </p>
+                                    <a class="btn-book-a-table" href="https://wa.me/{{ $isi->nomor }}">Hubungi
+                                        Penjual</a>
+                                </div>
+                                <!-- Menu Item -->
+                            @endforeach
                         </div>
-
 
                     </div><!-- End Makanan Menu Content -->
 
@@ -144,19 +146,24 @@
                         </div>
 
                         <div class="row gy-5">
-                            <div class="col-lg-4 menu-item">
-                                <a href="" class="glightbox"><img src=""
-                                        class="menu-img img-fluid"alt=""></a>
-                                <h4>Nama Minuman</h4>
-                                <p class="ingredients">Nama Penjual</p>
-                                <p class="ingredients">Nama Pasar</p>
-                                <p class="price">
-                                    Rp.Harga,.
-                                </p>
-                                <a class="btn-book-a-table" href="https://wa.me/">Hubungi
-                                    Penjual</a>
+                            <div class="row gy-5">
+                                @foreach ($dataminumans as $isi)
+                                    <div class="col-lg-4 menu-item">
+                                        <a href="" class="glightbox"><img
+                                                src="{{ asset('storage/minuman/' . $isi->fotominuman) }}"
+                                                class="menu-img img-fluid"alt=""></a>
+                                        <h4>{{ $isi->namaminuman }}</h4>
+                                        <p class="ingredients">{{ $isi->namapenjual }}</p>
+                                        <p class="ingredients">{{ $isi->pasar }}</p>
+                                        <p class="price">
+                                            Rp.{{ $isi->harga }},.
+                                        </p>
+                                        <a class="btn-book-a-table" href="https://wa.me/{{ $isi->nomor }}">Hubungi
+                                            Penjual</a>
+                                    </div>
+                                    <!-- Menu Item -->
+                                @endforeach
                             </div>
-                            <!-- Menu Item -->
                         </div>
 
                     </div><!-- End Minuman Menu Content -->
