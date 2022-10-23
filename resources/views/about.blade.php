@@ -76,12 +76,12 @@
         <section id="about" class="about">
             <div class="container" data-aos="fade-up">
 
-                <div class="section-header">
-                    <h2>About Us</h2>
-                    <p>Judul</p>
-                </div>
-
                 @foreach ($view_abouts as $isi)
+                    <div class="section-header">
+                        <h2>About Us</h2>
+                        <p>{{ $isi->judul }}</p>
+                    </div>
+
                     <div class="row gy-4">
                         <div class="col-lg-7 position-relative about-img"
                             style="background-image: url({{ asset('storage/about/' . $isi->foto) }}) ;"
