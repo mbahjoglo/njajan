@@ -393,25 +393,15 @@
 
     <main id="main" class="main">
 
-        <div class="pagetitle">
-            <h1>Makanan</h1>
-            <nav>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="indexadmin">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Makanan</li>
-                </ol>
-            </nav>
-        </div>
-        <!-- End Page Title -->
+        <!-- Menu Card -->
+        <div class="col-12">
+            <div class="card top-selling overflow-auto">
 
-        <section class="section">
-
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Table Makanan</h5>
+                <div class="card-body pb-0">
+                    <h5 class="card-title">Daftar <span>| Table Makanan</span></h5>
 
                     <!-- Default Table -->
-                    <table class="table">
+                    <table class="table table-hover table-bordered">
                         <thead>
                             <tr>
                                 <th scope="col">Foto</th>
@@ -538,14 +528,11 @@
                     </table>
                     <!-- End Default Table Example -->
 
-                    <!-- Modal -->
-
-
-
                 </div>
-            </div>
 
-        </section>
+            </div>
+        </div>
+        <!-- End Menu Card -->
 
 
     </main><!-- End #main -->
