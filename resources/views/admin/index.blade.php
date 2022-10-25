@@ -307,19 +307,19 @@
                         </a>
                     </li>
                     <li>
-                        <a href="pages-menu-minuman">
+                        {{-- <a href="pages-menu-minuman">
                             <i class="bi bi-cup-straw"></i><span>Minuman</span>
-                        </a>
+                        </a> --}}
                     </li>
                 </ul>
             </li>
 
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link collapsed" href="pages-pasar">
                     <i class="bi bi-shop"></i>
                     <span>Pasar</span>
                 </a>
-            </li>
+            </li> --}}
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="pages-contact">
@@ -355,9 +355,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="input-produk-minuman">
+                        {{-- <a href="input-produk-minuman">
                             <i class="bi bi-circle"></i><span>Minuman</span>
-                        </a>
+                        </a> --}}
                     </li>
                 </ul>
             </li>
@@ -477,7 +477,7 @@
                     </div>
                     <!-- Produk Sales Card -->
 
-                    <!-- Minuman Card -->
+                    {{-- <!-- Minuman Card -->
                     <div class="col-xxl-4 col-md-6">
                         <div class="card info-card sales-card">
 
@@ -511,7 +511,7 @@
 
                         </div>
                     </div>
-                    <!-- Produk Sales Card -->
+                    <!-- Produk Sales Card --> --}}
 
                     <!-- Penjual Card -->
                     <div class="col-xxl-4 col-md-6">
@@ -648,7 +648,7 @@
                             </div>
 
                             <div class="card-body pb-0">
-                                <h5 class="card-title">Daftar <span>| Makanan & Minuman</span></h5>
+                                <h5 class="card-title">Daftar <span>| njajan </span></h5>
 
                                 <table class="table table-borderless">
                                     <thead>
@@ -676,7 +676,7 @@
                                         </tbody>
                                     @endforeach
 
-                                    @foreach ($dataminumans as $isi)
+                                    {{-- @foreach ($dataminumans as $isi)
                                         <tbody>
                                             <tr>
                                                 <th scope="row"><a href="#">
@@ -690,7 +690,7 @@
                                                 <td>{{ $isi->harga }}</td>
                                             </tr>
                                         </tbody>
-                                    @endforeach
+                                    @endforeach --}}
 
                                 </table>
 
@@ -750,10 +750,10 @@
                                                 value: {{ $hitungmakanans }},
                                                 name: 'Makanan'
                                             },
-                                            {
-                                                value: {{ $hitungminumans }},
-                                                name: 'Minuman'
-                                            },
+                                            // {
+                                            //     value: {{ $hitungminumans }},
+                                            //     name: 'Minuman'
+                                            // },
                                             {
                                                 value: {{ $hitungpenjuals }},
                                                 name: 'Penjual'

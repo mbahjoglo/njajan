@@ -37,15 +37,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('/', ViewHomeController::class);
 
-Route::resource('index', ViewHomeController::class);
+Route::resource('home', ViewHomeController::class);
 
-Route::resource('about', ViewAboutController::class);
+Route::resource('tentang', ViewAboutController::class);
 
-Route::resource('menu', ViewMenuController::class);
+Route::resource('njajan', ViewMenuController::class);
 
-Route::resource('pasar', ViewPasarController::class);
+// Route::resource('pasar', ViewPasarController::class);
 
-Route::resource('contact', ViewContactController::class);
+Route::resource('kontak', ViewContactController::class);
 
 // =============== Login & Register ===============
 
@@ -81,7 +81,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('pages-menu-minuman', MinumanViewController::class);
 
-    Route::resource('pages-pasar', PasarViewController::class);
+    // Route::resource('pages-pasar', PasarViewController::class);
 
     Route::resource('pages-contact', ContactController::class);
 

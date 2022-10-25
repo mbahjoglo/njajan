@@ -44,7 +44,7 @@
     <header id="header" class="header fixed-top d-flex align-items-center">
         <div class="container d-flex align-items-center justify-content-between">
 
-            <a href="index" class="logo d-flex align-items-center me-auto me-lg-0">
+            <a href="home" class="logo d-flex align-items-center me-auto me-lg-0">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
                 <!-- <img src="assets/img/logo.png" alt=""> -->
                 <h1>njajan<span>.</span></h1>
@@ -52,11 +52,11 @@
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a href="index">Home</a></li>
-                    <li><a href="about">About</a></li>
-                    <li><a href="menu">Menu</a></li>
-                    <li><a href="pasar">Pasar</a></li>
-                    <li><a href="contact">Contact</a></li>
+                    <li><a href="home">Home</a></li>
+                    <li><a href="tentang">Tentang</a></li>
+                    <li><a href="njajan">njajan</a></li>
+                    {{-- <li><a href="pasar">Pasar</a></li> --}}
+                    <li><a href="kontak">Kontak</a></li>
                 </ul>
             </nav>
             <!-- .navbar -->
@@ -90,10 +90,11 @@
                         </a>
                     </li><!-- End tab nav item -->
 
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-minuman">
                             <h4>Minuman</h4>
-                        </a><!-- End tab nav item -->
+                        </a>
+                    </li><!-- End tab nav item --> --}}
                 </ul>
 
                 <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
@@ -114,7 +115,7 @@
                         <div class="row gy-5">
                             @foreach ($datamakanans as $isi)
                                 <div class="col-lg-4 menu-item">
-                                    <a href="" class="glightbox"><img
+                                    <a href="{{ asset('storage/makanan/' . $isi->fotomakanan) }}" class="glightbox"><img
                                             src="{{ asset('storage/makanan/' . $isi->fotomakanan) }}"
                                             class="menu-img img-fluid"alt=""></a>
                                     <h4>{{ $isi->namamakanan }}</h4>
@@ -123,8 +124,12 @@
                                     <p class="price">
                                         Rp.{{ $isi->harga }},.
                                     </p>
-                                    <a class="btn-book-a-table" href="https://wa.me/{{ $isi->nomor }}">Hubungi
-                                        Penjual</a>
+                                    <form
+                                        action="https://wa.me/62{{ $isi->nomor }}?text=Halo,%20terima%20kasih%20sudah%20menghubungi%20(njajan).%20Saya%20ingin%20memesan%20produk%20anda%20yang%20ada%20di%20website%20njajan.">
+                                        <button type="submit" class="btn btn-outline-danger">Hubungi | <i
+                                                class="bi bi-whatsapp"></i>
+                                        </button>
+                                    </form>
                                 </div>
                                 <!-- Menu Item -->
                             @endforeach
@@ -132,7 +137,7 @@
 
                     </div><!-- End Makanan Menu Content -->
 
-                    <div class="tab-pane fade" id="menu-minuman">
+                    {{-- <div class="tab-pane fade" id="menu-minuman">
 
                         <br>
                         <form class="d-flex mb-2" role="search">
@@ -158,15 +163,19 @@
                                         <p class="price">
                                             Rp.{{ $isi->harga }},.
                                         </p>
-                                        <a class="btn-book-a-table" href="https://wa.me/{{ $isi->nomor }}">Hubungi
-                                            Penjual</a>
+                                        <form
+                                            action="https://wa.me/62{{ $isi->nomor }}?text=Halo,%20terima%20kasih%20sudah%20menghubungi%20(njajan).%20Saya%20ingin%20memesan%20produk%20anda%20yang%20ada%20di%20website%20njajan.">
+                                            <button type="submit" class="btn btn-outline-danger">Hubungi | <i
+                                                    class="bi bi-whatsapp"></i>
+                                            </button>
+                                        </form>
                                     </div>
                                     <!-- Menu Item -->
                                 @endforeach
                             </div>
                         </div>
 
-                    </div><!-- End Minuman Menu Content -->
+                    </div><!-- End Minuman Menu Content --> --}}
 
                 </div>
 

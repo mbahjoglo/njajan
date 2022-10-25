@@ -308,19 +308,19 @@
                         </a>
                     </li>
                     <li>
-                        <a href="pages-menu-minuman">
+                        {{-- <a href="pages-menu-minuman">
                             <i class="bi bi-cup-straw"></i><span>Minuman</span>
-                        </a>
+                        </a> --}}
                     </li>
                 </ul>
             </li>
 
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link collapsed" href="pages-pasar">
                     <i class="bi bi-shop"></i>
                     <span>Pasar</span>
                 </a>
-            </li>
+            </li> --}}
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="pages-contact">
@@ -356,9 +356,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="input-produk-minuman">
+                        {{-- <a href="input-produk-minuman">
                             <i class="bi bi-circle"></i><span>Minuman</span>
-                        </a>
+                        </a> --}}
                     </li>
                 </ul>
             </li>

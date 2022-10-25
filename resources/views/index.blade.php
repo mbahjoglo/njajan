@@ -44,7 +44,7 @@
     <header id="header" class="header fixed-top d-flex align-items-center">
         <div class="container d-flex align-items-center justify-content-between">
 
-            <a href="index" class="logo d-flex align-items-center me-auto me-lg-0">
+            <a href="home" class="logo d-flex align-items-center me-auto me-lg-0">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
                 <!-- <img src="assets/img/logo.png" alt=""> -->
                 <h1>njajan<span>.</span></h1>
@@ -52,11 +52,11 @@
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a href="index">Home</a></li>
-                    <li><a href="about">About</a></li>
-                    <li><a href="menu">Menu</a></li>
-                    <li><a href="pasar">Pasar</a></li>
-                    <li><a href="contact">Contact</a></li>
+                    <li><a href="home">Home</a></li>
+                    <li><a href="tentang">Tentang</a></li>
+                    <li><a href="njajan">njajan</a></li>
+                    {{-- <li><a href="pasar">Pasar</a></li> --}}
+                    <li><a href="kontak">Kontak</a></li>
                 </ul>
             </nav>
             <!-- .navbar -->
@@ -98,25 +98,6 @@
     @endforeach
     <!-- End Hero Section -->
 
-    <!-- ======= Clients Section ======= -->
-    <section id="clients" class="clients section-bg">
-        <div class="container">
-
-            <div
-                class="row  d-flex align-items-center justify-content-center d-flex align-items-center justify-content-center">
-
-                <div class="col-lg-1 col-md-4 col-6">
-                    <img src="assets/home/img/clients/client-3.png" class="img-fluid" alt="">
-                </div>
-
-                <div class="col-lg-1 col-md-4 col-6">
-                    <img src="assets/home/img/clients/client-4.png" class="img-fluid" alt="">
-                </div>
-
-            </div>
-
-        </div>
-    </section>
     <!-- End Clients Section -->
 
     <!-- ======= Footer ======= -->
