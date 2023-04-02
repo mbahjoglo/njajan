@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IndexAdminController;
@@ -42,6 +43,10 @@ Route::resource('home', ViewHomeController::class);
 Route::resource('tentang', ViewAboutController::class);
 
 Route::resource('njajan', ViewMenuController::class);
+
+Route::get('kategori/{slug}', [CategoryController::class, 'index'])->name('njajan.slug');
+
+Route::get('search/cari', [CategoryController::class, 'search']);
 
 // Route::resource('pasar', ViewPasarController::class);
 

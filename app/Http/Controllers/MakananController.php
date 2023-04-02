@@ -43,6 +43,7 @@ class MakananController extends Controller
         $request->file('fotomakanan')->storeAs('makanan', $gambar);
         $data_makanans = new Makanan();
         $data_makanans->namamakanan = $request->namamakanan;
+        $data_makanans->id_pasar = $request->id_pasar;
         $data_makanans->penjual = $request->penjual;
         $data_makanans->harga = $request->harga;
         $data_makanans->fotomakanan = $request->file('fotomakanan')->getClientOriginalName();

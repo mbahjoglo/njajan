@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('minuman', function (Blueprint $table) {
             $table->bigIncrements('id_minuman');
+            $table->string('id_pasar');
             $table->string('namaminuman');
             $table->string('penjual');
             $table->string('harga');

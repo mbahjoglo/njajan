@@ -9,23 +9,27 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function login(){
-        return view ('admin.pages-login');
+    public function login()
+    {
+        return view('admin.pages-login');
     }
 
-    public function loginproses(Request $request){
-        if(Auth::attempt($request->only('email','password'))){
+    public function loginproses(Request $request)
+    {
+        if (Auth::attempt($request->only('email', 'password'))) {
             return redirect('indexadmin');
         }
 
         return redirect('login');
     }
 
-    public function register(){
-        return view ('admin.pages-register');
+    public function register()
+    {
+        return view('admin.pages-register');
     }
 
-    public function registeruser(Request $request){
+    public function registeruser(Request $request)
+    {
         User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -37,9 +41,10 @@ class LoginController extends Controller
         return redirect('login');
     }
 
-    public function logout(){
+    public function logout()
+    {
         Auth::logout();
 
-        return redirect('index');
+        return redirect('home');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pasar;
 use App\Models\Penjual;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -13,12 +14,13 @@ class ViewMenuController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $penjual = Penjual::all();
+        $pasar = Pasar::all();
         $datamakanans = DB::table('makanan')->join('penjual', 'makanan.penjual', '=', 'penjual.id_penjual')->get();
         $dataminumans = DB::table('minuman')->join('penjual', 'minuman.penjual', '=', 'penjual.id_penjual')->get();
-        return view('menu', compact('datamakanans', 'dataminumans'));
+        return view('menu', compact('datamakanans', 'dataminumans', 'pasar'));
     }
 
     /**

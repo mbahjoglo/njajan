@@ -77,9 +77,10 @@ class PenjualViewController extends Controller
         $data_penjuals = Penjual::find($id_penjual);
 
         if ($request->foto == '') {
+            // $data_makanans->fotomakanan = $request->fotolama;
         } else {
             $foto = $request->file('foto')->getClientOriginalName();
-            $request->file('penjual')->storeAs('penjual', $foto);
+            $request->file('foto')->storeAs('penjual', $foto);
             Storage::delete('penjual/' . $request->fotolama);
             $data_penjuals->foto = $request->file('foto')->getClientOriginalName();
         }

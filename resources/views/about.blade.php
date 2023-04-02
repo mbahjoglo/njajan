@@ -10,8 +10,7 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/home/img/favicon.png" rel="icon">
-    <link href="assets/home/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="assets/home/img/logo/logonjajan.png" rel="icon">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,22 +45,22 @@
 
             <a href="home" class="logo d-flex align-items-center me-auto me-lg-0">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
-                <!-- <img src="assets/img/logo.png" alt=""> -->
-                <h1>njajan<span>.</span></h1>
+                <img src="assets/home/img/logo/njajan.png" alt="">
+                {{-- <h1>njajan<span>.</span></h1> --}}
             </a>
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a href="home">Home</a></li>
-                    <li><a href="tentang">Tentang</a></li>
-                    <li><a href="njajan">njajan</a></li>
+                    <li><a href="{{ url('home') }}">Home</a></li>
+                    <li><a href="{{ url('tentang') }}">Tentang</a></li>
+                    <li><a href="{{ url('njajan') }}">njajan</a></li>
                     {{-- <li><a href="pasar">Pasar</a></li> --}}
-                    <li><a href="kontak">Kontak</a></li>
+                    <li><a href="{{ url('kontak') }}">Kontak</a></li>
                 </ul>
             </nav>
             <!-- .navbar -->
 
-            <a class="btn-book-a-table" href="login">Login</a>
+            <a class="btn-book-a-table" href="{{ url('login') }}">Login</a>
             <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
             <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
 
@@ -112,7 +111,7 @@
 
                 <div class="row gy-4">
 
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <div class="stats-item text-center w-100 h-100">
                             <span data-purecounter-start="0" data-purecounter-end="{{ $hitungmakanans }}"
                                 data-purecounter-duration="1" class="purecounter"></span>
@@ -120,15 +119,15 @@
                         </div>
                     </div><!-- End Stats Item -->
 
-                    <div class="col-lg-3 col-md-6">
+                    {{-- <div class="col-lg-3 col-md-6">
                         <div class="stats-item text-center w-100 h-100">
                             <span data-purecounter-start="0" data-purecounter-end="{{ $hitungminumans }}"
                                 data-purecounter-duration="1" class="purecounter"></span>
                             <p>Minuman</p>
                         </div>
-                    </div><!-- End Stats Item -->
+                    </div><!-- End Stats Item --> --}}
 
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <div class="stats-item text-center w-100 h-100">
                             <span data-purecounter-start="0" data-purecounter-end="{{ $hitungpenjuals }}"
                                 data-purecounter-duration="1" class="purecounter"></span>
@@ -136,7 +135,7 @@
                         </div>
                     </div><!-- End Stats Item -->
 
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <div class="stats-item text-center w-100 h-100">
                             <span data-purecounter-start="0" data-purecounter-end="{{ $hitungpasars }}"
                                 data-purecounter-duration="1" class="purecounter"></span>
@@ -225,7 +224,6 @@
     <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
 
-    <div id="preloader"></div>
 
     <!-- Vendor JS Files -->
     <script src="assets/home/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

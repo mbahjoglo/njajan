@@ -5,13 +5,12 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Dashboard - NiceAdmin Bootstrap Template</title>
+    <title>Input Makanan | Admin njajan</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/admin/img/favicon.png" rel="icon">
-    <link href="assets/admin/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="assets/home/img/logo/logonjajan.png" rel="icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -426,8 +425,19 @@
                                 <select class="form-select" aria-label="Default select example" name="penjual">
                                     <option selected>Pilih Penjual</option>
                                     @foreach ($penjual as $jual)
-                                        <option value="{{ $jual->id_penjual }}">{{ $jual->namapenjual }} |
-                                            {{ $jual->pasar }}</option>
+                                        <option value="{{ $jual->id_penjual }}">{{ $jual->namapenjual }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label">Pasar</label>
+                            <div class="col-sm-10">
+                                <select class="form-select" aria-label="Default select example" name="id_pasar">
+                                    <option selected>Pilih Pasar</option>
+                                    @foreach ($pasar as $sar)
+                                        <option value="{{ $sar->id_pasar }}">{{ $sar->namapasar }}</option>
                                     @endforeach
                                 </select>
                             </div>

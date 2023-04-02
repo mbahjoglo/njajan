@@ -41,6 +41,7 @@ class PasarController extends Controller
         $request->file('foto')->storeAs('pasar', $gambar);
         $data_pasars = new Pasar();
         $data_pasars->namapasar = $request->namapasar;
+        $data_pasars->slug = preg_replace('/[^a-z0-9]+/i', '-', str_replace(' ', '-', strtolower(trim($request->namapasar))));
         $data_pasars->alamat = $request->alamat;
         $data_pasars->foto = $request->file('foto')->getClientOriginalName();
         $data_pasars->save();

@@ -10,8 +10,7 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/home/img/favicon.png" rel="icon">
-    <link href="assets/home/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="assets/home/img/logo/logonjajan.png" rel="icon">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,22 +45,22 @@
 
             <a href="home" class="logo d-flex align-items-center me-auto me-lg-0">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
-                <!-- <img src="assets/img/logo.png" alt=""> -->
-                <h1>njajan<span>.</span></h1>
+                <img src="assets/home/img/logo/njajan.png" alt="">
+                {{-- <h1>njajan<span>.</span></h1> --}}
             </a>
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a href="home">Home</a></li>
-                    <li><a href="tentang">Tentang</a></li>
-                    <li><a href="njajan">njajan</a></li>
+                    <li><a href="{{ url('home') }}">Home</a></li>
+                    <li><a href="{{ url('tentang') }}">Tentang</a></li>
+                    <li><a href="{{ url('njajan') }}">njajan</a></li>
                     {{-- <li><a href="pasar">Pasar</a></li> --}}
-                    <li><a href="kontak">Kontak</a></li>
+                    <li><a href="{{ url('kontak') }}">Kontak</a></li>
                 </ul>
             </nav>
             <!-- .navbar -->
 
-            <a class="btn-book-a-table" href="login">Login</a>
+            <a class="btn-book-a-table" href="{{ url('login') }}">Login</a>
             <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
             <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
 
@@ -82,21 +81,43 @@
                     <p>Beberapa <span>Market</span> yang terdapat di njajan</p>
                 </div>
 
-                <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
-                    <div class="swiper-wrapper">
-                        @foreach ($data_pasars as $isi)
-                            <div class="swiper-slide event-item d-flex flex-column justify-content-end"
-                                style="background-image: url({{ asset('storage/pasar/' . $isi->foto) }})">
-                                <h3 class="price align-self-start">{{ $isi->namapasar }}</h3>
-                                <p class="description">
-                                    {{ $isi->alamat }}
-                                </p>
+                <section class="container">
+                    @foreach ($data_pasars as $isi)
+                        <div class="accordion" id="accordionPanelsStayOpenExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                                        aria-controls="panelsStayOpen-collapseOne">
+                                        {{ $isi->namapasar }}
+                                    </button>
+                                </h2>
+                                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                                    aria-labelledby="panelsStayOpen-headingOne">
+                                    <div class="accordion-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <img src="https://random.imagecdn.app/500/150" class="img-fluid"
+                                                    alt="https://random.imagecdn.app/500/150">
+                                            </div>
+                                            <div class="col">
+                                                <strong>{{ $isi->namapasar }}</strong> Deskripsi
+                                                <br>
+                                                <div class="row">
+                                                    <div class="col-8"></div>
+                                                    <div class="col-4"><button type="button"
+                                                            class="btn btn-outline-danger col-12">Lokasi</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <!-- End Event item -->
-                        @endforeach
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
+                        </div>
+                    @endforeach
+
+                </section>
 
             </div>
         </section>
@@ -126,8 +147,6 @@
 
     <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
-
-    <div id="preloader"></div>
 
     <!-- Vendor JS Files -->
     <script src="assets/home/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
