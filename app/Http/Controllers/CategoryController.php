@@ -18,13 +18,4 @@ class CategoryController extends Controller
             'slug' => $slug
         ]);
     }
-    public function search(Request $request)
-    {
-        return view('search', [
-            'pasar' => Pasar::all(),
-            'datamakanans' => DB::table('makanan')->join('pasar', 'makanan.id_pasar', '=', 'pasar.id_pasar')
-                ->join('penjual', 'makanan.penjual', '=', 'penjual.id_penjual')
-                ->where('namamakanan', 'like', "%" . $request->cari . "%")->get(),
-        ]);
-    }
 }

@@ -79,15 +79,11 @@
                 </div> --}}
 
                 <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
-                    @foreach ($pasar as $sar)
-                        <li class="nav-item">
-                            <a class="nav-link show" href="{{ url('kategori/' . $sar->slug) }}">
-                                <h4>{{ $sar->namapasar }}</h4>
-                            </a>
-                        </li>
-                        <!-- End tab nav item -->
-                    @endforeach
-
+                    <li class="nav-item">
+                        <a class="nav-link show" href="{{ url('kategori/' . $pasar->first()->slug) }}">
+                            <h4>{{ $pasar->first()->namapasar }}</h4>
+                        </a>
+                    </li>
                 </ul>
 
 

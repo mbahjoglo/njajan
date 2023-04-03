@@ -79,9 +79,14 @@
                 </div>
 
                 <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
+                    <li class="nav-item">
+                        <a class="nav-link show active" href="#">
+                            <h4>All</h4>
+                        </a>
+                    </li>
                     @foreach ($pasar as $sar)
                         <li class="nav-item">
-                            <a class="nav-link show" href="{{ url('kategori/' . $sar->slug) }}">
+                            <a class="nav-link" href="{{ url('kategori/' . $sar->slug) }}">
                                 <h4>{{ $sar->namapasar }}</h4>
                             </a>
                         </li>
@@ -102,9 +107,9 @@
                     <div class="container mx-auto">
                         <div class="row">
                             <div class="col">
-                                <form class="d-flex mb-2 mt-2" method="get" action="njajan">
-                                    <input class="form-control me-2" name="cari" type="search"
-                                        placeholder="Cari Menu" aria-label="Search">
+                                <form class="d-flex mb-2 mt-2" action="njajan">
+                                    <input class="form-control me-2" name="search" value="{{ request('search') }}"
+                                        placeholder="Cari Menu">
                                     <button class="btn btn-outline-danger" type="submit">Search</button>
                                 </form>
                             </div>
@@ -114,7 +119,50 @@
                 </div>
 
             </div>
-        </section><!-- End Menu Section -->
+        </section>
+
+
+        <section id="main" class="menu">
+            <div class="container">
+                <div class="row gy-5">
+                    <div class="row gy-5">
+                        @foreach ($datamakanans as $isi)
+                            <div class="col-lg-4 menu-item text-center">
+                                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+
+                                        <div class="carousel-item active" data-bs-interval="10000">
+                                            <img src="{{ asset('storage/makanan/' . $isi->fotomakanan) }}"
+                                                class="menu-img img-fluid d-block w-100" alt="">
+                                        </div>
+
+                                        <div class="carousel-item" data-bs-interval="10000">
+                                            <img src="{{ asset('storage/makanan/' . $isi->fotomakanan) }}"
+                                                class="menu-img img-fluid d-block w-100" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h4>{{ $isi->namamakanan }}</h4>
+                                <p class="ingredients">{{ $isi->namapenjual }}</p>
+
+                                <p class="price">
+                                    Rp.{{ $isi->harga }},.
+                                </p>
+                                @if ($isi->nomor)
+                                    <form action="tel:{{ $isi->nomor }}">
+                                        <button type="submit" class="btn btn-outline-danger mb-2">Hubungi |
+                                            <i class="bi bi-telephone"></i>
+                                        </button>
+                                    </form>
+                                @endif
+                            </div>
+                            <!-- Menu Item -->
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- ======= Footer ======= -->

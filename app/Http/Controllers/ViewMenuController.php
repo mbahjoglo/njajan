@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Makanan;
 use App\Models\Pasar;
 use App\Models\Penjual;
 use Illuminate\Http\Request;
@@ -16,11 +17,17 @@ class ViewMenuController extends Controller
      */
     public function index(Request $request)
     {
-        $penjual = Penjual::all();
-        $pasar = Pasar::all();
-        $datamakanans = DB::table('makanan')->join('penjual', 'makanan.penjual', '=', 'penjual.id_penjual')->get();
+        $datamakanans = Makanan::join('penjual', 'makanan.penjual', '=', 'penjual.id_penjual');
+        if (request('search')) {
+            $datamakanans->where('namamakanan', 'like', '%' . request('search') . '%');
+        }
         $dataminumans = DB::table('minuman')->join('penjual', 'minuman.penjual', '=', 'penjual.id_penjual')->get();
-        return view('menu', compact('datamakanans', 'dataminumans', 'pasar'));
+        return view('menu', [
+            'datamakanans' => $datamakanans->get(),
+            'pasar' => Pasar::all(),
+            'penjual' =>  Penjual::all(),
+            'dataminumans' => $dataminumans
+        ]);
     }
 
     /**
