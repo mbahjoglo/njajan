@@ -94,13 +94,10 @@
                 <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
                     <div class="tab-pane fade show active" id="menu-starters">
 
-                        @foreach ($datamakanans as $kategoripasar)
-                            <div class="tab-header text-center">
-                                <p>Menu Pasar</p>
-                                <h3>{{ $kategoripasar->namapasar }}</h3>
-                            </div>
-                        @endforeach
-
+                        <div class="tab-header text-center">
+                            <p>Menu Pasar</p>
+                            <h3>{{ $datamakanans->first()->namapasar }}</h3>
+                        </div>
 
                         <div class="row gy-5">
                             <div class="row gy-5">
@@ -145,7 +142,8 @@
                 </div>
 
             </div>
-        </section><!-- End Menu Section -->
+        </section>
+        <!-- End Menu Section -->
     </main>
 
     <!-- ======= Footer ======= -->
