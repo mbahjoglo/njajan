@@ -93,7 +93,7 @@
 
                         <div class="tab-header text-center">
                             <p>Menu</p>
-                            <h3>{{ $pasar->first()->namapasar }}</h3>
+                            <h3>{{ $datamakanans->first()->namapasar }}</h3>
                         </div>
 
 
