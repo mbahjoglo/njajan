@@ -78,24 +78,24 @@
                     <p>Check Our <span>Yummy Menu</span></p>
                 </div> --}}
 
-                <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
+                {{-- <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
                     <li class="nav-item">
                         <a class="nav-link show" href="{{ url('kategori/' . $pasar->first()->slug) }}">
                             <h4>{{ $pasar->first()->namapasar }}</h4>
                         </a>
                     </li>
-                </ul>
+                </ul> --}}
 
 
                 <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
                     <div class="tab-pane fade show active" id="menu-starters">
 
-                        @foreach ($datamakanans as $kategoripasar)
-                            <div class="tab-header text-center">
-                                <p>Menu Pasar</p>
-                                <h3>{{ $kategoripasar->namapasar }}</h3>
-                            </div>
-                        @endforeach
+
+                        <div class="tab-header text-center">
+                            <p>Menu</p>
+                            <h3>{{ $pasar->first()->namapasar }}</h3>
+                        </div>
+
 
 
                         <div class="row gy-5">
