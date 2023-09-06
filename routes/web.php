@@ -3,6 +3,8 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DaftarJastipController;
+use App\Http\Controllers\DaftarPenjualController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IndexAdminController;
 use App\Http\Controllers\LoginController;
@@ -11,7 +13,6 @@ use App\Http\Controllers\MakananViewController;
 use App\Http\Controllers\MinumanController;
 use App\Http\Controllers\MinumanViewController;
 use App\Http\Controllers\PasarController;
-use App\Http\Controllers\PasarViewController;
 use App\Http\Controllers\PenjualController;
 use App\Http\Controllers\PenjualViewController;
 use App\Http\Controllers\TestimoniController;
@@ -21,6 +22,7 @@ use App\Http\Controllers\ViewContactController;
 use App\Http\Controllers\ViewHomeController;
 use App\Http\Controllers\ViewMenuController;
 use App\Http\Controllers\ViewPasarController;
+use App\Http\Controllers\ViewJastipController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,9 +50,15 @@ Route::get('kategori/{slug}', [CategoryController::class, 'index'])->name('njaja
 
 Route::get('search/cari', [CategoryController::class, 'search']);
 
-// Route::resource('pasar', ViewPasarController::class);
+Route::resource('pasar', ViewPasarController::class);
 
 Route::resource('kontak', ViewContactController::class);
+
+Route::resource('jastip', ViewJastipController::class);
+
+Route::resource('daftarjastip', DaftarJastipController::class);
+
+Route::resource('daftarpenjual', DaftarPenjualController::class);
 
 // =============== Login & Register ===============
 

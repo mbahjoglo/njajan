@@ -54,18 +54,19 @@
                     <li><a href="{{ url('home') }}">Home</a></li>
                     <li><a href="{{ url('tentang') }}">Tentang</a></li>
                     <li><a href="{{ url('njajan') }}">njajan</a></li>
-                    {{-- <li><a href="pasar">Pasar</a></li> --}}
+                    <li><a href="{{ url('pasar') }}">Pasar</a></li>
                     <li><a href="{{ url('kontak') }}">Kontak</a></li>
                 </ul>
             </nav>
             <!-- .navbar -->
 
-            <a class="btn-book-a-table" href="{{ url('login') }}">Login</a>
+            <a class="btn-book-a-table" href="{{ url('jastip') }}">Jastip | <i class="bi bi-box-seam-fill"></i></a>
             <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
             <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
 
         </div>
-    </header><!-- End Header -->
+    </header>
+    <!-- End Header -->
 
 
     <main id="main">
@@ -77,47 +78,71 @@
             <div class="container-fluid" data-aos="fade-up">
 
                 <div class="section-header">
-                    <h2>market</h2>
-                    <p>Beberapa <span>Market</span> yang terdapat di njajan</p>
+                    <h2>Pasar</h2>
+                    <p>Beberapa <span>Pasar</span> yang terdapat di njajan</p>
                 </div>
 
-                <section class="container">
-                    @foreach ($data_pasars as $isi)
-                        <div class="accordion" id="accordionPanelsStayOpenExample">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-                                        aria-controls="panelsStayOpen-collapseOne">
-                                        {{ $isi->namapasar }}
-                                    </button>
-                                </h2>
-                                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
-                                    aria-labelledby="panelsStayOpen-headingOne">
-                                    <div class="accordion-body">
-                                        <div class="row">
-                                            <div class="col">
-                                                <img src="https://random.imagecdn.app/500/150" class="img-fluid"
-                                                    alt="https://random.imagecdn.app/500/150">
-                                            </div>
-                                            <div class="col">
-                                                <strong>{{ $isi->namapasar }}</strong> Deskripsi
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-8"></div>
-                                                    <div class="col-4"><button type="button"
-                                                            class="btn btn-outline-danger col-12">Lokasi</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+            </div>
+
+            <!--Pasar-->
+            {{-- <div class="container-fluid" data-aos="fade-up">
+                @foreach ($data_pasars as $isi)
+                    <div class="container text-center">
+                        <div class="card border-light mb-1 p-1">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="{{ asset('storage/pasar/' . $isi->foto) }}" class="rounded-start"
+                                        width="300" alt="">
+                                </div>
+                                <div class="col-md-8 mt-5">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ $isi->namapasar }}</h5>
+                                        <p class="card-text">{{ $isi->alamat }}</p>
+                                        <p class="card-text mt-2">
+                                        <h5 class="card-title text-danger">Jumlah Produk :</h5>
+                                        <a href="{{ $isi->link }}">
+                                            <small class="text-danger"><i class="bi bi-geo-alt"></i>
+                                                Google
+                                                Maps</small>
+                                        </a>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    @endforeach
+                    </div>
+                @endforeach
+            </div> --}}
 
-                </section>
+
+            <!-- ======= Chefs Section ======= -->
+            <section id="chefs" class="chefs section-bg">
+                <div class="container" data-aos="fade-up">
+
+                    <div class="row gy-4">
+                        @foreach ($data_pasars as $isi)
+                            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up"
+                                data-aos-delay="100">
+                                <div class="chef-member">
+                                    <div class="member-img">
+                                        <img src="{{ asset('storage/pasar/' . $isi->foto) }}" class="img-fluid"
+                                            alt="">
+                                    </div>
+                                    <div class="member-info">
+                                        <h4>{{ $isi->namapasar }}</h4>
+                                        <span>{{ $isi->alamat }}</span>
+                                        <h4 class="text-danger mt-3"> Jumlah Produk :</h4>
+                                        <a href="{{ $isi->link }}" class="btn btn-danger mt-4" type="button">Lokasi
+                                            Pasar | <i class="bi bi-geo-alt"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div><!-- End Chefs Member -->
+                        @endforeach
+                    </div>
+
+                </div>
+            </section><!-- End Chefs Section -->
 
             </div>
         </section>

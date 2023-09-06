@@ -49,94 +49,72 @@
                 {{-- <h1>njajan<span>.</span></h1> --}}
             </a>
 
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a href="{{ url('home') }}">Home</a></li>
-                    <li><a href="{{ url('tentang') }}">Tentang</a></li>
-                    <li><a href="{{ url('njajan') }}">njajan</a></li>
-                    <li><a href="{{ url('pasar') }}">Pasar</a></li>
-                    <li><a href="{{ url('kontak') }}">Kontak</a></li>
-                </ul>
-            </nav>
-            <!-- .navbar -->
-
-            <a class="btn-book-a-table" href="{{ url('jastip') }}">Jastip | <i class="bi bi-box-seam-fill"></i></a>
-            <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-            <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-
         </div>
-    </header>
-    <!-- End Header -->
+    </header><!-- End Header -->
 
 
     <main id="main">
 
         <br>
-
-        <!-- ======= Contact Section ======= -->
-        <section id="contact" class="contact">
+        <!-- ======= About Section ======= -->
+        <section id="harga" class="harga">
             <div class="container" data-aos="fade-up">
 
                 <div class="section-header">
-                    <h2>Kontak</h2>
-                    <p>Butuh Bantuan? <span>Kontak Kami</span></p>
+                    <h2>Daftar</h2>
+                    <p><b><span>Penjual</span></b></p>
                 </div>
 
-                <div class="mb-3">
-                    <iframe style="border:0; width: 100%; height: 350px;"
-                        src="https://maps.google.com/maps?q=Politeknik%20Balekambang,%20Kepel,%20Buaran,%20Kabupaten%20Jepara,%20Jawa%20Tengah&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                        frameborder="0" allowfullscreen></iframe>
-                </div><!-- End Google Maps -->
+                <!-- ======= Daftar Section ======= -->
+                <section id="contact" class="contact">
+                    <div class="container" data-aos="fade-up">
 
-                <div class="row gy-4">
-                    @foreach ($datas as $isi)
-                        <div class="col-md-6">
-                            <div class="info-item  d-flex align-items-center">
-                                <i class="icon bi bi-map flex-shrink-0"></i>
+                        <form action="forms/contact.php" method="post" role="form"
+                            class="php-email-form p-3 p-md-4">
+
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="nama" id="nama"
+                                    placeholder="Nama Lengkap" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" id="email"
+                                    placeholder="email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="nomor" id="nomor"
+                                    placeholder="Nomor WhatsApp" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="formFileLg" class="form-label">Pilih Lokasi Pasar </label>
+                                <select class="form-select" aria-label="Lokasi Pasar">
+                                    <option selected>Pilih Pasar</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <div>
-                                    <h3>Alamat</h3>
-                                    <p>{{ $isi->alamat }}</p>
+                                    <label for="formFileLg" class="form-label">Upload KTP </label>
+                                    <input class="form-control" id="ktp" type="file">
                                 </div>
                             </div>
-                        </div><!-- End Info Item -->
 
-                        <div class="col-md-6">
-                            <div class="info-item d-flex align-items-center">
-                                <i class="icon bi bi-envelope flex-shrink-0"></i>
-                                <div>
-                                    <h3>Email</h3>
-                                    <p>{{ $isi->email }}</p>
-                                </div>
+                            <div class="my-3">
+                                <div class="loading">Loading</div>
+                                <div class="error-message"></div>
+                                <div class="sent-message">Your message has been sent. Thank you!</div>
                             </div>
-                        </div><!-- End Info Item -->
+                            <div class="text-center"><button type="submit">Daftar Penjual</button></div>
+                        </form><!--End Contact Form -->
 
-                        <div class="col-md-6">
-                            <div class="info-item  d-flex align-items-center">
-                                <i class="icon bi bi-telephone flex-shrink-0"></i>
-                                <div>
-                                    <h3>Hubungi</h3>
-                                    <p>{{ $isi->nomor }}</p>
-                                </div>
-                            </div>
-                        </div><!-- End Info Item -->
-
-                        <div class="col-md-6">
-                            <div class="info-item  d-flex align-items-center">
-                                <i class="icon bi bi-share flex-shrink-0"></i>
-                                <div>
-                                    <h3>Buka</h3>
-                                    <div>
-                                        <p>{{ $isi->open_admin }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!-- End Info Item -->
-                    @endforeach
-                </div>
+                    </div>
+                </section>
+                <!-- End Contact Section -->
 
             </div>
         </section>
-        <!-- End Contact Section -->
+        <!-- End About Section -->
 
     </main>
     <!-- End #main -->
@@ -157,11 +135,13 @@
             </div>
         </div>
 
-    </footer>
+    </footer><!-- End Footer -->
     <!-- End Footer -->
 
     <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
+
+    <div id="preloader"></div>
 
     <!-- Vendor JS Files -->
     <script src="assets/home/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

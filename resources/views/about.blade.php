@@ -54,18 +54,19 @@
                     <li><a href="{{ url('home') }}">Home</a></li>
                     <li><a href="{{ url('tentang') }}">Tentang</a></li>
                     <li><a href="{{ url('njajan') }}">njajan</a></li>
-                    {{-- <li><a href="pasar">Pasar</a></li> --}}
+                    <li><a href="{{ url('pasar') }}">Pasar</a></li>
                     <li><a href="{{ url('kontak') }}">Kontak</a></li>
                 </ul>
             </nav>
             <!-- .navbar -->
 
-            <a class="btn-book-a-table" href="{{ url('login') }}">Login</a>
+            <a class="btn-book-a-table" href="{{ url('jastip') }}">Jastip | <i class="bi bi-box-seam-fill"></i></a>
             <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
             <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
 
         </div>
-    </header><!-- End Header -->
+    </header>
+    <!-- End Header -->
 
 
     <main id="main">
@@ -157,7 +158,7 @@
         <div class="container" data-aos="fade-up">
 
             <div class="section-header">
-                <h2>Testimonials</h2>
+                <h2>Ungkapan</h2>
                 <p>Apakah mereka <span>Mengatakan Tentang Kami</span></p>
             </div>
 
@@ -184,8 +185,8 @@
 
                                     </div>
                                     <div class="col-lg-2 text-center">
-                                        <img src="{{ asset('storage/testimoni/' . $isi->foto) }}"
-                                            class="img-fluid testimonial-img" alt="">
+                                        <img src="assets/home/img/testimonials/icon.png" class="testimonial-img"
+                                            width="150" alt="">
                                     </div>
 
                                 </div>
@@ -201,6 +202,50 @@
         </div>
     </section>
     <!-- End Testimonials Section -->
+
+    <!-- ======= Book A Table Section ======= -->
+    <section id="book-a-table" class="book-a-table">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-header">
+                <h2>Tulis Ungkapan</h2>
+                <p>Tulis <span>Ungkapan </span>Tentang Kami</p>
+            </div>
+
+            <div class="row g-0">
+
+                <form action="forms/contact.php" method="post" role="form" class="php-email-form p-3 p-md-4">
+                    <div class="row">
+                        <div class="col-xl-6 form-group">
+                            <input type="text" name="name" class="form-control" id="name"
+                                placeholder="Nama Lengkap" required>
+                        </div>
+
+                        <div class="col-xl-6 form-group">
+                            <input type="text" name="name" class="form-control" id="name"
+                                placeholder="Sebagai" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <textarea class="form-control" name="message" rows="5" placeholder="Tulis Ungkapan" required></textarea>
+                    </div>
+                    <div class="my-3">
+                        <div class="loading">Loading</div>
+                        <div class="error-message"></div>
+                        <div class="sent-message">Your message has been sent. Thank you!</div>
+                    </div>
+                    <div class="text-center"><button type="submit">Kirim Ungkapan</button></div>
+                </form><!--End Contact Form -->
+
+                <div class="col-lg-8 d-flex align-items-center reservation-form-bg">
+
+                </div><!-- End Reservation Form -->
+
+            </div>
+
+        </div>
+    </section><!-- End Book A Table Section -->
 
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">

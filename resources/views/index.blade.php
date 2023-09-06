@@ -34,7 +34,7 @@
   * Template URL: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+    ======================================================== -->
 </head>
 
 <body>
@@ -54,18 +54,19 @@
                     <li><a href="{{ url('home') }}">Home</a></li>
                     <li><a href="{{ url('tentang') }}">Tentang</a></li>
                     <li><a href="{{ url('njajan') }}">njajan</a></li>
-                    {{-- <li><a href="pasar">Pasar</a></li> --}}
+                    <li><a href="{{ url('pasar') }}">Pasar</a></li>
                     <li><a href="{{ url('kontak') }}">Kontak</a></li>
                 </ul>
             </nav>
             <!-- .navbar -->
 
-            <a class="btn-book-a-table" href="{{ url('login') }}">Login</a>
+            <a class="btn-book-a-table" href="{{ url('jastip') }}">Jastip | <i class="bi bi-box-seam-fill"></i></a>
             <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
             <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
 
         </div>
-    </header><!-- End Header -->
+    </header>
+    <!-- End Header -->
 
     <br>
     <br>
@@ -80,7 +81,7 @@
                         <h2 data-aos="fade-up">{{ $isi->judul }}</h2>
                         <p data-aos="fade-up" data-aos-delay="100">{{ $isi->deskripsi }}</p>
                         <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
-                            <a href="" class="btn-book-a-table">Daftar Sebagai Penjual</a>
+                            <a href="{{ url('daftarpenjual') }}" class="btn-book-a-table">Daftar Sebagai Penjual</a>
                             <a href="{{ $isi->link }}" class="glightbox btn-watch-video d-flex align-items-center"><i
                                     class="bi bi-play-circle"></i><span>Menonton Video</span></a>
                         </div>

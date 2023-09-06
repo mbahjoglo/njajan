@@ -43,7 +43,7 @@
     <header id="header" class="header fixed-top d-flex align-items-center">
         <div class="container d-flex align-items-center justify-content-between">
 
-            <a href="home" class="logo d-flex align-items-center me-auto me-lg-0">
+            <a href="{{ url('home') }}" class="logo d-flex align-items-center me-auto me-lg-0">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
                 <img src="{{ url('assets/home/img/logo/njajan.png') }}" alt="">
                 {{-- <h1>njajan<span>.</span></h1> --}}
@@ -54,13 +54,13 @@
                     <li><a href="{{ url('home') }}">Home</a></li>
                     <li><a href="{{ url('tentang') }}">Tentang</a></li>
                     <li><a href="{{ url('njajan') }}">njajan</a></li>
-                    {{-- <li><a href="pasar">Pasar</a></li> --}}
+                    <li><a href="{{ url('pasar') }}">Pasar</a></li>
                     <li><a href="{{ url('kontak') }}">Kontak</a></li>
                 </ul>
             </nav>
             <!-- .navbar -->
 
-            <a class="btn-book-a-table" href="{{ url('login') }}">Login</a>
+            <a class="btn-book-a-table" href="{{ url('jastip') }}">Jastip | <i class="bi bi-box-seam-fill"></i></a>
             <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
             <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
 
