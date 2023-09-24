@@ -296,29 +296,18 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-journal-text"></i><span>Menu</span><i class="bi bi-chevron-down ms-auto"></i>
+                <a class="nav-link collapsed" href="pages-menu-makanan">
+                    <i class="bi bi-egg-fried"></i>
+                    <span>Produk</span>
                 </a>
-                <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                    <li>
-                        <a href="pages-menu-makanan">
-                            <i class="bi bi-egg-fried"></i><span>Makanan</span>
-                        </a>
-                    </li>
-                    <li>
-                        {{-- <a href="pages-menu-minuman">
-                            <i class="bi bi-cup-straw"></i><span>Minuman</span>
-                        </a> --}}
-                    </li>
-                </ul>
             </li>
 
-            {{-- <li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="pages-pasar">
                     <i class="bi bi-shop"></i>
                     <span>Pasar</span>
                 </a>
-            </li> --}}
+            </li>
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="pages-contact">
@@ -337,6 +326,13 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link collapsed" href="input-jastip">
+                    <i class="bi bi-box-seam"></i>
+                    <span>Jastip</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="input-pasar">
                     <i class="bi bi-shop"></i>
                     <span>Pasar</span>
@@ -344,21 +340,10 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#produk-nav" data-bs-toggle="collapse" href="">
-                    <i class="bi bi-journal-text"></i><span>Produk</span><i class="bi bi-chevron-down ms-auto"></i>
+                <a class="nav-link collapsed" href="input-produk-makanan">
+                    <i class="bi bi-egg-fried"></i>
+                    <span>Produk</span>
                 </a>
-                <ul id="produk-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                    <li>
-                        <a href="input-produk-makanan">
-                            <i class="bi bi-circle"></i><span>Makanan</span>
-                        </a>
-                    </li>
-                    <li>
-                        {{-- <a href="input-produk-minuman">
-                            <i class="bi bi-circle"></i><span>Minuman</span>
-                        </a> --}}
-                    </li>
-                </ul>
             </li>
 
             <li class="nav-item">
@@ -374,6 +359,13 @@
                 <a class="nav-link collapsed" href="tables-penjual">
                     <i class="bi bi-person"></i>
                     <span>Penjual</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="tables-jastip">
+                    <i class="bi bi-box-seam"></i>
+                    <span>Jastip</span>
                 </a>
             </li>
 
@@ -448,16 +440,16 @@
                                         class="bi bi-three-dots"></i></a>
                                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                                     <li class="dropdown-header text-start">
-                                        <h6>Makanan</h6>
+                                        <h6>Produk</h6>
                                     </li>
 
-                                    <li><a class="dropdown-item" href="pages-menu-makanan">Daftar Makanan</a></li>
-                                    <li><a class="dropdown-item" href="input-produk-makanan">Input Makanan</a></li>
+                                    <li><a class="dropdown-item" href="pages-menu-makanan">Daftar Produk</a></li>
+                                    <li><a class="dropdown-item" href="input-produk-makanan">Input Produk</a></li>
                                 </ul>
                             </div>
 
                             <div class="card-body">
-                                <h5 class="card-title">Makanan <span>| njajan</span></h5>
+                                <h5 class="card-title">Produk <span>| njajan</span></h5>
 
                                 <div class="d-flex align-items-center">
                                     <div
@@ -476,42 +468,6 @@
                     </div>
                     <!-- Produk Sales Card -->
 
-                    {{-- <!-- Minuman Card -->
-                    <div class="col-xxl-4 col-md-6">
-                        <div class="card info-card sales-card">
-
-                            <div class="filter">
-                                <a class="icon" href="#" data-bs-toggle="dropdown"><i
-                                        class="bi bi-three-dots"></i></a>
-                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                    <li class="dropdown-header text-start">
-                                        <h6>Minuman</h6>
-                                    </li>
-
-                                    <li><a class="dropdown-item" href="#">open produk</a></li>
-                                </ul>
-                            </div>
-
-                            <div class="card-body">
-                                <h5 class="card-title">Minuman <span>| njajan</span></h5>
-
-                                <div class="d-flex align-items-center">
-                                    <div
-                                        class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                        <i class="bi bi-cup-straw"></i>
-                                    </div>
-                                    <div class="ps-3">
-                                        <h6>{{ $hitungminumans }}</h6>
-                                        <span class="text-muted small pt-2 ps-1">produk</span>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <!-- Produk Sales Card --> --}}
-
                     <!-- Penjual Card -->
                     <div class="col-xxl-4 col-md-6">
                         <div class="card info-card sales-card">
@@ -524,7 +480,8 @@
                                         <h6>Penjual</h6>
                                     </li>
 
-                                    <li><a class="dropdown-item" href="#">open penjual</a></li>
+                                    <li><a class="dropdown-item" href="input-penjual">Input Penjual</a></li>
+                                    <li><a class="dropdown-item" href="tables-penjual">Table Penjual</a></li>
                                 </ul>
                             </div>
 
@@ -560,7 +517,8 @@
                                         <h6>Pasar</h6>
                                     </li>
 
-                                    <li><a class="dropdown-item" href="#">open pasar</a></li>
+                                    <li><a class="dropdown-item" href="input-pasar">Input Pasar</a></li>
+                                    <li><a class="dropdown-item" href="table-pasar">Table Pasar</a></li>
                                 </ul>
                             </div>
 
@@ -622,6 +580,43 @@
                     </div>
                     <!-- End Pasar Card -->
 
+                    <!-- Jastip Card -->
+                    <div class="col-xxl-4 col-md-6">
+                        <div class="card info-card sales-card">
+
+                            <div class="filter">
+                                <a class="icon" href="tables-jastip" data-bs-toggle="dropdown"><i
+                                        class="bi bi-three-dots"></i></a>
+                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                    <li class="dropdown-header text-start">
+                                        <h6>Jastip</h6>
+                                    </li>
+
+                                    <li><a class="dropdown-item" href="tables-jastip">Daftar Jastip</a></li>
+                                    <li><a class="dropdown-item" href="input-jastip">Input JAstip</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="card-body">
+                                <h5 class="card-title">Jastip <span>| njajan</span></h5>
+
+                                <div class="d-flex align-items-center">
+                                    <div
+                                        class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-box-seam"></i>
+                                    </div>
+                                    <div class="ps-3">
+                                        <h6> 0 </h6>
+                                        <span class="text-muted small pt-2 ps-1">Jastip</span>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Produk Sales Card -->
+
                     <!-- Menu Card -->
                     <div class="col-12">
                         <div class="card top-selling overflow-auto">
@@ -631,18 +626,16 @@
                                         class="bi bi-three-dots"></i></a>
                                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                                     <li class="dropdown-header text-start">
-                                        <h6>Menu Table</h6>
+                                        <h6>Produk Table</h6>
                                     </li>
 
-                                    <li><a class="dropdown-item" href="#">Table Makanan</a></li>
-                                    <li><a class="dropdown-item" href="#">Table Minuman</a></li>
+                                    <li><a class="dropdown-item" href="pages-menu-makanan">Table Produk</a></li>
 
                                     <li class="dropdown-header text-start">
-                                        <h6>Menu Input</h6>
+                                        <h6>Produk Input</h6>
                                     </li>
 
-                                    <li><a class="dropdown-item" href="#">Input Makanan</a></li>
-                                    <li><a class="dropdown-item" href="#">Input Minuman</a></li>
+                                    <li><a class="dropdown-item" href="input-produk-makanan">Input Produk</a></li>
                                 </ul>
                             </div>
 
@@ -674,22 +667,6 @@
                                             </tr>
                                         </tbody>
                                     @endforeach
-
-                                    {{-- @foreach ($dataminumans as $isi)
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row"><a href="#">
-                                                        <img width="100"
-                                                            src="{{ asset('storage/minuman/' . $isi->fotominuman) }}"
-                                                            alt="" title="">
-                                                </th>
-                                                <td>{{ $isi->namaminuman }}</td>
-                                                <td>{{ $isi->namapenjual }}</td>
-                                                <td class="fw-bold">{{ $isi->pasar }}</td>
-                                                <td>{{ $isi->harga }}</td>
-                                            </tr>
-                                        </tbody>
-                                    @endforeach --}}
 
                                 </table>
 
@@ -747,12 +724,8 @@
                                         },
                                         data: [{
                                                 value: {{ $hitungmakanans }},
-                                                name: 'Makanan'
+                                                name: 'Produk'
                                             },
-                                            // {
-                                            //     value: {{ $hitungminumans }},
-                                            //     name: 'Minuman'
-                                            // },
                                             {
                                                 value: {{ $hitungpenjuals }},
                                                 name: 'Penjual'
@@ -784,7 +757,8 @@
                                 <h6>Setting Pasar</h6>
                             </li>
 
-                            <li><a class="dropdown-item" href="#">Open Pasar</a></li>
+                            <li><a class="dropdown-item" href="pages-pasar">Open Pasar</a></li>
+                            <li><a class="dropdown-item" href="input-pasar">Input Pasar</a></li>
                         </ul>
                     </div>
 

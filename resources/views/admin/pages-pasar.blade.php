@@ -296,29 +296,18 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-journal-text"></i><span>Menu</span><i class="bi bi-chevron-down ms-auto"></i>
+                <a class="nav-link collapsed" href="pages-menu-makanan">
+                    <i class="bi bi-egg-fried"></i>
+                    <span>Produk</span>
                 </a>
-                <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                    <li>
-                        <a href="pages-menu-makanan">
-                            <i class="bi bi-egg-fried"></i><span>Makanan</span>
-                        </a>
-                    </li>
-                    <li>
-                        {{-- <a href="pages-menu-minuman">
-                            <i class="bi bi-cup-straw"></i><span>Minuman</span>
-                        </a> --}}
-                    </li>
-                </ul>
             </li>
 
-            {{-- <li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="pages-pasar">
                     <i class="bi bi-shop"></i>
                     <span>Pasar</span>
                 </a>
-            </li> --}}
+            </li>
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="pages-contact">
@@ -337,6 +326,13 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link collapsed" href="input-jastip">
+                    <i class="bi bi-box-seam"></i>
+                    <span>Jastip</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="input-pasar">
                     <i class="bi bi-shop"></i>
                     <span>Pasar</span>
@@ -344,21 +340,10 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#produk-nav" data-bs-toggle="collapse" href="">
-                    <i class="bi bi-journal-text"></i><span>Produk</span><i class="bi bi-chevron-down ms-auto"></i>
+                <a class="nav-link collapsed" href="input-produk-makanan">
+                    <i class="bi bi-egg-fried"></i>
+                    <span>Produk</span>
                 </a>
-                <ul id="produk-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                    <li>
-                        <a href="input-produk-makanan">
-                            <i class="bi bi-circle"></i><span>Makanan</span>
-                        </a>
-                    </li>
-                    <li>
-                        {{-- <a href="input-produk-minuman">
-                            <i class="bi bi-circle"></i><span>Minuman</span>
-                        </a> --}}
-                    </li>
-                </ul>
             </li>
 
             <li class="nav-item">
@@ -374,6 +359,13 @@
                 <a class="nav-link collapsed" href="tables-penjual">
                     <i class="bi bi-person"></i>
                     <span>Penjual</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="tables-jastip">
+                    <i class="bi bi-box-seam"></i>
+                    <span>Jastip</span>
                 </a>
             </li>
 

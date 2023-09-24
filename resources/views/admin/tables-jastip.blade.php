@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Pages Minuman | Admin njajan</title>
+    <title>Table Penjual | Admin njajan</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -296,29 +296,18 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-journal-text"></i><span>Menu</span><i class="bi bi-chevron-down ms-auto"></i>
+                <a class="nav-link collapsed" href="pages-menu-makanan">
+                    <i class="bi bi-egg-fried"></i>
+                    <span>Produk</span>
                 </a>
-                <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                    <li>
-                        <a href="pages-menu-makanan">
-                            <i class="bi bi-egg-fried"></i><span>Makanan</span>
-                        </a>
-                    </li>
-                    <li>
-                        {{-- <a href="pages-menu-minuman">
-                            <i class="bi bi-cup-straw"></i><span>Minuman</span>
-                        </a> --}}
-                    </li>
-                </ul>
             </li>
 
-            {{-- <li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="pages-pasar">
                     <i class="bi bi-shop"></i>
                     <span>Pasar</span>
                 </a>
-            </li> --}}
+            </li>
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="pages-contact">
@@ -337,6 +326,13 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link collapsed" href="input-jastip">
+                    <i class="bi bi-box-seam"></i>
+                    <span>Jastip</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="input-pasar">
                     <i class="bi bi-shop"></i>
                     <span>Pasar</span>
@@ -344,21 +340,10 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#produk-nav" data-bs-toggle="collapse" href="">
-                    <i class="bi bi-journal-text"></i><span>Produk</span><i class="bi bi-chevron-down ms-auto"></i>
+                <a class="nav-link collapsed" href="input-produk-makanan">
+                    <i class="bi bi-egg-fried"></i>
+                    <span>Produk</span>
                 </a>
-                <ul id="produk-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                    <li>
-                        <a href="input-produk-makanan">
-                            <i class="bi bi-circle"></i><span>Makanan</span>
-                        </a>
-                    </li>
-                    <li>
-                        {{-- <a href="input-produk-minuman">
-                            <i class="bi bi-circle"></i><span>Minuman</span>
-                        </a> --}}
-                    </li>
-                </ul>
             </li>
 
             <li class="nav-item">
@@ -378,6 +363,13 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link collapsed" href="tables-jastip">
+                    <i class="bi bi-box-seam"></i>
+                    <span>Jastip</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="tables-testimoni">
                     <i class="bi bi-textarea-t"></i>
                     <span>Testimoni</span>
@@ -389,140 +381,160 @@
     </aside>
     <!-- End Sidebar-->
 
-    {{-- <main id="main" class="main">
+    <main id="main" class="main">
+
+        <div class="pagetitle">
+            <h1>Jastip</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Table | Jastip</li>
+                </ol>
+            </nav>
+        </div>
+        <!-- End Page Title -->
 
         <!-- Menu Card -->
         <div class="col-12">
             <div class="card top-selling overflow-auto">
 
                 <div class="card-body pb-0">
-                    <h5 class="card-title">Daftar <span>| Table Minuman</span></h5>
+                    <h5 class="card-title">Daftar <span>| Table Jastip</span></h5>
 
                     <!-- Default Table -->
                     <table class="table table-hover table-bordered">
                         <thead>
                             <tr>
-                                <th scope="col">Foto</th>
-                                <th scope="col">Nama Minuman</th>
-                                <th scope="col">Penjual</th>
-                                <th scope="col">Pasar</th>
-                                <th scope="col">Harga</th>
-                                <th scope="col">No/WhatsApp</th>
+                                <th scope="col">Foto Jastip</th>
+                                <th scope="col">Nama Penjual</th>
+                                <th scope="col">Alamat</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">No.WhatsApp</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
-                        @foreach ($dataminumans as $isi)
+                        {{-- @foreach ($data_penjuals as $isi)
                             <tbody>
                                 <tr>
                                     <td>
-                                        <img width="100" src="{{ asset('storage/minuman/' . $isi->fotominuman) }}"
+                                        <img width="100" src="{{ asset('storage/penjual/' . $isi->foto) }}"
                                             alt="" title="">
                                     </td>
-                                    <td>{{ $isi->namaminuman }}</td>
                                     <td>{{ $isi->namapenjual }}</td>
+                                    <td>{{ $isi->alamat }}</td>
                                     <td>{{ $isi->pasar }}</td>
-                                    <td>{{ $isi->harga }}</td>
                                     <td>{{ $isi->nomor }}</td>
                                     <td>
-
-                                        <!-- Update -->
                                         <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                                            data-bs-target="#minuman{{ $isi->id_minuman }}">
+                                            data-bs-target="#penjual{{ $isi->id_penjual }}">
                                             <i class="bi bi-arrow-clockwise"></i>
                                         </button>
 
-                                        <!-- hapus -->
-                                        <form action="{{ url('/pages-menu-minuman/' . $isi->id_minuman) }}"
+                                        <form action="{{ url('/tables-penjual/' . $isi->id_penjual) }}"
                                             method="post">
                                             @csrf
                                             <input type="hidden" name="_method" value="DELETE">
                                             <button type="submit" class="btn btn-danger"
-                                                onclick="return confirm('Apakah Yakin Menghapus Data ?')"><i
+                                                onclick="return confirm('Apakah Yakin Menghapus Data Penjual?')"><i
                                                     class="bi bi-trash"></i></button>
                                         </form>
-
-                                        <div class="modal fade" id="minuman{{ $isi->id_minuman }}" tabindex="-1"
-                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <form method="POST"
-                                                        action="{{ url('pages-menu-minuman/' . $isi->id_minuman) }}"
-                                                        enctype="multipart/form-data">
-                                                        @csrf
-                                                        @method('PUT')
-                                                        <div class="modal-header">
-                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">
-                                                                Update Minuman
-                                                            </h1>
-                                                            <button type="button" class="btn-close"
-                                                                data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-
-                                                        <div class="modal-body">
-                                                            <div class="row mb-3">
-                                                                <label for="inputText"
-                                                                    class="col-sm-2 col-form-label">Nama
-                                                                    Produk</label>
-                                                                <div class="col-sm-10">
-                                                                    <input type="text" class="form-control"
-                                                                        name="namaminuman"
-                                                                        value="{{ $isi->namaminuman }}">
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="row mb-3">
-                                                                <label for="inputNumber"
-                                                                    class="col-sm-2 col-form-label">Rp.
-                                                                </label>
-                                                                <div class="col-sm-10">
-                                                                    <input type="number" class="form-control"
-                                                                        name="harga" value="{{ $isi->harga }}">
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="row mb-3">
-                                                                <label for="inputNumber"
-                                                                    class="col-sm-2 col-form-label">Foto
-                                                                    Sekarang</label>
-                                                                <div class="col-sm-10">
-                                                                    <img class="col-sm-2 col-form-label img-fluid"
-                                                                        src="{{ asset('storage/minuman/' . $isi->fotominuman) }}">
-                                                                </div>
-
-                                                                <div class="row mb-3">
-                                                                    <label for="inputNumber"
-                                                                        class="col-sm-2 col-form-label">Foto
-                                                                        Produk</label>
-                                                                    <div class="col-sm-10">
-                                                                        <input class="form-control" type="file"
-                                                                            id="formFile" name="fotominuman">
-                                                                    </div>
-                                                                </div>
-
-                                                                <input type="hidden" name="fotolama"
-                                                                    value="{{ $isi->fotominuman }}">
-
-
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal">Close</button>
-
-                                                                <a
-                                                                    href="{{ url('pages-menu-minuman/' . $isi->id_minuman) }}">
-                                                                    <button type="submit"
-                                                                        class="btn btn-primary">Save
-                                                                        changes</button>
-                                                                </a>
-                                                            </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </td>
                                 </tr>
+
+                                <div class="modal fade" id="penjual{{ $isi->id_penjual }}" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <form method="POST"
+                                                action="{{ url('tables-penjual/' . $isi->id_penjual) }}"
+                                                enctype="multipart/form-data">
+                                                @csrf
+                                                @method('PUT')
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Update Penjual
+                                                    </h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="row mb-3">
+                                                        <label for="inputText" class="col-sm-2 col-form-label">Nama
+                                                            Penjual</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" class="form-control"
+                                                                name="namapenjual" value="{{ $isi->namapenjual }}">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mb-3">
+                                                        <label for="inputText"
+                                                            class="col-sm-2 col-form-label">Alamat</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" class="form-control"
+                                                                name="namamakanan" value="{{ $isi->alamat }}">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mb-3">
+                                                        <label class="col-sm-2 col-form-label">Pasar</label>
+                                                        <div class="col-sm-10">
+                                                            <select class="form-select"
+                                                                aria-label="Default select example" name="pasar">
+                                                                <option selected>Pilih Pasar</option>
+                                                                @foreach ($pasar as $sar)
+                                                                    <option value="{{ $sar->namapasar }}">
+                                                                        {{ $sar->namapasar }}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mb-3">
+                                                        <label for="inputNumber"
+                                                            class="col-sm-2 col-form-label">Nomor</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="number" class="form-control" name="nomor"
+                                                                value="{{ $isi->nomor }}">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mb-3">
+                                                        <label for="inputNumber" class="col-sm-2 col-form-label">Foto
+                                                            Sekarang</label>
+                                                        <div class="col-sm-10">
+                                                            <img class="col-sm-2 col-form-label img-fluid"
+                                                                src="{{ asset('storage/penjual/' . $isi->foto) }}">
+                                                        </div>
+
+                                                        <div class="row mb-3">
+                                                            <label for="inputNumber"
+                                                                class="col-sm-2 col-form-label">Foto
+                                                                Penjual</label>
+                                                            <div class="col-sm-10">
+                                                                <input class="form-control" type="file"
+                                                                    id="formFile" name="foto">
+                                                            </div>
+                                                        </div>
+
+                                                        <input type="hidden" name="fotolama"
+                                                            value="{{ $isi->foto }}">
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Close</button>
+
+                                                        <a href="{{ url('tables-penjual/' . $isi->id_penjual) }}">
+                                                            <button type="submit" class="btn btn-primary">Save
+                                                                changes</button>
+                                                        </a>
+                                                    </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                             </tbody>
-                        @endforeach
+                        @endforeach --}}
                     </table>
                     <!-- End Default Table Example -->
 
@@ -532,7 +544,8 @@
         </div>
         <!-- End Menu Card -->
 
-    </main><!-- End #main --> --}}
+
+    </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">

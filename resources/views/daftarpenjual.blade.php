@@ -95,8 +95,8 @@
                             </div>
                             <div class="form-group">
                                 <div>
-                                    <label for="formFileLg" class="form-label">Upload KTP </label>
-                                    <input class="form-control" id="ktp" type="file">
+                                    <label for="formFileLg" class="form-label">Foto Penjual</label>
+                                    <input class="form-control" id="foto" type="file">
                                 </div>
                             </div>
 

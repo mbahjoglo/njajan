@@ -60,54 +60,29 @@
         <section id="harga" class="harga">
             <div class="container" data-aos="fade-up">
 
-                <div class="section-header">
-                    <h2>Daftar</h2>
-                    <p><b><span>Jastip</span></b> ( Jasa Titip )</p>
-                </div>
-
-                <!-- ======= Daftar Section ======= -->
-                <section id="contact" class="contact">
+                <!-- ======= Why Us Section ======= -->
+                <section id="why-us" class="why-us">
                     <div class="container" data-aos="fade-up">
 
-                        <form action="forms/contact.php" method="post" role="form"
-                            class="php-email-form p-3 p-md-4">
-
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="nama" id="nama"
-                                    placeholder="Nama Lengkap" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="alamat" id="alamat"
-                                    placeholder="Alamat Lengkap" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" name="email" id="email"
-                                    placeholder="email" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="nomor" id="nomor"
-                                    placeholder="Nomor WhatsApp" required>
-                            </div>
-                            <div class="form-group">
-                                <div>
-                                    <label for="formFileLg" class="form-label">Foto Data Diri</label>
-                                    <input class="form-control" id="foto" type="file">
+                        <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                            <div class="why-box">
+                                <h3>Pemberitahuan !!!</h3>
+                                <p>
+                                    Selamat Data Anda Sudah Tersimpan
+                                    <br>
+                                    Silahkan melakukan konfirmasi untuk menindak lanjuti baik sebagai penjual atau
+                                    sebagai jastip (jasa titip).
+                                    <br>silakan klik tombol dibawah ini
+                                </p>
+                                <div class="text-center">
+                                    <a href="https://wa.me/62895326541050" class="more-btn"><i
+                                            class="bi bi-whatsapp"></i> Hubungi<i class="bx bx-chevron-right"></i></a>
                                 </div>
                             </div>
-
-                            <div class="my-3">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
-                            </div>
-                            <div class="text-center">
-                                <button type="submit">Daftar Jastip</button>
-                            </div>
-                        </form><!--End Contact Form -->
+                        </div>
 
                     </div>
-                </section>
-                <!-- End Contact Section -->
+                </section><!-- End Why Us Section -->
 
             </div>
         </section>

@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AdminInputJastipController;
+use App\Http\Controllers\AdminTablesJastipController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DaftarJastipController;
@@ -10,9 +12,9 @@ use App\Http\Controllers\IndexAdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MakananController;
 use App\Http\Controllers\MakananViewController;
-use App\Http\Controllers\MinumanController;
-use App\Http\Controllers\MinumanViewController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PasarController;
+use App\Http\Controllers\PasarViewController;
 use App\Http\Controllers\PenjualController;
 use App\Http\Controllers\PenjualViewController;
 use App\Http\Controllers\TestimoniController;
@@ -60,6 +62,8 @@ Route::resource('daftarjastip', DaftarJastipController::class);
 
 Route::resource('daftarpenjual', DaftarPenjualController::class);
 
+Route::resource('notification', NotificationController::class);
+
 // =============== Login & Register ===============
 
 Route::get('login', [LoginController::class, 'login'])->name('login');
@@ -92,9 +96,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('pages-menu-makanan', MakananViewController::class);
 
-    Route::resource('pages-menu-minuman', MinumanViewController::class);
-
-    // Route::resource('pages-pasar', PasarViewController::class);
+    Route::resource('pages-pasar', PasarViewController::class);
 
     Route::resource('pages-contact', ContactController::class);
 
@@ -102,17 +104,19 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('input-penjual', PenjualController::class);
 
+    Route::resource('input-jastip', AdminInputJastipController::class);
+
     Route::resource('input-pasar', PasarController::class);
 
     Route::resource('input-produk-makanan', MakananController::class);
-
-    Route::resource('input-produk-minuman', MinumanController::class);
 
     Route::resource('input-testimoni', TestimoniController::class);
 
     // =============== Table Admin
 
     Route::resource('tables-penjual', PenjualViewController::class);
+
+    Route::resource('tables-jastip', AdminTablesJastipController::class);
 
     Route::resource('tables-testimoni', TestimoniViewController::class);
 });

@@ -2,15 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Minuman;
-use App\Models\Penjual;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 
-use function GuzzleHttp\Promise\all;
-
-class MinumanViewController extends Controller
+class AdminInputJastipController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,9 +13,7 @@ class MinumanViewController extends Controller
      */
     public function index()
     {
-        $penjual = Penjual::all();
-        $dataminumans = DB::table('minuman')->join('penjual', 'minuman.penjual', '=', 'penjual.id_penjual')->get();
-        return view('admin/pages-menu-minuman', compact('dataminumans', 'penjual'));
+        return view('admin/input-jastip');
     }
 
     /**
@@ -74,23 +66,9 @@ class MinumanViewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id_minuman)
+    public function update(Request $request, $id)
     {
-        $dataminumans = Minuman::find($id_minuman);
-
-        if ($request->fotominuman == '') {
-            // $data_makanans->fotominuman = $request->fotolama;
-        } else {
-            $fotominuman = $request->file('fotominuman')->getClientOriginalName();
-            $request->file('fotominuman')->storeAs('minuman', $fotominuman);
-            Storage::delete('minuman/' . $request->fotolama);
-            $dataminumans->fotominuman = $request->file('fotominuman')->getClientOriginalName();
-        }
-
-        $dataminumans->namaminuman = $request->namaminuman;
-        $dataminumans->harga = $request->harga;
-        $dataminumans->save();
-        return back();
+        //
     }
 
     /**
@@ -101,9 +79,6 @@ class MinumanViewController extends Controller
      */
     public function destroy($id)
     {
-        $data_minumans = Minuman::find($id);
-        Storage::delete('minuman/' . $data_minumans->fotominuman);
-        $data_minumans->delete();
-        return back();
+        //
     }
 }

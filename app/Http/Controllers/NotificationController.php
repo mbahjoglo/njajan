@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Minuman;
-use App\Models\Pasar;
-use App\Models\Penjual;
 use Illuminate\Http\Request;
 
-class MinumanController extends Controller
+class NotificationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +13,7 @@ class MinumanController extends Controller
      */
     public function index()
     {
-        $data_minumans = Minuman::all();
-        $penjual = Penjual::all();
-        $pasar = Pasar::all();
-        return view('admin/input-produk-minuman', compact('data_minumans', 'penjual', 'pasar'));
+        return view('notification');
     }
 
     /**
@@ -40,16 +34,7 @@ class MinumanController extends Controller
      */
     public function store(Request $request)
     {
-        $gambar = $request->file('fotominuman')->getClientOriginalName();
-        $request->file('fotominuman')->storeAs('minuman', $gambar);
-        $data_minumans = new Minuman();
-        $data_minumans->namaminuman = $request->namaminuman;
-        $data_minumans->penjual = $request->penjual;
-        $data_minumans->harga = $request->harga;
-        $data_minumans->fotominuman = $request->file('fotominuman')->getClientOriginalName();
-        $data_minumans->save();
-
-        return back();
+        //
     }
 
     /**
@@ -71,7 +56,7 @@ class MinumanController extends Controller
      */
     public function edit($id)
     {
-        return view('admin/update-makanan');
+        //
     }
 
     /**
@@ -83,6 +68,7 @@ class MinumanController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //
     }
 
     /**
@@ -93,5 +79,6 @@ class MinumanController extends Controller
      */
     public function destroy($id)
     {
+        //
     }
 }

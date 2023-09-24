@@ -5,12 +5,13 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Input Minuman | Admin njajan</title>
+    <title>Input Penjual | Admin njajan</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
     <!-- Favicons -->
     <link href="assets/home/img/logo/logonjajan.png" rel="icon">
+
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
     <link
@@ -296,29 +297,18 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-journal-text"></i><span>Menu</span><i class="bi bi-chevron-down ms-auto"></i>
+                <a class="nav-link collapsed" href="pages-menu-makanan">
+                    <i class="bi bi-egg-fried"></i>
+                    <span>Produk</span>
                 </a>
-                <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                    <li>
-                        <a href="pages-menu-makanan">
-                            <i class="bi bi-egg-fried"></i><span>Makanan</span>
-                        </a>
-                    </li>
-                    <li>
-                        {{-- <a href="pages-menu-minuman">
-                            <i class="bi bi-cup-straw"></i><span>Minuman</span>
-                        </a> --}}
-                    </li>
-                </ul>
             </li>
 
-            {{-- <li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="pages-pasar">
                     <i class="bi bi-shop"></i>
                     <span>Pasar</span>
                 </a>
-            </li> --}}
+            </li>
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="pages-contact">
@@ -337,6 +327,13 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link collapsed" href="input-jastip">
+                    <i class="bi bi-box-seam"></i>
+                    <span>Jastip</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="input-pasar">
                     <i class="bi bi-shop"></i>
                     <span>Pasar</span>
@@ -344,21 +341,10 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#produk-nav" data-bs-toggle="collapse" href="">
-                    <i class="bi bi-journal-text"></i><span>Produk</span><i class="bi bi-chevron-down ms-auto"></i>
+                <a class="nav-link collapsed" href="input-produk-makanan">
+                    <i class="bi bi-egg-fried"></i>
+                    <span>Produk</span>
                 </a>
-                <ul id="produk-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                    <li>
-                        <a href="input-produk-makanan">
-                            <i class="bi bi-circle"></i><span>Makanan</span>
-                        </a>
-                    </li>
-                    <li>
-                        {{-- <a href="input-produk-minuman">
-                            <i class="bi bi-circle"></i><span>Minuman</span>
-                        </a> --}}
-                    </li>
-                </ul>
             </li>
 
             <li class="nav-item">
@@ -378,6 +364,13 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link collapsed" href="tables-jastip">
+                    <i class="bi bi-box-seam"></i>
+                    <span>Jastip</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="tables-testimoni">
                     <i class="bi bi-textarea-t"></i>
                     <span>Testimoni</span>
@@ -392,11 +385,11 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Produk | Minuman</h1>
+            <h1>Jastip</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="indexadmin">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Produk | Minuman</li>
+                    <li class="breadcrumb-item active">Jastip</li>
                 </ol>
             </nav>
         </div>
@@ -406,57 +399,54 @@
 
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Input Produk | Minuman</h5>
+                    <h5 class="card-title">Input Jastip</h5>
 
                     <!-- General Form Elements -->
-                    <form method="POST" action="{{ url('input-produk-minuman') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ url('input-penjual') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="row mb-3">
-                            <label for="inputText" class="col-sm-2 col-form-label">Nama Produk</label>
+                            <label for="inputText" class="col-sm-2 col-form-label">Nama Jastip</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="namaminuman">
+                                <input type="text" class="form-control" name="namapenjual">
                             </div>
                         </div>
 
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">Penjual</label>
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Alamat</label>
                             <div class="col-sm-10">
-                                <select class="form-select" aria-label="Default select example" name="penjual">
-                                    <option selected>Pilih Penjual</option>
-                                    @foreach ($pasar as $sar)
-                                        @foreach ($penjual as $jual)
-                                            <option value="{{ $jual->id_penjual }}">{{ $jual->namapenjual }} |
-                                                {{ $sar->namapasar }}</option>
-                                        @endforeach
-                                    @endforeach
-                                </select>
+                                <textarea class="form-control" style="height: 100px" name="alamat"></textarea>
                             </div>
                         </div>
 
                         <div class="row mb-3">
-                            <label for="inputNumber" class="col-sm-2 col-form-label">Rp. </label>
+                            <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
                             <div class="col-sm-10">
-                                <input type="number" class="form-control" name="harga">
+                                <input type="email" class="form-control" name="email">
                             </div>
                         </div>
 
                         <div class="row mb-3">
-                            <label for="inputNumber" class="col-sm-2 col-form-label">Foto Produk</label>
+                            <label for="inputNumber" class="col-sm-2 col-form-label">No.WA</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="file" id="formFile" name="fotominuman">
+                                <input type="number" class="form-control" name="nomor">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="inputNumber" class="col-sm-2 col-form-label">Foto KTP</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="file" id="formFile" name="foto">
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label"></label>
                             <div class="col-sm-10">
-                                <button type="submit" class="btn btn-primary"
-                                    onclick="return confirm('Apakah Yakin Menambahkan Data ?')">Upload</button>
+                                <button type="submit" class="btn btn-primary">Tambah</button>
                             </div>
                         </div>
 
-                    </form>
-                    <!-- End General Form Elements -->
+                    </form><!-- End General Form Elements -->
 
                 </div>
             </div>
