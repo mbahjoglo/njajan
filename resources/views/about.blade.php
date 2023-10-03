@@ -172,7 +172,7 @@
 
                                     <div class="col-lg-6">
 
-                                        <div class="testimonial-content">
+                                        <div class="text-center">
                                             <p>
                                                 <i class="bi bi-quote quote-icon-left"></i>
                                                 {{ $isi->deskripsi }}
@@ -184,10 +184,10 @@
                                         </div>
 
                                     </div>
-                                    <div class="col-lg-2 text-center">
+                                    {{-- <div class="col-lg-2 text-center">
                                         <img src="assets/home/img/testimonials/icon.png" class="testimonial-img"
                                             width="150" alt="">
-                                    </div>
+                                    </div> --}}
 
                                 </div>
                             </div>
@@ -214,28 +214,20 @@
 
             <div class="row g-0">
 
-                <form action="forms/contact.php" method="post" role="form" class="php-email-form p-3 p-md-4">
-                    <div class="row">
-                        <div class="col-xl-6 form-group">
-                            <input type="text" name="name" class="form-control" id="name"
-                                placeholder="Nama Lengkap" required>
-                        </div>
-
-                        <div class="col-xl-6 form-group">
-                            <input type="text" name="name" class="form-control" id="name"
-                                placeholder="Sebagai" required>
-                        </div>
+                <form action="{{ route('tetimoni.home') }}" method="post" role="form" class="p-3 p-md-4">
+                    @csrf
+                    <div class="form-group mt-3">
+                        <input class="form-control" name="nama" rows="5" placeholder="Nama Lengkap"
+                            required>
                     </div>
 
                     <div class="form-group mt-3">
-                        <textarea class="form-control" name="message" rows="5" placeholder="Tulis Ungkapan" required></textarea>
+                        <textarea class="form-control" name="deskripsi" rows="5" placeholder="Tulis Ungkapan" required></textarea>
                     </div>
-                    <div class="my-3">
-                        <div class="loading">Loading</div>
-                        <div class="error-message"></div>
-                        <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                    <div class="text-center"><button class="btn btn-danger mt-5" type="submit">Kirim
+                            Ungkapan</button>
                     </div>
-                    <div class="text-center"><button type="submit">Kirim Ungkapan</button></div>
                 </form><!--End Contact Form -->
 
                 <div class="col-lg-8 d-flex align-items-center reservation-form-bg">
@@ -263,7 +255,9 @@
             </div>
         </div>
 
-    </footer><!-- End Footer -->
+    </footer>
+    <!-- End Footer -->
+
     <!-- End Footer -->
 
     <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i

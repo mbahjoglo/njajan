@@ -46,6 +46,8 @@ Route::resource('home', ViewHomeController::class);
 
 Route::resource('tentang', ViewAboutController::class);
 
+Route::post('input-testimoni-home', [TestimoniViewController::class, 'inputTestimoni'])->name('tetimoni.home')->middleware('throttle:testi');
+
 Route::resource('njajan', ViewMenuController::class);
 
 Route::get('kategori/{slug}', [CategoryController::class, 'index'])->name('njajan.slug');
@@ -60,9 +62,13 @@ Route::resource('jastip', ViewJastipController::class);
 
 Route::resource('daftarjastip', DaftarJastipController::class);
 
+Route::post('terima-jastip/{id}', [DaftarJastipController::class, 'terimaJastip']);
+
 Route::resource('daftarpenjual', DaftarPenjualController::class);
 
 Route::resource('notification', NotificationController::class);
+
+
 
 // =============== Login & Register ===============
 
@@ -75,6 +81,8 @@ Route::post('registeruser', [LoginController::class, 'registeruser'])->name('reg
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
 // =============== Admin View ===============
+
+Route::post('home-input-penjual', [PenjualController::class, 'homePenjual'])->name('home.penjual');
 
 // =============== Pages Admin
 
@@ -110,11 +118,13 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('input-produk-makanan', MakananController::class);
 
-    Route::resource('input-testimoni', TestimoniController::class);
+    // Route::resource('input-testimoni', TestimoniController::class);
 
     // =============== Table Admin
 
     Route::resource('tables-penjual', PenjualViewController::class);
+
+    Route::post('terima-penjual/{id}', [PenjualViewController::class, 'terimaPenjual'])->name('terima.penjual');
 
     Route::resource('tables-jastip', AdminTablesJastipController::class);
 

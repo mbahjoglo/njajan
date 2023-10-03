@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jastip;
 use Illuminate\Http\Request;
 
 class DaftarJastipController extends Controller
@@ -34,7 +35,18 @@ class DaftarJastipController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $gambar = $request->file('foto')->getClientOriginalName();
+        $request->file('foto')->storeAs('jastip', $gambar);
+        $data_jastip = new Jastip();
+        $data_jastip->nama = $request->nama;
+        $data_jastip->alamat = $request->alamat;
+        $data_jastip->email = $request->email;
+        $data_jastip->nomor = $request->nomor;
+        $data_jastip->status = '0';
+        $data_jastip->foto = $request->file('foto')->getClientOriginalName();
+        $data_jastip->save();
+
+        return redirect('notification');
     }
 
     /**
@@ -80,5 +92,14 @@ class DaftarJastipController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function terimaJastip($id)
+    {
+        $jastip = Jastip::find($id);
+        $jastip->status = 1;
+        $jastip->save();
+
+        return back();
     }
 }

@@ -346,13 +346,6 @@
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="input-testimoni">
-                    <i class="bi bi-textarea-t"></i>
-                    <span>Testimoni</span>
-                </a>
-            </li>
-
             <li class="nav-heading">Table</li>
 
             <li class="nav-item">
@@ -722,7 +715,9 @@
                                         labelLine: {
                                             show: false
                                         },
-                                        data: [{
+                                        data: [
+
+                                            {
                                                 value: {{ $hitungmakanans }},
                                                 name: 'Produk'
                                             },
@@ -737,6 +732,10 @@
                                             {
                                                 value: {{ $hitungtestimonis }},
                                                 name: 'Testimoni'
+                                            },
+                                            {
+                                                value: {{ $hitungjastips }},
+                                                name: 'Jastip'
                                             }
                                         ]
                                     }]

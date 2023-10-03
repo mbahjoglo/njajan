@@ -46,6 +46,7 @@ class PenjualController extends Controller
         $data_penjuals->alamat = $request->alamat;
         $data_penjuals->pasar = $request->pasar;
         $data_penjuals->nomor = $request->nomor;
+        $data_penjuals->status = '1';
         $data_penjuals->foto = $request->file('foto')->getClientOriginalName();
         $data_penjuals->save();
 
@@ -93,5 +94,21 @@ class PenjualController extends Controller
      */
     public function destroy($id)
     {
+    }
+
+    public function homePenjual(Request $request)
+    {
+        $gambar = $request->file('foto')->getClientOriginalName();
+        $request->file('foto')->storeAs('penjual', $gambar);
+        $data_penjuals = new Penjual();
+        $data_penjuals->namapenjual = $request->namapenjual;
+        $data_penjuals->alamat = $request->alamat;
+        $data_penjuals->pasar = $request->pasar;
+        $data_penjuals->nomor = $request->nomor;
+        $data_penjuals->status = 0;
+        $data_penjuals->foto = $request->file('foto')->getClientOriginalName();
+        $data_penjuals->save();
+
+        return redirect('notification');
     }
 }

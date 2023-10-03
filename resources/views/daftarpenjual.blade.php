@@ -1,3 +1,6 @@
+@php
+    use App\Models\Pasar;
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,44 +71,51 @@
                 <!-- ======= Daftar Section ======= -->
                 <section id="contact" class="contact">
                     <div class="container" data-aos="fade-up">
-
-                        <form action="forms/contact.php" method="post" role="form"
-                            class="php-email-form p-3 p-md-4">
-
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="nama" id="nama"
+                        
+                        <form action="{{ route('home.penjual') }}" method="post" class="p-3"
+                        enctype="multipart/form-data">
+                        @csrf
+                        @if (session('success'))
+                            <div class="mt-3 alert alert-success alert-dismissible fade show" role="alert">
+                                <strong>{{ session('success') }}</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
+                        @endif
+                        
+                            <div class="form-group mt-4">
+                                <input type="text" class="form-control" name="namapenjual" id="nama"
                                     placeholder="Nama Lengkap" required>
                             </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" name="email" id="email"
-                                    placeholder="email" required>
+                            <div class="form-group mt-4">
+                                <input type="text" class="form-control" name="alamat" id="nama"
+                                    placeholder="Alamat" required>
                             </div>
-                            <div class="form-group">
+
+                            <div class="form-group mt-4">
                                 <input type="text" class="form-control" name="nomor" id="nomor"
                                     placeholder="Nomor WhatsApp" required>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group mt-4">
                                 <label for="formFileLg" class="form-label">Pilih Lokasi Pasar </label>
-                                <select class="form-select" aria-label="Lokasi Pasar">
-                                    <option selected>Pilih Pasar</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                <select class="form-select" aria-label="Lokasi Pasar" required name="pasar">
+                                    <option value="">Pilih Pasar</option>
+                                    @foreach (Pasar::all() as $pasar)
+                                        <option value="{{ $pasar->namapasar }}">{{ $pasar->namapasar }}</option>
+                                    @endforeach
                                 </select>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group mt-4">
                                 <div>
                                     <label for="formFileLg" class="form-label">Foto Penjual</label>
-                                    <input class="form-control" id="foto" type="file">
+                                    <input class="form-control" id="foto" type="file" name="foto">
                                 </div>
                             </div>
 
-                            <div class="my-3">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                            <div class="text-center"><button class="btn btn-danger mt-5" type="submit">Daftar
+                                    Penjual</button>
                             </div>
-                            <div class="text-center"><button type="submit">Daftar Penjual</button></div>
                         </form><!--End Contact Form -->
 
                     </div>

@@ -17,8 +17,9 @@ class PenjualViewController extends Controller
     public function index()
     {
         $pasar = Pasar::all();
-        $data_penjuals = Penjual::all();
-        return view('admin/tables-penjual', compact('data_penjuals', 'pasar'));
+        $data_penjual_masuk = Penjual::where('status', 0)->get();
+        $data_penjuals = Penjual::where('status', 1)->get();
+        return view('admin/tables-penjual', compact('data_penjuals', 'pasar', 'data_penjual_masuk'));
     }
 
     /**
@@ -103,6 +104,14 @@ class PenjualViewController extends Controller
         $data_penjuals = Penjual::find($id);
         Storage::delete('makanan/' . $data_penjuals->foto);
         $data_penjuals->delete();
+        return back();
+    }
+
+    public function terimaPenjual(Penjual $id)
+    {
+        $id->status = 1;
+        $id->save();
+
         return back();
     }
 }

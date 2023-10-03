@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jastip;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AdminTablesJastipController extends Controller
 {
@@ -13,7 +15,10 @@ class AdminTablesJastipController extends Controller
      */
     public function index()
     {
-        return view('admin/tables-jastip');
+        return view('admin/tables-jastip', [
+            'jastip_terima' => Jastip::where('status', 1)->get(),
+            'jastip_belum_terima' => Jastip::where('status', 0)->get()
+        ]);
     }
 
     /**
@@ -68,7 +73,23 @@ class AdminTablesJastipController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data_jastip = Jastip::find($id);
+
+        if ($request->foto == '') {
+            // $data_makanans->fotomakanan = $request->fotolama;
+        } else {
+            $foto = $request->file('foto')->getClientOriginalName();
+            $request->file('foto')->storeAs('jastip', $foto);
+            Storage::delete('jastip/' . $request->fotolama);
+            $data_jastip->foto = $request->file('foto')->getClientOriginalName();
+        }
+
+        $data_jastip->nama = $request->nama;
+        $data_jastip->email = $request->email;
+        $data_jastip->nomor = $request->nomor;
+        $data_jastip->alamat = $request->alamat;
+        $data_jastip->save();
+        return back();
     }
 
     /**
@@ -79,6 +100,9 @@ class AdminTablesJastipController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data_jastip = Jastip::find($id);
+        Storage::delete('jastip/' . $data_jastip->foto);
+        $data_jastip->delete();
+        return back();
     }
 }

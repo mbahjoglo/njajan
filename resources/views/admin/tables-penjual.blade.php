@@ -346,13 +346,6 @@
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="input-testimoni">
-                    <i class="bi bi-textarea-t"></i>
-                    <span>Testimoni</span>
-                </a>
-            </li>
-
             <li class="nav-heading">Table</li>
 
             <li class="nav-item">
@@ -399,7 +392,7 @@
             <div class="card top-selling overflow-auto">
 
                 <div class="card-body pb-0">
-                    <h5 class="card-title">Daftar <span>| Table Penjual</span></h5>
+                    <h5 class="card-title">Daftar <span>| Table Penjual Masuk</span></h5>
 
                     <!-- Default Table -->
                     <table class="table table-hover table-bordered">
@@ -413,7 +406,58 @@
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
-                        @foreach ($data_penjuals as $isi)
+                        @forelse ($data_penjual_masuk as $penjual)
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <img width="100" src="{{ asset('storage/penjual/' . $penjual->foto) }}"
+                                            alt="" title="">
+                                    </td>
+                                    <td>{{ $penjual->namapenjual }}</td>
+                                    <td>{{ $penjual->alamat }}</td>
+                                    <td>{{ $penjual->pasar }}</td>
+                                    <td>{{ $penjual->nomor }}</td>
+                                    <td>
+
+                                        <form action="{{ route('terima.penjual', ['id' => $penjual->id_penjual]) }}"
+                                            method="post">
+                                            @csrf
+                                            <button type="submit" class="btn btn-primary"
+                                                onclick="return confirm('Apakah Yakin Menerima Penjual?')">Approve</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        @empty
+                            <tbody>
+                                <tr>
+                                    <td class="text-center" colspan="6">
+                                        Tidak ada data tersedia
+                                    </td>
+                                </tr>
+                            </tbody>
+                        @endforelse
+                    </table>
+                    <!-- End Default Table Example -->
+
+                </div>
+
+                <div class="card-body pb-0">
+                    <h5 class="card-title">Daftar <span>| Table Penjual Terdaftar</span></h5>
+
+                    <!-- Default Table -->
+                    <table class="table table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Foto Penjual</th>
+                                <th scope="col">Nama Penjual</th>
+                                <th scope="col">Alamat</th>
+                                <th scope="col">Pasar</th>
+                                <th scope="col">No.Telphon/WA</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        @forelse ($data_penjuals as $isi)
                             <tbody>
                                 <tr>
                                     <td>
@@ -534,7 +578,15 @@
                                     </div>
                                 </div>
                             </tbody>
-                        @endforeach
+                        @empty
+                            <tbody>
+                                <tr>
+                                    <td class="text-center" colspan="6">
+                                        Tidak ada data tersedia
+                                    </td>
+                                </tr>
+                            </tbody>
+                        @endforelse
                     </table>
                     <!-- End Default Table Example -->
 

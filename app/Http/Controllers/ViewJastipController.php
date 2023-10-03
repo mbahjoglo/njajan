@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jastip;
 use Illuminate\Http\Request;
 
 class ViewJastipController extends Controller
@@ -13,7 +14,9 @@ class ViewJastipController extends Controller
      */
     public function index()
     {
-        return view('jastip');
+        return view('jastip', [
+            'jastips' => Jastip::where('status', 1)->get()
+        ]);
     }
 
     /**

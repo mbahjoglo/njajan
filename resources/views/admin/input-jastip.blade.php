@@ -347,13 +347,6 @@
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="input-testimoni">
-                    <i class="bi bi-textarea-t"></i>
-                    <span>Testimoni</span>
-                </a>
-            </li>
-
             <li class="nav-heading">Table</li>
 
             <li class="nav-item">
@@ -402,12 +395,12 @@
                     <h5 class="card-title">Input Jastip</h5>
 
                     <!-- General Form Elements -->
-                    <form method="POST" action="{{ url('input-penjual') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ url('input-jastip') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="row mb-3">
                             <label for="inputText" class="col-sm-2 col-form-label">Nama Jastip</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="namapenjual">
+                                <input type="text" class="form-control" name="nama">
                             </div>
                         </div>
 

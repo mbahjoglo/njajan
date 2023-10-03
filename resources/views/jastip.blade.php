@@ -69,217 +69,47 @@
                 </div>
 
                 <!-- ======= Pencarian Jastip ======= -->
-                <section id="contact" class="contact">
-                    <div class="container" data-aos="fade-up">
-
-                        <form action="forms/contact.php" method="post" role="form"
-                            class="php-email-form p-3 p-md-4">
-                            <div class="row">
+                @if ($jastips->isNotEmpty())
+                    <section id="contact" class="contact">
+                        <div class="container" data-aos="fade-up">
+                            <div class="card shadow p-5">
+                                <input type="text" class="form-control" name="subject" id="cari-alamat"
+                                    placeholder="Cari Alamat Kurir" required>
                             </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="subject" id="subject"
-                                    placeholder="Cari Kurir" required>
-                            </div>
-                            <div class="my-3">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
-                            </div>
-                            <div class="text-center"><button type="submit">Cari Kurir</button></div>
-                        </form><!--End Contact Form -->
-
-                    </div>
-                </section><!-- End Contact Section -->
+                        </div>
+                    </section><!-- End Contact Section -->
+                @endif
 
                 <div class="container py-5">
                     <div class="row mb-lg-4">
-
-                        <div class="col-6 col-lg-3 mb-4 mb-lg-0 mt-5">
-                            <div class="lc-block mb-3">
-                                <img class="img-fluid"
-                                    src="https://images.unsplash.com/photo-1557752282-dcc5ff304d4c?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=1080"
-                                    srcset="https://images.unsplash.com/photo-1557752282-dcc5ff304d4c?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=1080 1080w, https://images.unsplash.com/photo-1557752282-dcc5ff304d4c??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=150 150w, https://images.unsplash.com/photo-1557752282-dcc5ff304d4c??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=300 300w, https://images.unsplash.com/photo-1557752282-dcc5ff304d4c??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=768 768w, https://images.unsplash.com/photo-1557752282-dcc5ff304d4c??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1024 1024w"
-                                    sizes="(max-width: 1080px) 100vw, 1080px" width="1080" height="1080"
-                                    alt="Photo by Laika Notebooks" loading="lazy">
-                            </div>
-                            <div class="lc-block text-center mb-3">
-                                <div editable="rich">
-                                    <h3 class="fw-light">Nama Jastip</h3>
+                        @forelse ($jastips as $jastip)
+                            <div class="col-6 col-lg-3 mb-4 mb-lg-0 mt-5" id="jastip-{{ $jastip->id }}">
+                                <!-- Add an id to each Jastip element -->
+                                <div class="lc-block mb-3">
+                                    <img class="img-fluid" src="{{ url('storage/jastip/' . $jastip->foto) }}"
+                                        sizes="(max-width: 1080px) 100vw, 1080px" width="1080" height="1080"
+                                        alt="Photo by Laika Notebooks" loading="lazy">
+                                </div>
+                                <div class="lc-block text-center mb-3">
+                                    <div editable="rich">
+                                        <h3 class="fw-light">{{ $jastip->nama }}</h3>
+                                    </div>
+                                </div>
+                                <div class="lc-block text-center mb-4">
+                                    <div editable="rich">
+                                        <p class="small text-muted">{{ $jastip->alamat }}</p>
+                                    </div>
+                                </div>
+                                <div class="lc-block text-center">
+                                    <a href="https://wa.me/+62{{ $jastip->nomor }}"> <button class="btn btn-danger"
+                                            type="button">Hubungi
+                                            Jastip</button></a>
                                 </div>
                             </div>
-                            <div class="lc-block text-center mb-4">
-                                <div editable="rich">
-                                    <p class="small text-muted">Alamat Jastip</p>
-                                </div>
-                            </div>
-                            <div class="lc-block text-center">
-                                <button class="btn btn-danger" type="button">Hubungi Jastip</button>
-                            </div>
-                        </div>
-
-                        <div class="col-6 col-lg-3 mb-4 mb-lg-0 mt-5">
-                            <div class="lc-block mb-3">
-                                <img class="img-fluid"
-                                    src="https://images.unsplash.com/photo-1557752282-dcc5ff304d4c?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=1080"
-                                    srcset="https://images.unsplash.com/photo-1557752282-dcc5ff304d4c?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=1080 1080w, https://images.unsplash.com/photo-1557752282-dcc5ff304d4c??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=150 150w, https://images.unsplash.com/photo-1557752282-dcc5ff304d4c??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=300 300w, https://images.unsplash.com/photo-1557752282-dcc5ff304d4c??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=768 768w, https://images.unsplash.com/photo-1557752282-dcc5ff304d4c??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1024 1024w"
-                                    sizes="(max-width: 1080px) 100vw, 1080px" width="1080" height="1080"
-                                    alt="Photo by Laika Notebooks" loading="lazy">
-                            </div>
-                            <div class="lc-block text-center mb-3">
-                                <div editable="rich">
-                                    <h3 class="fw-light">Nama Jastip</h3>
-                                </div>
-                            </div>
-                            <div class="lc-block text-center mb-4">
-                                <div editable="rich">
-                                    <p class="small text-muted">Alamat Jastip</p>
-                                </div>
-                            </div>
-                            <div class="lc-block text-center">
-                                <button class="btn btn-danger" type="button">Hubungi Jastip</button>
-                            </div>
-                        </div>
-
-                        <div class="col-6 col-lg-3 mb-4 mb-lg-0 mt-5">
-                            <div class="lc-block mb-3">
-                                <img class="img-fluid"
-                                    src="https://images.unsplash.com/photo-1557752282-dcc5ff304d4c?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=1080"
-                                    srcset="https://images.unsplash.com/photo-1557752282-dcc5ff304d4c?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=1080 1080w, https://images.unsplash.com/photo-1557752282-dcc5ff304d4c??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=150 150w, https://images.unsplash.com/photo-1557752282-dcc5ff304d4c??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=300 300w, https://images.unsplash.com/photo-1557752282-dcc5ff304d4c??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=768 768w, https://images.unsplash.com/photo-1557752282-dcc5ff304d4c??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1024 1024w"
-                                    sizes="(max-width: 1080px) 100vw, 1080px" width="1080" height="1080"
-                                    alt="Photo by Laika Notebooks" loading="lazy">
-                            </div>
-                            <div class="lc-block text-center mb-3">
-                                <div editable="rich">
-                                    <h3 class="fw-light">Nama Jastip</h3>
-                                </div>
-                            </div>
-                            <div class="lc-block text-center mb-4">
-                                <div editable="rich">
-                                    <p class="small text-muted">Alamat Jastip</p>
-                                </div>
-                            </div>
-                            <div class="lc-block text-center">
-                                <button class="btn btn-danger" type="button">Hubungi Jastip</button>
-                            </div>
-                        </div>
-
-                        <div class="col-6 col-lg-3 mb-4 mb-lg-0 mt-5">
-                            <div class="lc-block mb-3">
-                                <img class="img-fluid"
-                                    src="https://images.unsplash.com/photo-1557752282-dcc5ff304d4c?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=1080"
-                                    srcset="https://images.unsplash.com/photo-1557752282-dcc5ff304d4c?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=1080 1080w, https://images.unsplash.com/photo-1557752282-dcc5ff304d4c??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=150 150w, https://images.unsplash.com/photo-1557752282-dcc5ff304d4c??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=300 300w, https://images.unsplash.com/photo-1557752282-dcc5ff304d4c??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=768 768w, https://images.unsplash.com/photo-1557752282-dcc5ff304d4c??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1024 1024w"
-                                    sizes="(max-width: 1080px) 100vw, 1080px" width="1080" height="1080"
-                                    alt="Photo by Laika Notebooks" loading="lazy">
-                            </div>
-                            <div class="lc-block text-center mb-3">
-                                <div editable="rich">
-                                    <h3 class="fw-light">Nama Jastip</h3>
-                                </div>
-                            </div>
-                            <div class="lc-block text-center mb-4">
-                                <div editable="rich">
-                                    <p class="small text-muted">Alamat Jastip</p>
-                                </div>
-                            </div>
-                            <div class="lc-block text-center">
-                                <button class="btn btn-danger" type="button">Hubungi Jastip</button>
-                            </div>
-                        </div>
-
-                        <div class="col-6 col-lg-3 mb-4 mb-lg-0 mt-5">
-                            <div class="lc-block mb-3">
-                                <img class="img-fluid"
-                                    src="https://images.unsplash.com/photo-1557752282-dcc5ff304d4c?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=1080"
-                                    srcset="https://images.unsplash.com/photo-1557752282-dcc5ff304d4c?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=1080 1080w, https://images.unsplash.com/photo-1557752282-dcc5ff304d4c??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=150 150w, https://images.unsplash.com/photo-1557752282-dcc5ff304d4c??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=300 300w, https://images.unsplash.com/photo-1557752282-dcc5ff304d4c??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=768 768w, https://images.unsplash.com/photo-1557752282-dcc5ff304d4c??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1024 1024w"
-                                    sizes="(max-width: 1080px) 100vw, 1080px" width="1080" height="1080"
-                                    alt="Photo by Laika Notebooks" loading="lazy">
-                            </div>
-                            <div class="lc-block text-center mb-3">
-                                <div editable="rich">
-                                    <h3 class="fw-light">Nama Jastip</h3>
-                                </div>
-                            </div>
-                            <div class="lc-block text-center mb-4">
-                                <div editable="rich">
-                                    <p class="small text-muted">Alamat Jastip</p>
-                                </div>
-                            </div>
-                            <div class="lc-block text-center">
-                                <button class="btn btn-danger" type="button">Hubungi Jastip</button>
-                            </div>
-                        </div>
-
-                        <div class="col-6 col-lg-3 mb-4 mb-lg-0 mt-5">
-                            <div class="lc-block mb-3">
-                                <img class="img-fluid"
-                                    src="https://images.unsplash.com/photo-1557752282-dcc5ff304d4c?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=1080"
-                                    srcset="https://images.unsplash.com/photo-1557752282-dcc5ff304d4c?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=1080 1080w, https://images.unsplash.com/photo-1557752282-dcc5ff304d4c??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=150 150w, https://images.unsplash.com/photo-1557752282-dcc5ff304d4c??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=300 300w, https://images.unsplash.com/photo-1557752282-dcc5ff304d4c??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=768 768w, https://images.unsplash.com/photo-1557752282-dcc5ff304d4c??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1024 1024w"
-                                    sizes="(max-width: 1080px) 100vw, 1080px" width="1080" height="1080"
-                                    alt="Photo by Laika Notebooks" loading="lazy">
-                            </div>
-                            <div class="lc-block text-center mb-3">
-                                <div editable="rich">
-                                    <h3 class="fw-light">Nama Jastip</h3>
-                                </div>
-                            </div>
-                            <div class="lc-block text-center mb-4">
-                                <div editable="rich">
-                                    <p class="small text-muted">Alamat Jastip</p>
-                                </div>
-                            </div>
-                            <div class="lc-block text-center">
-                                <button class="btn btn-danger" type="button">Hubungi Jastip</button>
-                            </div>
-                        </div>
-
-                        <div class="col-6 col-lg-3 mb-4 mb-lg-0 mt-5">
-                            <div class="lc-block mb-3">
-                                <img class="img-fluid"
-                                    src="https://images.unsplash.com/photo-1557752282-dcc5ff304d4c?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=1080"
-                                    srcset="https://images.unsplash.com/photo-1557752282-dcc5ff304d4c?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=1080 1080w, https://images.unsplash.com/photo-1557752282-dcc5ff304d4c??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=150 150w, https://images.unsplash.com/photo-1557752282-dcc5ff304d4c??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=300 300w, https://images.unsplash.com/photo-1557752282-dcc5ff304d4c??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=768 768w, https://images.unsplash.com/photo-1557752282-dcc5ff304d4c??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1024 1024w"
-                                    sizes="(max-width: 1080px) 100vw, 1080px" width="1080" height="1080"
-                                    alt="Photo by Laika Notebooks" loading="lazy">
-                            </div>
-                            <div class="lc-block text-center mb-3">
-                                <div editable="rich">
-                                    <h3 class="fw-light">Nama Jastip</h3>
-                                </div>
-                            </div>
-                            <div class="lc-block text-center mb-4">
-                                <div editable="rich">
-                                    <p class="small text-muted">Alamat Jastip</p>
-                                </div>
-                            </div>
-                            <div class="lc-block text-center">
-                                <button class="btn btn-danger" type="button">Hubungi Jastip</button>
-                            </div>
-                        </div>
-
-                        <div class="col-6 col-lg-3 mb-4 mb-lg-0 mt-5">
-                            <div class="lc-block mb-3">
-                                <img class="img-fluid"
-                                    src="https://images.unsplash.com/photo-1557752282-dcc5ff304d4c?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=1080"
-                                    srcset="https://images.unsplash.com/photo-1557752282-dcc5ff304d4c?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=1080 1080w, https://images.unsplash.com/photo-1557752282-dcc5ff304d4c??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=150 150w, https://images.unsplash.com/photo-1557752282-dcc5ff304d4c??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=300 300w, https://images.unsplash.com/photo-1557752282-dcc5ff304d4c??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=768 768w, https://images.unsplash.com/photo-1557752282-dcc5ff304d4c??crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MXx8bWFnZW50YXxlbnwwfDJ8fHwxNjM1MDEwOTEz&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1024 1024w"
-                                    sizes="(max-width: 1080px) 100vw, 1080px" width="1080" height="1080"
-                                    alt="Photo by Laika Notebooks" loading="lazy">
-                            </div>
-                            <div class="lc-block text-center mb-3">
-                                <div editable="rich">
-                                    <h3 class="fw-light">Nama Jastip</h3>
-                                </div>
-                            </div>
-                            <div class="lc-block text-center mb-4">
-                                <div editable="rich">
-                                    <p class="small text-muted">Alamat Jastip</p>
-                                </div>
-                            </div>
-                            <div class="lc-block text-center">
-                                <button class="btn btn-danger" type="button">Hubungi Jastip</button>
-                            </div>
-                        </div>
-
+                        @empty
+                            <h1 class="text-center">Belum ada data tersedia</h1>
+                        @endforelse
                     </div>
-
                 </div>
 
             </div>
@@ -323,6 +153,26 @@
 
     <!-- Template Main JS File -->
     <script src="assets/home/js/main.js"></script>
+    <script>
+        // Get the input field and Jastip elements
+        const input = document.getElementById("cari-alamat");
+        const jastipElements = document.querySelectorAll("[id^='jastip-']");
+
+        input.addEventListener("input", function() {
+            const searchTerm = input.value.toLowerCase();
+
+            // Loop through each Jastip element
+            jastipElements.forEach((jastip) => {
+                const address = jastip.querySelector("p.text-muted").textContent.toLowerCase();
+                // Check if the address contains the search term
+                if (address.includes(searchTerm)) {
+                    jastip.style.display = "block"; // Show the element
+                } else {
+                    jastip.style.display = "none"; // Hide the element
+                }
+            });
+        });
+    </script>
 
 </body>
 

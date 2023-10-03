@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Home;
+use App\Models\Jastip;
 use App\Models\Makanan;
 use App\Models\Minuman;
 use App\Models\Pasar;
@@ -27,11 +28,12 @@ class IndexAdminController extends Controller
         $hitungmakanans = Makanan::count();
         $hitungminumans = Minuman::count();
         $hitungpenjuals = Penjual::count();
+        $hitungjastips = Jastip::count();
         $hitungpasars = Pasar::count();
         $hitungtestimonis = Testimoni::count();
         $datamakanans = DB::table('makanan')->join('penjual', 'makanan.penjual', '=', 'penjual.id_penjual')->get();
         $dataminumans = DB::table('minuman')->join('penjual', 'minuman.penjual', '=', 'penjual.id_penjual')->get();
-        return view('admin/index', compact('homes', 'hitungmakanans', 'hitungminumans', 'hitungpenjuals', 'hitungpasars', 'data_pasars', 'hitungtestimonis', 'data_makanans', 'data_minumans', 'datamakanans', 'dataminumans'));
+        return view('admin/index', compact('homes', 'hitungmakanans', 'hitungminumans', 'hitungpenjuals', 'hitungpasars', 'data_pasars', 'hitungtestimonis', 'data_makanans', 'data_minumans', 'datamakanans', 'dataminumans', 'hitungjastips'));
     }
 
     /**

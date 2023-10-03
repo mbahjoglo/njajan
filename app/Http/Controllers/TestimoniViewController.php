@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Testimoni;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Storage;
 
 class TestimoniViewController extends Controller
@@ -101,5 +102,16 @@ class TestimoniViewController extends Controller
         Storage::delete('testimoni/' . $data_testimonis->foto);
         $data_testimonis->delete();
         return back();
+    }
+
+    public function inputTestimoni(Request $request)
+    {
+        $testimoni = new Testimoni();
+        $testimoni->nama = $request->nama;
+        $testimoni->deskripsi = $request->deskripsi;
+
+        $testimoni->save();
+
+        return back()->with('success', 'Berhasil mengirimkan testimoni');
     }
 }

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('pasar');
             $table->string('nomor');
             $table->string('foto');
+            $table->string('status');
             $table->timestamps();
         });
     }

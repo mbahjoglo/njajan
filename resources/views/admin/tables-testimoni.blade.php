@@ -346,13 +346,6 @@
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="input-testimoni">
-                    <i class="bi bi-textarea-t"></i>
-                    <span>Testimoni</span>
-                </a>
-            </li>
-
             <li class="nav-heading">Table</li>
 
             <li class="nav-item">
@@ -404,28 +397,21 @@
                     <table class="table table-hover table-bordered">
                         <thead>
                             <tr>
-                                <th scope="col">Foto</th>
                                 <th scope="col">Nama</th>
                                 <th scope="col">Deskripsi</th>
-                                <th scope="col">Jabatan</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
                         @foreach ($data_testimonis as $isi)
                             <tbody>
                                 <tr>
-                                    <th scope="row"><a href="#">
-                                            <img width="100" src="{{ asset('storage/testimoni/' . $isi->foto) }}"
-                                                alt="" title="">
-                                    </th>
                                     <td>{{ $isi->nama }}</td>
                                     <td>{{ $isi->deskripsi }}</td>
-                                    <td>{{ $isi->jabatan }}</td>
                                     <td>
-                                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                                        {{-- <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
                                             data-bs-target="#testimoni{{ $isi->id }}">
                                             <i class="bi bi-arrow-clockwise"></i>
-                                        </button>
+                                        </button> --}}
 
                                         <form action="{{ url('/tables-testimoni/' . $isi->id) }}" method="post">
                                             @csrf
@@ -436,83 +422,6 @@
                                         </form>
                                     </td>
                                 </tr>
-                                <div class="modal fade" id="testimoni{{ $isi->id }}" tabindex="-1"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <form method="POST" action="{{ url('tables-testimoni/' . $isi->id) }}"
-                                                enctype="multipart/form-data">
-                                                @csrf
-                                                @method('PUT')
-                                                <div class="modal-header">
-                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Update Makanan
-                                                    </h1>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="row mb-3">
-                                                        <label for="inputText"
-                                                            class="col-sm-2 col-form-label">Nama</label>
-                                                        <div class="col-sm-10">
-                                                            <input type="text" class="form-control" name="nama"
-                                                                value="{{ $isi->nama }}">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row mb-3">
-                                                        <label for="inputText"
-                                                            class="col-sm-2 col-form-label">Deskripsi</label>
-                                                        <div class="col-sm-10">
-                                                            <input type="text" class="form-control"
-                                                                name="deskripsi" value="{{ $isi->deskripsi }}">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row mb-3">
-                                                        <label for="inputText"
-                                                            class="col-sm-2 col-form-label">Jabatan</label>
-                                                        <div class="col-sm-10">
-                                                            <input type="text" class="form-control" name="jabatan"
-                                                                value="{{ $isi->jabatan }}">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row mb-3">
-                                                        <label for="inputNumber" class="col-sm-2 col-form-label">Foto
-                                                            Sekarang</label>
-                                                        <div class="col-sm-10">
-                                                            <img class="col-sm-2 col-form-label img-fluid"
-                                                                src="{{ asset('storage/testimoni/' . $isi->foto) }}">
-                                                        </div>
-
-                                                        <div class="row mb-3">
-                                                            <label for="inputNumber"
-                                                                class="col-sm-2 col-form-label">Foto</label>
-                                                            <div class="col-sm-10">
-                                                                <input class="form-control" type="file"
-                                                                    id="formFile" name="foto">
-                                                            </div>
-                                                        </div>
-
-                                                        <input type="hidden" name="fotolama"
-                                                            value="{{ $isi->fotomakanan }}">
-
-
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal">Close</button>
-
-                                                        <a href="{{ url('tables-testimoni/' . $isi->id) }}">
-                                                            <button type="submit" class="btn btn-primary">Save
-                                                                changes</button>
-                                                        </a>
-                                                    </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
                             </tbody>
                         @endforeach
 

@@ -346,13 +346,6 @@
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="input-testimoni">
-                    <i class="bi bi-textarea-t"></i>
-                    <span>Testimoni</span>
-                </a>
-            </li>
-
             <li class="nav-heading">Table</li>
 
             <li class="nav-item">
@@ -399,7 +392,7 @@
             <div class="card top-selling overflow-auto">
 
                 <div class="card-body pb-0">
-                    <h5 class="card-title">Daftar <span>| Table Jastip</span></h5>
+                    <h5 class="card-title">Daftar <span>| Table Jastip Masuk</span></h5>
 
                     <!-- Default Table -->
                     <table class="table table-hover table-bordered">
@@ -413,25 +406,72 @@
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
-                        {{-- @foreach ($data_penjuals as $isi)
+                        @forelse($jastip_belum_terima as $jastip)
                             <tbody>
                                 <tr>
                                     <td>
-                                        <img width="100" src="{{ asset('storage/penjual/' . $isi->foto) }}"
+                                        <img width="100" src="{{ asset('storage/jastip/' . $jastip->foto) }}"
                                             alt="" title="">
                                     </td>
-                                    <td>{{ $isi->namapenjual }}</td>
-                                    <td>{{ $isi->alamat }}</td>
-                                    <td>{{ $isi->pasar }}</td>
-                                    <td>{{ $isi->nomor }}</td>
+                                    <td>{{ $jastip->nama }}</td>
+                                    <td>{{ $jastip->email }}</td>
+                                    <td>{{ $jastip->alamat }}</td>
+                                    <td>{{ $jastip->nomor }}</td>
+                                    <td>
+                                        <form action="{{ url('/terima-jastip/' . $jastip->id) }}" method="post">
+                                            @csrf
+                                            <button type="submit" class="btn btn-primary"
+                                                onclick="return confirm('Apakah Yakin Menerima Member Jastip?')">Approve</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        @empty
+                            <tbody>
+                                <tr>
+                                    <td class="text-center" colspan="6">
+                                        Tidak ada data tersedia
+                                    </td>
+                                </tr>
+                            </tbody>
+                        @endforelse
+                    </table>
+                    <!-- End Default Table Example -->
+
+                </div>
+                <div class="card-body pb-0">
+                    <h5 class="card-title">Daftar <span>| Table Jastip Terdaftar</span></h5>
+
+                    <!-- Default Table -->
+                    <table class="table table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Foto Jastip</th>
+                                <th scope="col">Nama Penjual</th>
+                                <th scope="col">Alamat</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">No.WhatsApp</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        @forelse($jastip_terima as $jastip)
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <img width="100" src="{{ asset('storage/jastip/' . $jastip->foto) }}"
+                                            alt="" title="">
+                                    </td>
+                                    <td>{{ $jastip->nama }}</td>
+                                    <td>{{ $jastip->email }}</td>
+                                    <td>{{ $jastip->alamat }}</td>
+                                    <td>{{ $jastip->nomor }}</td>
                                     <td>
                                         <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                                            data-bs-target="#penjual{{ $isi->id_penjual }}">
+                                            data-bs-target="#penjual{{ $jastip->id }}">
                                             <i class="bi bi-arrow-clockwise"></i>
                                         </button>
 
-                                        <form action="{{ url('/tables-penjual/' . $isi->id_penjual) }}"
-                                            method="post">
+                                        <form action="{{ url('/tables-jastip/' . $jastip->id) }}" method="post">
                                             @csrf
                                             <input type="hidden" name="_method" value="DELETE">
                                             <button type="submit" class="btn btn-danger"
@@ -441,17 +481,16 @@
                                     </td>
                                 </tr>
 
-                                <div class="modal fade" id="penjual{{ $isi->id_penjual }}" tabindex="-1"
+                                <div class="modal fade" id="penjual{{ $jastip->id }}" tabindex="-1"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
-                                            <form method="POST"
-                                                action="{{ url('tables-penjual/' . $isi->id_penjual) }}"
+                                            <form method="POST" action="{{ url('tables-jastip/' . $jastip->id) }}"
                                                 enctype="multipart/form-data">
                                                 @csrf
                                                 @method('PUT')
                                                 <div class="modal-header">
-                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Update Penjual
+                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Update Jastip
                                                     </h1>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                         aria-label="Close"></button>
@@ -459,10 +498,10 @@
                                                 <div class="modal-body">
                                                     <div class="row mb-3">
                                                         <label for="inputText" class="col-sm-2 col-form-label">Nama
-                                                            Penjual</label>
+                                                            Jastip</label>
                                                         <div class="col-sm-10">
-                                                            <input type="text" class="form-control"
-                                                                name="namapenjual" value="{{ $isi->namapenjual }}">
+                                                            <input type="text" class="form-control" name="nama"
+                                                                value="{{ $jastip->nama }}">
                                                         </div>
                                                     </div>
 
@@ -470,31 +509,27 @@
                                                         <label for="inputText"
                                                             class="col-sm-2 col-form-label">Alamat</label>
                                                         <div class="col-sm-10">
-                                                            <input type="text" class="form-control"
-                                                                name="namamakanan" value="{{ $isi->alamat }}">
+                                                            <input type="text" class="form-control" name="alamat"
+                                                                value="{{ $jastip->alamat }}">
                                                         </div>
                                                     </div>
 
                                                     <div class="row mb-3">
-                                                        <label class="col-sm-2 col-form-label">Pasar</label>
+                                                        <label for="inputText"
+                                                            class="col-sm-2 col-form-label">Email</label>
                                                         <div class="col-sm-10">
-                                                            <select class="form-select"
-                                                                aria-label="Default select example" name="pasar">
-                                                                <option selected>Pilih Pasar</option>
-                                                                @foreach ($pasar as $sar)
-                                                                    <option value="{{ $sar->namapasar }}">
-                                                                        {{ $sar->namapasar }}</option>
-                                                                @endforeach
-                                                            </select>
+                                                            <input type="text" class="form-control" name="email"
+                                                                value="{{ $jastip->email }}">
                                                         </div>
                                                     </div>
+
 
                                                     <div class="row mb-3">
                                                         <label for="inputNumber"
                                                             class="col-sm-2 col-form-label">Nomor</label>
                                                         <div class="col-sm-10">
                                                             <input type="number" class="form-control" name="nomor"
-                                                                value="{{ $isi->nomor }}">
+                                                                value="{{ $jastip->nomor }}">
                                                         </div>
                                                     </div>
 
@@ -503,13 +538,13 @@
                                                             Sekarang</label>
                                                         <div class="col-sm-10">
                                                             <img class="col-sm-2 col-form-label img-fluid"
-                                                                src="{{ asset('storage/penjual/' . $isi->foto) }}">
+                                                                src="{{ asset('storage/jastip/' . $jastip->foto) }}">
                                                         </div>
 
                                                         <div class="row mb-3">
                                                             <label for="inputNumber"
                                                                 class="col-sm-2 col-form-label">Foto
-                                                                Penjual</label>
+                                                                Jastip</label>
                                                             <div class="col-sm-10">
                                                                 <input class="form-control" type="file"
                                                                     id="formFile" name="foto">
@@ -517,14 +552,14 @@
                                                         </div>
 
                                                         <input type="hidden" name="fotolama"
-                                                            value="{{ $isi->foto }}">
+                                                            value="{{ $jastip->foto }}">
 
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
                                                             data-bs-dismiss="modal">Close</button>
 
-                                                        <a href="{{ url('tables-penjual/' . $isi->id_penjual) }}">
+                                                        <a href="{{ url('tables-penjual/' . $jastip->id_penjual) }}">
                                                             <button type="submit" class="btn btn-primary">Save
                                                                 changes</button>
                                                         </a>
@@ -534,7 +569,15 @@
                                     </div>
                                 </div>
                             </tbody>
-                        @endforeach --}}
+                        @empty
+                            <tbody>
+                                <tr>
+                                    <td class="text-center" colspan="6">
+                                        Tidak ada data tersedia
+                                    </td>
+                                </tr>
+                            </tbody>
+                        @endforelse
                     </table>
                     <!-- End Default Table Example -->
 
