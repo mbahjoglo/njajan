@@ -78,25 +78,18 @@
 
                 @foreach ($view_abouts as $isi)
                     <div class="section-header">
-                        <h2>Tentang</h2>
+                        {{-- <h2>Tentang</h2> --}}
                         <p>{{ $isi->judul }}</p>
                     </div>
-
-                    <div class="row gy-4">
-                        <div class="col-lg-7 position-relative about-img"
-                            style="background-image: url({{ asset('storage/about/' . $isi->foto) }}) ;"
-                            data-aos="fade-up" data-aos-delay="150">
-                        </div>
-                        <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
-                            <div class="content ps-0 ps-lg-5">
-                                <p>
-                                    {{ $isi->deskripsi }}
-                                </p>
-                                <div class="position-relative mt-4">
-                                    <img src="{{ asset('storage/about/' . $isi->foto) }}" class="img-fluid"
-                                        alt="{{ asset('storage/about/' . $isi->foto) }}">
-                                    <a href="{{ $isi->link }}" class="glightbox play-btn"></a>
-                                </div>
+                    <div class="card border-light">
+                        <div class="content ps-0 ps-lg-5">
+                            <p class="text-center fw-medium">
+                                {{ $isi->deskripsi }}
+                            </p>
+                            <div class="position-relative mt-4">
+                                <img src="{{ asset('storage/about/' . $isi->foto) }}" class="img-fluid"
+                                    alt="{{ asset('storage/about/' . $isi->foto) }}">
+                                <a href="{{ $isi->link }}" class="glightbox play-btn"></a>
                             </div>
                         </div>
                     </div>
@@ -112,23 +105,15 @@
 
                 <div class="row gy-4">
 
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-3 col-md-6">
                         <div class="stats-item text-center w-100 h-100">
                             <span data-purecounter-start="0" data-purecounter-end="{{ $hitungmakanans }}"
                                 data-purecounter-duration="1" class="purecounter"></span>
-                            <p>Makanan</p>
+                            <p>Produk</p>
                         </div>
                     </div><!-- End Stats Item -->
 
-                    {{-- <div class="col-lg-3 col-md-6">
-                        <div class="stats-item text-center w-100 h-100">
-                            <span data-purecounter-start="0" data-purecounter-end="{{ $hitungminumans }}"
-                                data-purecounter-duration="1" class="purecounter"></span>
-                            <p>Minuman</p>
-                        </div>
-                    </div><!-- End Stats Item --> --}}
-
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-3 col-md-6">
                         <div class="stats-item text-center w-100 h-100">
                             <span data-purecounter-start="0" data-purecounter-end="{{ $hitungpenjuals }}"
                                 data-purecounter-duration="1" class="purecounter"></span>
@@ -136,11 +121,19 @@
                         </div>
                     </div><!-- End Stats Item -->
 
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-3 col-md-6">
                         <div class="stats-item text-center w-100 h-100">
                             <span data-purecounter-start="0" data-purecounter-end="{{ $hitungpasars }}"
                                 data-purecounter-duration="1" class="purecounter"></span>
                             <p>Pasar</p>
+                        </div>
+                    </div><!-- End Stats Item -->
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-item text-center w-100 h-100">
+                            <span data-purecounter-start="0" data-purecounter-end="{{ $hitungulasans }}"
+                                data-purecounter-duration="1" class="purecounter"></span>
+                            <p>Ulasan</p>
                         </div>
                     </div><!-- End Stats Item -->
 
@@ -184,10 +177,6 @@
                                         </div>
 
                                     </div>
-                                    {{-- <div class="col-lg-2 text-center">
-                                        <img src="assets/home/img/testimonials/icon.png" class="testimonial-img"
-                                            width="150" alt="">
-                                    </div> --}}
 
                                 </div>
                             </div>

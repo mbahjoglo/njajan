@@ -25,7 +25,8 @@ class ViewAboutController extends Controller
         $hitungminumans = Minuman::count();
         $hitungpenjuals = Penjual::count();
         $hitungpasars = Pasar::count();
-        return view('about', compact('view_abouts', 'testimonis', 'hitungmakanans', 'hitungminumans', 'hitungpenjuals', 'hitungpasars'));
+        $hitungulasans = Testimoni::count();
+        return view('about', compact('view_abouts', 'testimonis', 'hitungmakanans', 'hitungminumans', 'hitungpenjuals', 'hitungpasars', 'hitungulasans'));
     }
 
     /**
