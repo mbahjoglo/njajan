@@ -54,12 +54,11 @@
                     <li><a href="{{ url('home') }}">Home</a></li>
                     <li><a href="{{ url('tentang') }}">Tentang</a></li>
                     <li><a href="{{ url('njajan') }}">njajan</a></li>
-                    <li><a href="{{ url('pasar') }}">Pasar</a></li>
+                    <li><a href="{{ url('pasar') }}">Lokasi</a></li>
                     <li><a href="{{ url('kontak') }}">Kontak</a></li>
                 </ul>
             </nav>
             <!-- .navbar -->
-
             <a class="btn-book-a-table" href="{{ url('jastip') }}">Jastip | <i class="bi bi-box-seam-fill"></i></a>
             <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
             <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>

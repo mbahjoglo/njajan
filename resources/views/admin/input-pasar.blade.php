@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Input Pasar | Admin njajan</title>
+    <title>Input Lokasi | Admin njajan</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -306,7 +306,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="pages-pasar">
                     <i class="bi bi-shop"></i>
-                    <span>Pasar</span>
+                    <span>Lokasi</span>
                 </a>
             </li>
 
@@ -336,7 +336,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="input-pasar">
                     <i class="bi bi-shop"></i>
-                    <span>Pasar</span>
+                    <span>Lokasi</span>
                 </a>
             </li>
 
@@ -378,11 +378,11 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Pasar</h1>
+            <h1>Lokasi</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="indexadmin">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Pasar</li>
+                    <li class="breadcrumb-item active">Lokasi</li>
                 </ol>
             </nav>
         </div>
@@ -392,13 +392,13 @@
 
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Input Pasar</h5>
+                    <h5 class="card-title">Input Lokasi</h5>
 
                     <!-- General Form Elements -->
                     <form method="POST" action="{{ url('input-pasar') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="row mb-3">
-                            <label for="inputText" class="col-sm-2 col-form-label">Nama Pasar</label>
+                            <label for="inputText" class="col-sm-2 col-form-label">Nama Lokasi</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" name="namapasar">
                             </div>
@@ -412,7 +412,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="inputNumber" class="col-sm-2 col-form-label">Foto Pasar</label>
+                            <label for="inputNumber" class="col-sm-2 col-form-label">Foto Lokasi</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="file" id="formFile" name="foto">
                             </div>

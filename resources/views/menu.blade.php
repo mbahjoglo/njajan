@@ -54,7 +54,7 @@
                         <li><a href="{{ url('home') }}">Home</a></li>
                         <li><a href="{{ url('tentang') }}">Tentang</a></li>
                         <li><a href="{{ url('njajan') }}">njajan</a></li>
-                        <li><a href="{{ url('pasar') }}">Pasar</a></li>
+                        <li><a href="{{ url('pasar') }}">Lokasi</a></li>
                         <li><a href="{{ url('kontak') }}">Kontak</a></li>
                     </ul>
                 </nav>

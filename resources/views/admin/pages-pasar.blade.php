@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Pages Pasar | Admin njajan</title>
+    <title>Pages Lokasi | Admin njajan</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -305,7 +305,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="pages-pasar">
                     <i class="bi bi-shop"></i>
-                    <span>Pasar</span>
+                    <span>Lokasi</span>
                 </a>
             </li>
 
@@ -335,7 +335,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="input-pasar">
                     <i class="bi bi-shop"></i>
-                    <span>Pasar</span>
+                    <span>Lokasi</span>
                 </a>
             </li>
 
@@ -377,11 +377,11 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Pasar</h1>
+            <h1>Lokasi</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="indexadmin">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Pasar</li>
+                    <li class="breadcrumb-item active">Lokasi</li>
                 </ol>
             </nav>
         </div>
@@ -392,14 +392,14 @@
             <div class="card top-selling overflow-auto">
 
                 <div class="card-body pb-0">
-                    <h5 class="card-title">Daftar <span>| Table Pasar</span></h5>
+                    <h5 class="card-title">Daftar <span>| Table Lokasi</span></h5>
 
                     <!-- Default Table -->
                     <table class="table table-hover table-bordered">
                         <thead>
                             <tr>
                                 <th scope="col">Foto</th>
-                                <th scope="col">Name Pasar</th>
+                                <th scope="col">Name Lokasi</th>
                                 <th scope="col">Alamat</th>
                                 <th scope="col">Action</th>
                             </tr>
@@ -434,7 +434,7 @@
                                                 @csrf
                                                 @method('PUT')
                                                 <div class="modal-header">
-                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Update Pasar
+                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Update Lokasi
                                                     </h1>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                         aria-label="Close"></button>
@@ -442,7 +442,7 @@
                                                 <div class="modal-body">
                                                     <div class="row mb-3">
                                                         <label for="inputText" class="col-sm-2 col-form-label">Nama
-                                                            Pasar</label>
+                                                            Lokasi</label>
                                                         <div class="col-sm-10">
                                                             <input type="text" class="form-control"
                                                                 name="namapasar" value="{{ $isi->namapasar }}">
@@ -469,7 +469,7 @@
                                                         <div class="row mb-3">
                                                             <label for="inputNumber"
                                                                 class="col-sm-2 col-form-label">Foto
-                                                                Pasar</label>
+                                                                Lokasi</label>
                                                             <div class="col-sm-10">
                                                                 <input class="form-control" type="file"
                                                                     id="formFile" name="foto">

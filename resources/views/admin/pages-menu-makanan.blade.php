@@ -305,7 +305,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="pages-pasar">
                     <i class="bi bi-shop"></i>
-                    <span>Pasar</span>
+                    <span>Lokasi</span>
                 </a>
             </li>
 
@@ -335,7 +335,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="input-pasar">
                     <i class="bi bi-shop"></i>
-                    <span>Pasar</span>
+                    <span>Lokasi</span>
                 </a>
             </li>
 

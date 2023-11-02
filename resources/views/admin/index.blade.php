@@ -305,7 +305,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="pages-pasar">
                     <i class="bi bi-shop"></i>
-                    <span>Pasar</span>
+                    <span>Lokasi</span>
                 </a>
             </li>
 
@@ -335,7 +335,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="input-pasar">
                     <i class="bi bi-shop"></i>
-                    <span>Pasar</span>
+                    <span>Lokasi</span>
                 </a>
             </li>
 
@@ -507,16 +507,16 @@
                                         class="bi bi-three-dots"></i></a>
                                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                                     <li class="dropdown-header text-start">
-                                        <h6>Pasar</h6>
+                                        <h6>Lokasi</h6>
                                     </li>
 
-                                    <li><a class="dropdown-item" href="input-pasar">Input Pasar</a></li>
-                                    <li><a class="dropdown-item" href="table-pasar">Table Pasar</a></li>
+                                    <li><a class="dropdown-item" href="input-pasar">Input Lokasi</a></li>
+                                    <li><a class="dropdown-item" href="table-pasar">Table Lokasi</a></li>
                                 </ul>
                             </div>
 
                             <div class="card-body">
-                                <h5 class="card-title">Pasar <span>| njajan</span></h5>
+                                <h5 class="card-title">Lokasi <span>| njajan</span></h5>
 
                                 <div class="d-flex align-items-center">
                                     <div
@@ -525,7 +525,7 @@
                                     </div>
                                     <div class="ps-3">
                                         <h6>{{ $hitungpasars }}</h6>
-                                        <span class="text-muted small pt-2 ps-1">Pasar</span>
+                                        <span class="text-muted small pt-2 ps-1">Lokasi</span>
 
                                     </div>
                                 </div>
@@ -586,7 +586,7 @@
                                     </li>
 
                                     <li><a class="dropdown-item" href="tables-jastip">Daftar Jastip</a></li>
-                                    <li><a class="dropdown-item" href="input-jastip">Input JAstip</a></li>
+                                    <li><a class="dropdown-item" href="input-jastip">Input Jastip</a></li>
                                 </ul>
                             </div>
 
@@ -641,7 +641,7 @@
                                             <th scope="col">Foto</th>
                                             <th scope="col">Nama</th>
                                             <th scope="col">Penjual</th>
-                                            <th scope="col">Pasar</th>
+                                            <th scope="col">Lokasi</th>
                                             <th scope="col">Harga</th>
                                         </tr>
                                     </thead>
@@ -727,7 +727,7 @@
                                             },
                                             {
                                                 value: {{ $hitungpasars }},
-                                                name: 'Pasar'
+                                                name: 'Lokasi'
                                             },
                                             {
                                                 value: {{ $hitungtestimonis }},
@@ -753,11 +753,11 @@
                                 class="bi bi-three-dots"></i></a>
                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                             <li class="dropdown-header text-start">
-                                <h6>Setting Pasar</h6>
+                                <h6>Setting Lokasi</h6>
                             </li>
 
-                            <li><a class="dropdown-item" href="pages-pasar">Open Pasar</a></li>
-                            <li><a class="dropdown-item" href="input-pasar">Input Pasar</a></li>
+                            <li><a class="dropdown-item" href="pages-pasar">Open Lokasi</a></li>
+                            <li><a class="dropdown-item" href="input-pasar">Input Lokasi</a></li>
                         </ul>
                     </div>
 

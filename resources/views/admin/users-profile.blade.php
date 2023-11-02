@@ -305,7 +305,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="pages-pasar">
                     <i class="bi bi-shop"></i>
-                    <span>Pasar</span>
+                    <span>Lokasi</span>
                 </a>
             </li>
 
@@ -335,7 +335,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="input-pasar">
                     <i class="bi bi-shop"></i>
-                    <span>Pasar</span>
+                    <span>Lokasi</span>
                 </a>
             </li>
 
@@ -343,13 +343,6 @@
                 <a class="nav-link collapsed" href="input-produk-makanan">
                     <i class="bi bi-egg-fried"></i>
                     <span>Produk</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="input-testimoni">
-                    <i class="bi bi-textarea-t"></i>
-                    <span>Testimoni</span>
                 </a>
             </li>
 
