@@ -78,8 +78,8 @@
             <div class="container-fluid" data-aos="fade-up">
 
                 <div class="section-header">
-                    <h2>Pasar</h2>
-                    <p>Beberapa <span>Pasar</span> yang terdapat di njajan</p>
+                    <h2>Lokasi</h2>
+                    <p>Beberapa <span>Lokasi</span> yang terdapat di njajan</p>
                 </div>
 
             </div>
@@ -131,9 +131,9 @@
                                     <div class="member-info">
                                         <h4>{{ $isi->namapasar }}</h4>
                                         <span>{{ $isi->alamat }}</span>
-                                        <h4 class="text-danger mt-3"> Jumlah Produk :</h4>
                                         <a href="{{ $isi->link }}" class="btn btn-danger mt-4" type="button">Lokasi
-                                            Pasar | <i class="bi bi-geo-alt"></i>
+                                            |
+                                            <i class="bi bi-geo-alt"></i>
                                         </a>
                                     </div>
                                 </div>
