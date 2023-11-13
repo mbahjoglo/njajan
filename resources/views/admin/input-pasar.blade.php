@@ -412,6 +412,13 @@
                         </div>
 
                         <div class="row mb-3">
+                            <label for="inputText" class="col-sm-2 col-form-label">Link Google Maps</label>
+                            <div class="col-sm-10">
+                                <input type="link" class="form-control" name="link">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
                             <label for="inputNumber" class="col-sm-2 col-form-label">Foto Lokasi</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="file" id="formFile" name="foto">

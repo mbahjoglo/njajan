@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Pages Makanan | Admin njajan</title>
+    <title>Pages Produk | Admin njajan</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -381,14 +381,14 @@
             <div class="card top-selling overflow-auto">
 
                 <div class="card-body pb-0">
-                    <h5 class="card-title">Daftar <span>| Table Makanan</span></h5>
+                    <h5 class="card-title">Daftar <span>| Table</span></h5>
 
                     <!-- Default Table -->
                     <table class="table table-hover table-bordered">
                         <thead>
                             <tr>
                                 <th scope="col">Foto</th>
-                                <th scope="col">Nama Makanan</th>
+                                <th scope="col">Nama</th>
                                 <th scope="col">Penjual</th>
                                 <th scope="col">Pasar</th>
                                 <th scope="col">Harga</th>
@@ -437,7 +437,7 @@
                                                         @method('PUT')
                                                         <div class="modal-header">
                                                             <h1 class="modal-title fs-5" id="exampleModalLabel">
-                                                                Update Makanan
+                                                                Update
                                                             </h1>
                                                             <button type="button" class="btn-close"
                                                                 data-bs-dismiss="modal" aria-label="Close"></button>

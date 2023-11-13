@@ -401,6 +401,7 @@
                                 <th scope="col">Foto</th>
                                 <th scope="col">Name Lokasi</th>
                                 <th scope="col">Alamat</th>
+                                <th scope="col">Link</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -411,6 +412,7 @@
                                             alt="" title=""></td>
                                     <td>{{ $isi->namapasar }}</td>
                                     <td>{{ $isi->alamat }}</td>
+                                    <td>{{ $isi->link }}</td>
                                     <td>
                                         <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
                                             data-bs-target="#pasar{{ $isi->id_pasar }}">
@@ -455,6 +457,15 @@
                                                         <div class="col-sm-10">
                                                             <input type="text" class="form-control" name="alamat"
                                                                 value="{{ $isi->alamat }}">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mb-3">
+                                                        <label for="inputText"
+                                                            class="col-sm-2 col-form-label">Link</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" class="form-control" name="link"
+                                                                value="{{ $isi->link }}">
                                                         </div>
                                                     </div>
 

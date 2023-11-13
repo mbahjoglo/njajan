@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('namapasar');
             $table->string('slug');
             $table->string('alamat');
+            $table->string('link');
             $table->string('foto');
             $table->timestamps();
         });
