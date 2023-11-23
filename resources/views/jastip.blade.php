@@ -77,7 +77,7 @@
                                     placeholder="Cari Alamat Kurir" required>
                             </div>
                         </div>
-                    </section><!-- End Contact Section -->
+                    </section>
                 @endif
 
                 <div class="container py-5">

@@ -71,18 +71,16 @@
                 <!-- ======= Daftar Section ======= -->
                 <section id="contact" class="contact">
                     <div class="container" data-aos="fade-up">
-                        
                         <form action="{{ route('home.penjual') }}" method="post" class="p-3"
-                        enctype="multipart/form-data">
-                        @csrf
-                        @if (session('success'))
-                            <div class="mt-3 alert alert-success alert-dismissible fade show" role="alert">
-                                <strong>{{ session('success') }}</strong>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                    aria-label="Close"></button>
-                            </div>
-                        @endif
-                        
+                            enctype="multipart/form-data">
+                            @csrf
+                            @if (session('success'))
+                                <div class="mt-3 alert alert-success alert-dismissible fade show" role="alert">
+                                    <strong>{{ session('success') }}</strong>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+                            @endif
                             <div class="form-group mt-4">
                                 <input type="text" class="form-control" name="namapenjual" id="nama"
                                     placeholder="Nama Lengkap" required>
@@ -91,7 +89,6 @@
                                 <input type="text" class="form-control" name="alamat" id="nama"
                                     placeholder="Alamat" required>
                             </div>
-
                             <div class="form-group mt-4">
                                 <input type="text" class="form-control" name="nomor" id="nomor"
                                     placeholder="Nomor WhatsApp" required>
@@ -111,13 +108,10 @@
                                     <input class="form-control" id="foto" type="file" name="foto">
                                 </div>
                             </div>
-
-
                             <div class="text-center"><button class="btn btn-danger mt-5" type="submit">Daftar
                                     Penjual</button>
                             </div>
-                        </form><!--End Contact Form -->
-
+                        </form>
                     </div>
                 </section>
                 <!-- End Contact Section -->

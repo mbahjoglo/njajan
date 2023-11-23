@@ -68,11 +68,9 @@
                 <!-- ======= Daftar Section ======= -->
                 <section id="contact" class="contact">
                     <div class="container" data-aos="fade-up">
-
                         <form action="{{ url('daftarjastip') }}" method="post" class="p-3"
                             enctype="multipart/form-data">
                             @csrf
-
                             <div class="form-group mt-4">
                                 <input type="text" class="form-control" name="nama" id="nama"
                                     placeholder="Nama Lengkap" required>
@@ -81,30 +79,24 @@
                                 <input type="text" class="form-control" name="alamat" id="nama"
                                     placeholder="Alamat" required>
                             </div>
-
                             <div class="form-group mt-4">
                                 <input type="email" class="form-control" name="email" id="nama"
                                     placeholder="Email" required>
                             </div>
-
                             <div class="form-group mt-4">
                                 <input type="text" class="form-control" name="nomor" id="nomor"
                                     placeholder="Nomor WhatsApp" required>
                             </div>
-
                             <div class="form-group mt-4">
                                 <div>
                                     <label for="formFileLg" class="form-label">Foto Jastip</label>
                                     <input class="form-control" id="foto" type="file" name="foto">
                                 </div>
                             </div>
-
-
                             <div class="text-center"><button class="btn btn-danger mt-5" type="submit">Daftar
                                     Jastip</button>
                             </div>
-                        </form><!--End Contact Form -->
-
+                        </form>
                     </div>
                 </section>
                 <!-- End Contact Section -->

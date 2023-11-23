@@ -118,7 +118,6 @@
             <!-- ======= Chefs Section ======= -->
             <section id="chefs" class="chefs section-bg">
                 <div class="container" data-aos="fade-up">
-
                     <div class="row gy-4">
                         @foreach ($data_pasars as $isi)
                             <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up"
@@ -132,7 +131,6 @@
                                         <h4>{{ $isi->namapasar }}</h4>
                                         <span>{{ $isi->alamat }}</span>
                                         <a href="{{ $isi->link }}" class="btn btn-danger mt-4" type="button">Lokasi
-                                            |
                                             <i class="bi bi-geo-alt"></i>
                                         </a>
                                     </div>
@@ -140,7 +138,6 @@
                             </div><!-- End Chefs Member -->
                         @endforeach
                     </div>
-
                 </div>
             </section><!-- End Chefs Section -->
 

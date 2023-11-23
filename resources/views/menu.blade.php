@@ -73,7 +73,6 @@
             <!-- ======= Menu Section ======= -->
             <section id="menu" class="menu">
                 <div class="container" data-aos="fade-up">
-
                     <div class="section-header">
                         <h2>Daftar Pasar</h2>
                         <p>Silahkan Pilih Pasar <span>Dibawah Ini</span></p>
@@ -92,17 +91,13 @@
                             </li>
                             <!-- End tab nav item -->
                         @endforeach
-
                     </ul>
-
                 </div>
             </section><!-- End Menu Section -->
 
             <section id="menu" class="menu">
                 <div class="container" data-aos="fade-up">
-
                     <div class="section-header">
-
                         <h2>Cari Menu</h2>
                         <div class="container">
                             <div class="row">
@@ -115,20 +110,15 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
-
                 </div>
             </section>
             <!-- End Menu Section -->
 
             <section id="menu" class="menu">
                 <div class="container" data-aos="fade-up">
-
                     <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
                         <div class="tab-pane fade show active" id="menu-starters">
-
                             <div class="row gy-5">
                                 <div class="row gy-5">
                                     @foreach ($datamakanans as $isi)
@@ -142,11 +132,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <h4>{{ $isi->namamakanan }}</h4>
                                             <p class="ingredients">{{ $isi->namapenjual }}</p>
                                             <p class="ingredients">{{ $isi->pasar }}</p>
-
                                             <p class="price">
                                                 Rp.{{ $isi->harga }},.
                                             </p>
@@ -166,7 +154,6 @@
                         </div>
                         <!-- End Starter Menu Content -->
                     </div>
-
                 </div>
             </section>
             <!-- End Menu Section -->

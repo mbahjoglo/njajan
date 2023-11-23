@@ -76,18 +76,15 @@
         <!-- ======= Contact Section ======= -->
         <section id="contact" class="contact">
             <div class="container" data-aos="fade-up">
-
                 <div class="section-header">
                     <h2>Kontak</h2>
                     <p>Butuh Bantuan? <span>Kontak Kami</span></p>
                 </div>
-
                 <div class="mb-3">
                     <iframe style="border:0; width: 100%; height: 350px;"
                         src="https://maps.google.com/maps?q=Politeknik%20Balekambang,%20Kepel,%20Buaran,%20Kabupaten%20Jepara,%20Jawa%20Tengah&t=&z=13&ie=UTF8&iwloc=&output=embed"
                         frameborder="0" allowfullscreen></iframe>
                 </div><!-- End Google Maps -->
-
                 <div class="row gy-4">
                     @foreach ($datas as $isi)
                         <div class="col-md-6">
@@ -99,7 +96,6 @@
                                 </div>
                             </div>
                         </div><!-- End Info Item -->
-
                         <div class="col-md-6">
                             <div class="info-item d-flex align-items-center">
                                 <i class="icon bi bi-envelope flex-shrink-0"></i>
@@ -109,7 +105,6 @@
                                 </div>
                             </div>
                         </div><!-- End Info Item -->
-
                         <div class="col-md-6">
                             <div class="info-item  d-flex align-items-center">
                                 <i class="icon bi bi-telephone flex-shrink-0"></i>
@@ -119,7 +114,6 @@
                                 </div>
                             </div>
                         </div><!-- End Info Item -->
-
                         <div class="col-md-6">
                             <div class="info-item  d-flex align-items-center">
                                 <i class="icon bi bi-share flex-shrink-0"></i>
@@ -133,7 +127,6 @@
                         </div><!-- End Info Item -->
                     @endforeach
                 </div>
-
             </div>
         </section>
         <!-- End Contact Section -->

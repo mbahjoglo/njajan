@@ -17,7 +17,6 @@ use App\Http\Controllers\PasarController;
 use App\Http\Controllers\PasarViewController;
 use App\Http\Controllers\PenjualController;
 use App\Http\Controllers\PenjualViewController;
-use App\Http\Controllers\TestimoniController;
 use App\Http\Controllers\TestimoniViewController;
 use App\Http\Controllers\ViewAboutController;
 use App\Http\Controllers\ViewContactController;
@@ -118,7 +117,6 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('input-produk-makanan', MakananController::class);
 
-    // Route::resource('input-testimoni', TestimoniController::class);
 
     // =============== Table Admin
 

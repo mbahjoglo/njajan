@@ -403,28 +403,24 @@
                                 <input type="text" class="form-control" name="namapasar">
                             </div>
                         </div>
-
                         <div class="row mb-3">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Alamat</label>
                             <div class="col-sm-10">
                                 <textarea class="form-control" style="height: 100px" name="alamat"></textarea>
                             </div>
                         </div>
-
                         <div class="row mb-3">
                             <label for="inputText" class="col-sm-2 col-form-label">Link Google Maps</label>
                             <div class="col-sm-10">
                                 <input type="link" class="form-control" name="link">
                             </div>
                         </div>
-
                         <div class="row mb-3">
                             <label for="inputNumber" class="col-sm-2 col-form-label">Foto Lokasi</label>
                             <div class="col-sm-10">
                                 <input class="form-control" type="file" id="formFile" name="foto">
                             </div>
                         </div>
-
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label"></label>
                             <div class="col-sm-10">
@@ -432,7 +428,6 @@
                                     onclick="return confirm('Apakah Yakin Menambahkan Data Pasar ?')">Tambah</button>
                             </div>
                         </div>
-
                     </form><!-- End General Form Elements -->
 
                 </div>

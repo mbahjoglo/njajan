@@ -404,7 +404,6 @@
                                     <textarea class="form-control" name="alamat" style="height: 100px">{{ $isi->alamat }}</textarea>
                                 </div>
                             </div>
-
                             <div class="row mb-3">
                                 <label for="inputNumber" class="col-sm-2 col-form-label">Email</label>
                                 <div class="col-sm-10">
@@ -412,7 +411,6 @@
                                         value="{{ $isi->email }}">
                                 </div>
                             </div>
-
                             <div class="row mb-3">
                                 <label for="inputNumber" class="col-sm-2 col-form-label">Nomor Telphone</label>
                                 <div class="col-sm-10">
@@ -420,7 +418,6 @@
                                         value="{{ $isi->nomor }}">
                                 </div>
                             </div>
-
                             <div class="row mb-3">
                                 <label for="inputNumber" class="col-sm-2 col-form-label">Open Admin</label>
                                 <div class="col-sm-10">
@@ -428,14 +425,12 @@
                                         value="{{ $isi->open_admin }}">
                                 </div>
                             </div>
-
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label"></label>
                                 <div class="col-sm-10">
                                     <button type="submit" class="btn btn-primary">Update</button>
                                 </div>
                             </div>
-
                         </form><!-- End General Form Elements -->
                     @endforeach
 
