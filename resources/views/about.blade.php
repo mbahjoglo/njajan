@@ -124,7 +124,7 @@
                         <div class="stats-item text-center w-100 h-100">
                             <span data-purecounter-start="0" data-purecounter-end="{{ $hitungpasars }}"
                                 data-purecounter-duration="1" class="purecounter"></span>
-                            <p>Pasar</p>
+                            <p>Lokasi</p>
                         </div>
                     </div><!-- End Stats Item -->
 
