@@ -400,28 +400,28 @@
                         <div class="row mb-3">
                             <label for="inputText" class="col-sm-2 col-form-label">Nama</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="nama">
+                                <input type="text" class="form-control" required name="nama">
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Deskripsi</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control" style="height: 100px" name="deskripsi"></textarea>
+                                <textarea class="form-control" style="height: 100px" required name="deskripsi"></textarea>
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <label for="inputText" class="col-sm-2 col-form-label">Jabatan</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="jabatan">
+                                <input type="text" class="form-control" required name="jabatan">
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <label for="inputNumber" class="col-sm-2 col-form-label">Foto</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="file" id="formFile" name="foto">
+                                <input class="form-control" type="file" id="formFile" required name="foto">
                             </div>
                         </div>
 

@@ -400,21 +400,22 @@
                         <div class="row mb-3">
                             <label for="inputText" class="col-sm-2 col-form-label">Nama Penjual</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="namapenjual">
+                                <input type="text" class="form-control" required name="namapenjual">
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Alamat</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control" style="height: 100px" name="alamat"></textarea>
+                                <textarea class="form-control" style="height: 100px" required name="alamat"></textarea>
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label">Pasar</label>
                             <div class="col-sm-10">
-                                <select class="form-select" aria-label="Default select example" name="pasar">
+                                <select class="form-select" aria-label="Default select example" required
+                                    name="pasar">
                                     <option selected>Pilih Pasar</option>
                                     @foreach ($pasar as $sar)
                                         <option value="{{ $sar->namapasar }}">{{ $sar->namapasar }}</option>
@@ -426,14 +427,14 @@
                         <div class="row mb-3">
                             <label for="inputNumber" class="col-sm-2 col-form-label">No.Telphon/WA</label>
                             <div class="col-sm-10">
-                                <input type="number" class="form-control" name="nomor">
+                                <input type="number" class="form-control" required name="nomor">
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <label for="inputNumber" class="col-sm-2 col-form-label">Foto Penjual</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="file" id="formFile" name="foto">
+                                <input class="form-control" type="file" id="formFile" required name="foto">
                             </div>
                         </div>
 

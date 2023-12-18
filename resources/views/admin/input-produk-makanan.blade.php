@@ -400,14 +400,15 @@
                         <div class="row mb-3">
                             <label for="inputText" class="col-sm-2 col-form-label">Nama Produk</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="namamakanan">
+                                <input type="text" class="form-control" required name="namamakanan">
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label">Penjual</label>
                             <div class="col-sm-10">
-                                <select class="form-select" aria-label="Default select example" name="penjual">
+                                <select class="form-select" aria-label="Default select example" required
+                                    name="penjual">
                                     <option selected>Pilih Penjual</option>
                                     @foreach ($penjual as $jual)
                                         <option value="{{ $jual->id_penjual }}">{{ $jual->namapenjual }}</option>
@@ -419,7 +420,8 @@
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label">Pasar</label>
                             <div class="col-sm-10">
-                                <select class="form-select" aria-label="Default select example" name="id_pasar">
+                                <select class="form-select" aria-label="Default select example" required
+                                    name="id_pasar">
                                     <option selected>Pilih Pasar</option>
                                     @foreach ($pasar as $sar)
                                         <option value="{{ $sar->id_pasar }}">{{ $sar->namapasar }}</option>
@@ -431,14 +433,15 @@
                         <div class="row mb-3">
                             <label for="inputNumber" class="col-sm-2 col-form-label">Rp. </label>
                             <div class="col-sm-10">
-                                <input type="number" class="form-control" name="harga">
+                                <input type="number" class="form-control" required name="harga">
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <label for="inputNumber" class="col-sm-2 col-form-label">Foto Produk</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="file" id="formFile" name="fotomakanan">
+                                <input class="form-control" type="file" id="formFile" required
+                                    name="fotomakanan">
                             </div>
                         </div>
 

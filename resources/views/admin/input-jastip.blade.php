@@ -400,35 +400,35 @@
                         <div class="row mb-3">
                             <label for="inputText" class="col-sm-2 col-form-label">Nama Jastip</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="nama">
+                                <input type="text" class="form-control" required name="nama">
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Alamat</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control" style="height: 100px" name="alamat"></textarea>
+                                <textarea class="form-control" style="height: 100px" required name="alamat"></textarea>
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
                             <div class="col-sm-10">
-                                <input type="email" class="form-control" name="email">
+                                <input type="email" class="form-control" required name="email">
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <label for="inputNumber" class="col-sm-2 col-form-label">No.WA</label>
                             <div class="col-sm-10">
-                                <input type="number" class="form-control" name="nomor">
+                                <input type="number" class="form-control" required name="nomor">
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <label for="inputNumber" class="col-sm-2 col-form-label">Foto KTP</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="file" id="formFile" name="foto">
+                                <input class="form-control" type="file" id="formFile" required name="foto">
                             </div>
                         </div>
 

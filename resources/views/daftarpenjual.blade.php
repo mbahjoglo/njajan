@@ -82,20 +82,20 @@
                                 </div>
                             @endif
                             <div class="form-group mt-4">
-                                <input type="text" class="form-control" name="namapenjual" id="nama"
+                                <input type="text" class="form-control" required name="namapenjual" id="nama"
                                     placeholder="Nama Lengkap" required>
                             </div>
                             <div class="form-group mt-4">
-                                <input type="text" class="form-control" name="alamat" id="nama"
+                                <input type="text" class="form-control" required name="alamat" id="nama"
                                     placeholder="Alamat" required>
                             </div>
                             <div class="form-group mt-4">
-                                <input type="text" class="form-control" name="nomor" id="nomor"
+                                <input type="text" class="form-control" required name="nomor" id="nomor"
                                     placeholder="Nomor WhatsApp" required>
                             </div>
                             <div class="form-group mt-4">
                                 <label for="formFileLg" class="form-label">Pilih Lokasi Pasar </label>
-                                <select class="form-select" aria-label="Lokasi Pasar" required name="pasar">
+                                <select class="form-select" aria-label="Lokasi Pasar" required required name="pasar">
                                     <option value="">Pilih Pasar</option>
                                     @foreach (Pasar::all() as $pasar)
                                         <option value="{{ $pasar->namapasar }}">{{ $pasar->namapasar }}</option>
@@ -105,7 +105,7 @@
                             <div class="form-group mt-4">
                                 <div>
                                     <label for="formFileLg" class="form-label">Foto Penjual</label>
-                                    <input class="form-control" id="foto" type="file" name="foto">
+                                    <input class="form-control" id="foto" type="file" required name="foto">
                                 </div>
                             </div>
                             <div class="text-center"><button class="btn btn-danger mt-5" type="submit">Daftar

@@ -11,4 +11,9 @@ class Makanan extends Model
     protected $table = 'makanan';
     protected $guard = 'id';
     protected $primaryKey = 'id_makanan';
+
+    public function idpasar()
+    {
+        return $this->belongsTo(Pasar::class, 'id_pasar', 'id_pasar');
+    }
 }

@@ -134,7 +134,8 @@
                                             </div>
                                             <h4>{{ $isi->namamakanan }}</h4>
                                             <p class="ingredients">{{ $isi->namapenjual }}</p>
-                                            <p class="ingredients">{{ $isi->pasar }}</p>
+                                            <a href="{{ $isi->idpasar->link }}"
+                                                target="_blank">{{ $isi->pasar }}</a>
                                             <p class="price">
                                                 Rp.{{ $isi->harga }},.
                                             </p>
