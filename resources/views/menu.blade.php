@@ -74,8 +74,8 @@
             <section id="menu" class="menu">
                 <div class="container" data-aos="fade-up">
                     <div class="section-header">
-                        <h2>Daftar Pasar</h2>
-                        <p>Silahkan Pilih Pasar <span>Dibawah Ini</span></p>
+                        <h2>Daftar Lokasi</h2>
+                        <p>Silahkan Pilih Lokasi <span>Dibawah Ini</span></p>
                     </div>
                     <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
                         <li class="nav-item">
