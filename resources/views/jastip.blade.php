@@ -109,6 +109,7 @@
                         @empty
                             <h1 class="text-center">Belum ada data tersedia</h1>
                         @endforelse
+                        <h3 class="text-center" id="data-belum-tersedia" style="display: none;">Data belum tersedia</h3>
                     </div>
                 </div>
 
@@ -157,9 +158,11 @@
         // Get the input field and Jastip elements
         const input = document.getElementById("cari-alamat");
         const jastipElements = document.querySelectorAll("[id^='jastip-']");
+        const dataUnavailableMessage = document.getElementById("data-belum-tersedia");
 
         input.addEventListener("input", function() {
             const searchTerm = input.value.toLowerCase();
+            let anyMatchFound = false;
 
             // Loop through each Jastip element
             jastipElements.forEach((jastip) => {
@@ -167,10 +170,18 @@
                 // Check if the address contains the search term
                 if (address.includes(searchTerm)) {
                     jastip.style.display = "block"; // Show the element
+                    anyMatchFound = true;
                 } else {
                     jastip.style.display = "none"; // Hide the element
                 }
             });
+
+            // Display message if no matches found
+            if (!anyMatchFound) {
+                dataUnavailableMessage.style.display = "block";
+            } else {
+                dataUnavailableMessage.style.display = "none";
+            }
         });
     </script>
 

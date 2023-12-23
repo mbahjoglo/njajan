@@ -121,7 +121,7 @@
                         <div class="tab-pane fade show active" id="menu-starters">
                             <div class="row gy-5">
                                 <div class="row gy-5">
-                                    @foreach ($datamakanans as $isi)
+                                    @forelse ($datamakanans as $isi)
                                         <div class="col-lg-4 menu-item">
                                             <div id="carouselExampleSlidesOnly" class="carousel slide"
                                                 data-bs-ride="carousel">
@@ -149,7 +149,9 @@
                                             @endif
                                         </div>
                                         <!-- Menu Item -->
-                                    @endforeach
+                                    @empty
+                                        <h3 class="text-center">Kuliner belum tersedia</h3>
+                                    @endforelse
                                 </div>
                             </div>
                         </div>
